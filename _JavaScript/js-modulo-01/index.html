@@ -18,9 +18,9 @@
         </header>
         <!-- tirar class main__container -->
         <section class="l-section main__container">
-            <div class="container__wrap">
+            <div class="l-section__wrap container__wrap">
                 <div class="wrap__selection">
-                    <label for="before__converting">Converter de</label>
+                    <label for="before__converting">Converter <b>de</b></label>
                     <select name="before__converting" id="select__origin">
                         <option selected value="R$">R$ Real Brasil</option>
                         <option value="US$">US$ Dólar americano</option>
@@ -29,7 +29,7 @@
                         <option value="L$">L$ Libra</option>
                     </select>
 
-                    <label for="after__converting">Converter para</label>
+                    <label for="after__converting">Converter <b>para</b></label>
                     <select name="after__converting" id="select__final">
                         <option value="R$">R$ Real Brasil</option>
                         <option selected value="US$">US$ Dólar americano</option>
@@ -38,7 +38,7 @@
                         <option value="L$">L$ Libra</option>
                     </select>
 
-                    <label for="converted__value">Valor</label>
+                    <label for="converted__value"><b>Valor</b></label>
                     <input type="number" name="converted__value" id="converted__value" placeholder="R$ 10.000.00">
 
                     <button onclick="convertingValue()">Converter</button>
