@@ -2,6 +2,7 @@
 @import url(../../assets/css/l-main/l-main.css);
 @import url(../../assets/css/l-header/l-header.css);
 @import url(../../assets/css/l-section/l-section.css);
+@import url(../../assets/css/l-section/l-section__wrap.css);
 
 :root {
     --color-primary: #777;
