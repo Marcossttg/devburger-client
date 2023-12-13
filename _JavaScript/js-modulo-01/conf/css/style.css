@@ -3,6 +3,8 @@
 @import url(../../assets/css/l-header/l-header.css);
 @import url(../../assets/css/l-section/l-section.css);
 @import url(../../assets/css/l-section/l-section__wrap.css);
+@import url(../../assets/components/button.css);
+@import url(../../assets/css/l-section/container__display.css);
 
 :root {
     --color-primary: #777;

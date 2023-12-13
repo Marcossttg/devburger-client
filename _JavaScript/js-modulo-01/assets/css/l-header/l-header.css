@@ -1,12 +1,12 @@
 .l-header {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     margin: auto;
+    padding-top: 20px;
 }
 
 .logo__gif {
     width: 100%;
     height: auto;
     border-radius: 20px;
-    margin: 20px 0;
 }

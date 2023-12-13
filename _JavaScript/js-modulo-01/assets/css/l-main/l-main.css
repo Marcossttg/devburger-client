@@ -1,19 +1,6 @@
 .l-main {
     width: 100%;
-    height: 100%;
-    z-index: 10;
-    background-image:url(../../img/jpg/money_bg_image.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-/* adicionar opacidade aqui */
-    
-    /* z-index: 999;
-    position: absolute;
-    top: 10px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    
+    height: auto;
+    background-color: grey;
+    padding-bottom: 2px;
 }
