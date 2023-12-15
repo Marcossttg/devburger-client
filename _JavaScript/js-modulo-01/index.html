@@ -19,9 +19,9 @@
         <!-- tirar class main__container -->
         <section class="l-section">
             <div class="l-section__wrap">
-                <div class="wrap__selection">
+                <div class="currency__box">
                     <label for="before__converting">Converter <b>de</b></label>
-                    <select name="before__converting" id="select__origin">
+                    <select name="selection__conversion--origin" id="before__converting">
                         <option selected value="R$">R$ Real Brasil</option>
                         <option value="US$">US$ Dólar americano</option>
                         <option value="EU$">EU$ Euro</option>
@@ -30,7 +30,7 @@
                     </select>
 
                     <label for="after__converting">Converter <b>para</b></label>
-                    <select name="after__converting" id="select__final">
+                    <select name="selection__conversion--final" id="after__converting">
                         <option value="R$">R$ Real Brasil</option>
                         <option selected value="US$">US$ Dólar americano</option>
                         <option value="EU$">EU$ Euro</option>
@@ -39,31 +39,37 @@
                     </select>
 
                     <label for="converted__value"><b>Valor</b></label>
-                    <input type="number" name="converted__value" id="converted__value" placeholder="R$ 10.000.00">
+                    <input type="number" name="converted__value--number" id="converted__value"
+                        placeholder="R$ 10.000.00">
 
                     <button onclick="convertingValue()">Converter</button>
 
                 </div>
 
-                <section class="container__display">
-                    <div class="wrap__display">
-                        <figure>
-                            <img src="./assets/img/svg/brasil 2.svg" alt="Imagem da bandeira do Brasil">
+                <section class="container__result">
+                    <div class="conversion__result">
+                        <figure class="result__fig">
+                            <img class="result__img" src="./assets/img/svg/brasil 2.svg"
+                                alt="Imagem da bandeira do Brasil">
                         </figure>
-                        <caption>Real
-                            <p>R$ 10.000.00</p>
+                        <caption class="result__caption">Real
+                            <p class="result__paragraph">R$ 10.000.00</p>
                         </caption>
-
-                        <img class="arrow" src="./assets/img/svg/arrow.svg" alt="Uma sete apontando para baixo">
-
-                        <figure>
-                            <img src="./assets/img/svg/eua 1.svg" alt="Bandeira dos Estados Unidos">
-                        </figure>
-                        <caption>Dólar americano
-                            <p>US$ 2.000.00</p>
-                        </caption>
-
                     </div>
+
+                    <img class="arrow" src="./assets/img/svg/arrow.svg" alt="Uma sete apontando para baixo">
+
+                    <div class="conversion__result">
+                        <figure class="result__fig">
+                            <img class="result__img" src="./assets/img/svg/eua 1.svg" alt="Bandeira dos Estados Unidos">
+                        </figure>
+                        <caption class="result__caption">Dólar americano
+                            <p class="result__paragraph">US$ 2.000.00</p>
+                        </caption>
+                    </div>
+
+
+
 
                 </section>
 

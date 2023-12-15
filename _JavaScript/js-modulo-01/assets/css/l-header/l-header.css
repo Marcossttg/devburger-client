@@ -1,8 +1,7 @@
 .l-header {
     width: 100px;
-    height: 100px;
-    margin: auto;
-    padding-top: 20px;
+    height: auto;
+    margin: 10px auto;
 }
 
 .logo__gif {
