@@ -93,29 +93,74 @@ function convertCurrency() {
 }
 
 /* change image and type of currency */
-function showResult() {
-    let resultImg = document.querySelector(".result__img--a");
-    let resultCaption = document.getElementById("result__caption--a");
+function showResultBefore() {
+    let resultImgBefore = document.querySelector(".result__img--before");
+    let resultCaptionBefore = document.querySelector(".result__caption--before");
+    //
 
     if (selectionConversionOrigin.value == "R$"){
-        resultImg.src = "./assets/img/svg/brasil.svg";
-        resultCaption.textContent = "Real";
-        console.log(resultImg)
+        resultImgBefore.src = "./assets/img/svg/brasil.svg";
+        resultCaptionBefore.textContent = "Real";
     }
 
     if (selectionConversionOrigin.value == "US$"){
-        resultImg.src = "./assets/img/svg/eua.svg";
-        resultCaption.textContent = "Dólar americano";
-        console.log(resultImg)
+        resultImgBefore.src = "./assets/img/svg/eua.svg";
+        resultCaptionBefore.textContent = "Dólar americano";
     }
 
     if (selectionConversionOrigin.value == "€"){
-        resultImg.src = "./assets/img/svg/euro.svg";
-        resultCaption.textContent = "Euro";
-        console.log(resultImg)
+        resultImgBefore.src = "./assets/img/svg/euro.svg";
+        resultCaptionBefore.textContent = "Euro";
     }
+
+    if (selectionConversionOrigin.value == "₿"){
+        resultImgBefore.src = "./assets/img/svg/bitcoin.svg";
+        resultCaptionBefore.textContent = "Bitcoin";
+    }
+
+    if (selectionConversionOrigin.value == "£"){
+        resultImgBefore.src = "./assets/img/svg/libra.svg";
+        resultCaptionBefore.textContent = "Libra";
+    }
+
+    convertCurrency();
 }
 
-selectionConversionOrigin.addEventListener("change", showResult);
-convertBtn.addEventListener("click",convertCurrency);
+/* change image and type of currency */
+function showResultAfter() {
+     let resultImgAfter = document.querySelector("#result__img--after");
+     let resultCaptionAfter = document.querySelector("#result__caption--after"); 
+ 
+     if (selectionConversionFinal.value == "R$"){
+         resultImgAfter.src = "./assets/img/svg/brasil.svg";
+         resultCaptionAfter.textContent = "Real";
+     }
+ 
+     if (selectionConversionFinal.value == "US$"){
+         resultImgAfter.src = "./assets/img/svg/eua.svg";
+         resultCaptionAfter.textContent = "Dólar americano";
+         console.log(resultImgAfter)
+         console.log(resultCaptionAfter)
+     }
+ 
+     if (selectionConversionFinal.value == "€"){
+         resultImgAfter.src = "./assets/img/svg/euro.svg";
+         resultCaptionAfter.textContent = "Euro";
+     }
+ 
+     if (selectionConversionFinal.value == "₿"){
+         resultImgAfter.src = "./assets/img/svg/bitcoin.svg";
+         resultCaptionAfter.textContent = "Bitcoin";
+     }
+ 
+     if (selectionConversionFinal.value == "£"){
+         resultImgAfter.src = "./assets/img/svg/libra.svg";
+         resultCaptionAfter.textContent = "Libra";
+     }
+ 
+     convertCurrency(); 
+}
 
+selectionConversionOrigin.addEventListener("change", showResultBefore);
+selectionConversionFinal.addEventListener("change", showResultAfter);
+convertBtn.addEventListener("click",convertCurrency);
