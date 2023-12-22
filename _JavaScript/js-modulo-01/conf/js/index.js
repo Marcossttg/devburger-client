@@ -15,7 +15,7 @@ function convertCurrency() {
     /* currency values */
     let realToday = 1.00;
     let dolarToday = 4.88;
-    let euroToday = 5.37;
+    let euroToday = 5.36;
     let bitcoinToday = 214.25918;
     let libraToday = 6.19;
 
@@ -139,8 +139,6 @@ function showResultAfter() {
      if (selectionConversionFinal.value == "US$"){
          resultImgAfter.src = "./assets/img/svg/eua.svg";
          resultCaptionAfter.textContent = "Dólar americano";
-         console.log(resultImgAfter)
-         console.log(resultCaptionAfter)
      }
  
      if (selectionConversionFinal.value == "€"){
