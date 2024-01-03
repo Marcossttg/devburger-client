@@ -4,7 +4,6 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin-top: 3rem;
 }
 
 h3 {
@@ -41,10 +40,9 @@ input[type=number] {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 2rem;
     }
 
-    input, button {
+    input {
         height: 4.625rem;
     }
 
@@ -53,7 +51,11 @@ input[type=number] {
         width: 100%;
         justify-content: center;
         gap: 3rem;
-        margin-bottom: 1rem;
+        margin-bottom: .5rem;
+    }
+
+    input::placeholder {
+        font-size: 2rem;
     }
 
     input[type=number] {
