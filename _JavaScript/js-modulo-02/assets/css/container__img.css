@@ -1,0 +1,11 @@
+
+.container__img {
+    min-width: 280px;
+    padding: 0 0.625rem;
+    height: auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
