@@ -11,15 +11,15 @@
 
 <body>
     <main>
-        <div>
+        <div class="container__wrap">
             <h2>procurar por contato</h2>
-            <input type="text" placeholder="Digite o nome do contato:">
-            <button>procurar na lista</button>
+            <input type="search" placeholder="Digite o nome do contato:">
+            <button onclick="searchList()">procurar na lista</button>
         </div>
 
-        <div>
-            <h3>?</h3>
-            <p>?</p>
+        <div id="search__result">
+            <h3 id="text__return">?</h3>
+            <p id="search__return">?</p>
         </div>
 
     </main>
