@@ -12,12 +12,11 @@ let contacts = [
     { name: 'Bozo', number: '(11)-00171-1171' },
 ]
 
-// com while 
+// com do while
 function searchList() {
 
     let i = 0;
-    while (i < contacts.length) {
-
+    do {
         if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
             console.log(contacts[i])
             showTextReturn.innerHTML = `Contato encontrado`;
@@ -28,8 +27,28 @@ function searchList() {
             showTextReturn.innerHTML = `Contato não encontrado`;
         }
         i++
-    }
+    } while (i < contacts.length);
 }
+
+
+// com while
+// function searchList() {
+
+//     let i = 0;
+//     while (i < contacts.length) {
+
+//         if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+//             console.log(contacts[i])
+//             showTextReturn.innerHTML = `Contato encontrado`;
+//             showSearchReturn.innerHTML = `Nome: ${contacts[i].name} </br>
+//             Tel: ${contacts[i].number}`;
+//             break;
+//         } else {
+//             showTextReturn.innerHTML = `Contato não encontrado`;
+//         }
+//         i++
+//     }
+// }
 
 
 // com for in
