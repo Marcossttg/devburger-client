@@ -12,14 +12,29 @@ let contacts = [
     { name: 'Bozo', number: '(11)-00171-1171' },
 ]
 
+// com for normal
+// function searchList() {
+
+//     for (let i = 0; i < contacts.length; i++) {
+
+//         if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+//             showTextReturn.innerHTML = `Contato encontrado`;
+//             showSearchReturn.innerHTML = `Nome: ${contacts[i].name} </br>
+//             Tel: ${contacts[i].number}`;
+//             break;
+//         } else {
+//             showTextReturn.innerHTML = `Contato não encontrado`;
+//         }
+//     }
+// }
+
+// com for of
 function searchList() {
-
-    for (let i = 0; i < contacts.length; i++) {
-
-        if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+    for (const searchContact of contacts) {
+        if (input.value.toLowerCase() === searchContact.name.toLowerCase()) {
             showTextReturn.innerHTML = `Contato encontrado`;
-            showSearchReturn.innerHTML = `Nome: ${contacts[i].name} </br>
-            Tel: ${contacts[i].number}`;
+            showSearchReturn.innerHTML = `Nome: ${searchContact.name} </br>
+            Tel: ${searchContact.number}`;
             break;
         } else {
             showTextReturn.innerHTML = `Contato não encontrado`;
