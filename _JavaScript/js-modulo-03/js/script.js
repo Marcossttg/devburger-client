@@ -15,12 +15,11 @@ let contacts = [
 // com for in 
 function searchList() {
     for (const key in contacts) {
-        if (input.value.toLowerCase() === contacts, key.toLowerCase()) {
-            console.log(key)
-            console.log(contacts)
+
+        if (input.value.toLowerCase() === contacts[key].name.toLowerCase()) {
             showTextReturn.innerHTML = `Contato encontrado`;
-            showSearchReturn.innerHTML = `Nome: ${contacts, key.name} </br>
-            Tel: ${contacts, key.number}`;
+            showSearchReturn.innerHTML = `Nome: ${contacts[key].name}</br>
+            Tel: ${contacts[key].number}`;
             break;
         } else {
             showTextReturn.innerHTML = `Contato não encontrado`;
@@ -47,6 +46,7 @@ function searchList() {
 
 // com for of
 // function searchList() {
+
 //     for (const searchContact of contacts) {
 //         if (input.value.toLowerCase() === searchContact.name.toLowerCase()) {
 //             showTextReturn.innerHTML = `Contato encontrado`;
