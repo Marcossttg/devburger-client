@@ -12,6 +12,22 @@ let contacts = [
     { name: 'Bozo', number: '(11)-00171-1171' },
 ]
 
+// com for in 
+function searchList() {
+    for (const key in contacts) {
+        if (input.value.toLowerCase() === contacts, key.toLowerCase()) {
+            console.log(key)
+            console.log(contacts)
+            showTextReturn.innerHTML = `Contato encontrado`;
+            showSearchReturn.innerHTML = `Nome: ${contacts, key.name} </br>
+            Tel: ${contacts, key.number}`;
+            break;
+        } else {
+            showTextReturn.innerHTML = `Contato não encontrado`;
+        }
+    }
+}
+
 // com for normal
 // function searchList() {
 
@@ -28,16 +44,17 @@ let contacts = [
 //     }
 // }
 
+
 // com for of
-function searchList() {
-    for (const searchContact of contacts) {
-        if (input.value.toLowerCase() === searchContact.name.toLowerCase()) {
-            showTextReturn.innerHTML = `Contato encontrado`;
-            showSearchReturn.innerHTML = `Nome: ${searchContact.name} </br>
-            Tel: ${searchContact.number}`;
-            break;
-        } else {
-            showTextReturn.innerHTML = `Contato não encontrado`;
-        }
-    }
-}
+// function searchList() {
+//     for (const searchContact of contacts) {
+//         if (input.value.toLowerCase() === searchContact.name.toLowerCase()) {
+//             showTextReturn.innerHTML = `Contato encontrado`;
+//             showSearchReturn.innerHTML = `Nome: ${searchContact.name} </br>
+//             Tel: ${searchContact.number}`;
+//             break;
+//         } else {
+//             showTextReturn.innerHTML = `Contato não encontrado`;
+//         }
+//     }
+// }
