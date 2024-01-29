@@ -11,7 +11,7 @@
 
 <body>
     <main>
-        <div class="div-container">
+        <!-- <div class="div-container">
             <input id="input-n1" type="number" placeholder="primeiro número">
             <input id="input-n2" type="number" placeholder="segundo número">
 
@@ -22,6 +22,32 @@
             <p class="texto-resultado"></p>
             <p id="resultado-numero"></p>
 
+        </div> -->
+        <div class="calculator__format">
+            <h1>CalculaDev</h1>
+
+            <input type="text"></input>
+
+            <div class="keyboard">
+                <button onclick="cleanAll()">CE</button>
+                <button onclick="deleteLast()">Del</button>
+                <button onclick="addCaracter('/')">/</button>
+                <button onclick="addCaracter('*')">*</button>
+                <button class="number" onclick="addCaracter('7')">7</button>
+                <button class="number" onclick="addCaracter('8')">8</button>
+                <button class="number" onclick="addCaracter('9')">9</button>
+                <button onclick="addCaracter('-')">-</button>
+                <button class="number" onclick="addCaracter('4')">4</button>
+                <button class="number" onclick="addCaracter('5')">5</button>
+                <button class="number" onclick="addCaracter('6')">6</button>
+                <button onclick="addCaracter('+')">+</button>
+                <button class="number" onclick="addCaracter('1')">1</button>
+                <button class="number" onclick="addCaracter('2')">2</button>
+                <button class="number" onclick="addCaracter('3')">3</button>
+                <button class="number" onclick="addCaracter('.')">.</button>
+                <button class="number item-penultimate" onclick="addCaracter('0')">0</button>
+                <button id="resultado" onclick="calculate()">=</button>
+            </div>
         </div>
     </main>
 
