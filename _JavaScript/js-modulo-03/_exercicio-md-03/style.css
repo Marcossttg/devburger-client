@@ -22,7 +22,7 @@ main {
     display: inline-block;
     text-align: center;
     width: 500px;
-    height: 200px;
+    height: auto;
     background-color: #FFF;
     padding: 30px 20px;
     margin: 10%;
@@ -30,9 +30,10 @@ main {
 
 .container div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     gap: 10px;
+    align-items: center;
 }
 
 input {
@@ -59,6 +60,7 @@ h1 {
 }
 
 h2 {
+    font-size: 56px;
     margin-top: 5px;
     color: red;
 }

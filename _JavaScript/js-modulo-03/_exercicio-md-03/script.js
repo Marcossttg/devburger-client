@@ -1,5 +1,10 @@
 
-//Exercícios Md-02
+//Exercícios
+/*
+Md-02: 1-) Escreva um programa que verifique se um número
+ é par ou ímpar e exiba o resultado no console.
+*/
+/*
 let btn = document.querySelector(".container button");
 let h2 = document.querySelector("h2");
 
@@ -16,6 +21,61 @@ btn.addEventListener('click', () => {
         h2.textContent = `Ímpar`;
     }
 });
+*/
+
+// Md-02: 2-)
+/* Escreva um programa que calcule o resto da divisão entre dois números inteiros e exiba o resultado. */
+// let btn = document.querySelector(".container button");
+
+// btn.addEventListener("click", calcula => {
+//     let input1 = document.querySelector("#input-1").value;
+//     let input2 = document.querySelector("#input-2").value;
+//     let h2 = document.querySelector("h2");
+
+//     function calcula(n1, n2) {
+//         let resultado = parseFloat(n1 % n2);
+//         return resultado;
+//     }
+//     let resultadoFinal = calcula(input1, input2)
+
+//     h2.innerHTML = resultadoFinal
+
+// })
+
+
+// Md-02: 3-). Escreva um programa que calcule a média de três números reais e exiba o resultado.
+let btn = document.querySelector(".container button");
+let input1 = document.querySelector("#input-1");
+let input2 = document.querySelector("#input-2");
+
+let input3 = document.createElement("input"); //cria um input
+input3.type = "number"
+input3.className = "input-3";    //add class no html
+
+let novaDiv = document.querySelector(".container div"); //pegando a div dentro do container para add input
+novaDiv.insertBefore(input3, novaDiv.children[2]); //add input3 com o metodo isertBefore p/ inserir na posição desejada com o children[2]
+
+document.querySelector("h1").textContent = `A média é ?` // troca o texto do h1
+let h2 = document.querySelector("h2");    //pega o h2 para colocar o resultado
+
+btn.addEventListener("click", calcMedia => {
+
+    function calcMedia(n1, n2, n3) {
+        let soma = Number(n1) + Number(n2) + Number(n3)
+        let media = parseFloat(soma / 3).toFixed(1);
+
+        return media;
+    }
+    h2.innerText = calcMedia(input1.value, input2.value, input3.value)
+})
+
+/* 
+Md-02: 4-). Escreva um programa que compare duas strings e exiba "As strings são iguais" se as strings 
+forem iguais, ou "As strings são diferentes" se forem diferentes.
+
+Md-02: 5-). Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor.
+*/
+
 
 /* 
 let n1 = document.querySelector("#input-n1");
