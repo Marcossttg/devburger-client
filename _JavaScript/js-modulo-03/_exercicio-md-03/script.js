@@ -1,10 +1,9 @@
 
 //Exercícios
-/*
-Md-02: 1-) Escreva um programa que verifique se um número
- é par ou ímpar e exiba o resultado no console.
-*/
-/*
+
+// Md-02: 1-) Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
+
+
 let btn = document.querySelector(".container button");
 let h2 = document.querySelector("h2");
 
@@ -21,6 +20,7 @@ btn.addEventListener('click', () => {
         h2.textContent = `Ímpar`;
     }
 });
+/*
 */
 
 // Md-02: 2-)
@@ -93,10 +93,10 @@ btn.addEventListener("click", () => {
     if (input1.value === " " || input2.value === "") {
         h2.innerHTML = "Campo não deve estar vazio";
     }
-}) */
+}) 
+*/
 
-
-
+/* 
 // Md-02: 5-). Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor.
 
 let btn = document.querySelector(".container button");
@@ -119,18 +119,7 @@ btn.addEventListener("click", function () {
         h2.innerHTML = `A segunda pessoa é mais velha`;
     }
 
-
-    // if (input1.value === "" && input2.value === "") {
-    //     h1.textContent = `O campo de entrada deve ser preenchido.`
-    // } else {
-    //     h1.textContent = `ta errado.`
-    // }
-
 })
-
-
-/* 
-
 */
 
 
