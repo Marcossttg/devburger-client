@@ -1,7 +1,7 @@
 
 //Exercícios
 
-// Md-02: 1-) Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
+// Ex:-01) Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
 
 
 let btn = document.querySelector(".container button");
@@ -23,7 +23,7 @@ btn.addEventListener('click', () => {
 /*
 */
 
-// Md-02: 2-)
+// Ex:-02)
 /* Escreva um programa que calcule o resto da divisão entre dois números inteiros e exiba o resultado. */
 // let btn = document.querySelector(".container button");
 
@@ -43,7 +43,7 @@ btn.addEventListener('click', () => {
 // })
 
 
-// Md-02: 3-). Escreva um programa que calcule a média de três números reais e exiba o resultado.
+// Ex:03). Escreva um programa que calcule a média de três números reais e exiba o resultado.
 /* 
 let btn = document.querySelector(".container button");
 let input1 = document.querySelector("#input-1");
@@ -72,7 +72,7 @@ btn.addEventListener("click", calcMedia => {
 */
 
 /* 
-// Md-02: 4-). Escreva um programa que compare duas strings e exiba "As strings são iguais" se as strings 
+// Ex:-04). Escreva um programa que compare duas strings e exiba "As strings são iguais" se as strings 
 // forem iguais, ou "As strings são diferentes" se forem diferentes.
 let btn = document.querySelector(".container button");
 let input1 = document.querySelector("#input-1");
@@ -97,7 +97,7 @@ btn.addEventListener("click", () => {
 */
 
 /* 
-// Md-02: 5-). Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor.
+// Ex:-05). Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor.
 
 let btn = document.querySelector(".container button");
 let input1 = document.querySelector("#input-1");
