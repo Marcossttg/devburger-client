@@ -44,6 +44,7 @@ btn.addEventListener('click', () => {
 
 
 // Md-02: 3-). Escreva um programa que calcule a média de três números reais e exiba o resultado.
+/* 
 let btn = document.querySelector(".container button");
 let input1 = document.querySelector("#input-1");
 let input2 = document.querySelector("#input-2");
@@ -67,13 +68,69 @@ btn.addEventListener("click", calcMedia => {
         return media;
     }
     h2.innerText = calcMedia(input1.value, input2.value, input3.value)
-})
+}) 
+*/
 
 /* 
-Md-02: 4-). Escreva um programa que compare duas strings e exiba "As strings são iguais" se as strings 
-forem iguais, ou "As strings são diferentes" se forem diferentes.
+// Md-02: 4-). Escreva um programa que compare duas strings e exiba "As strings são iguais" se as strings 
+// forem iguais, ou "As strings são diferentes" se forem diferentes.
+let btn = document.querySelector(".container button");
+let input1 = document.querySelector("#input-1");
+let input2 = document.querySelector("#input-2");
+input1.type = "text";
+input2.type = "text";
 
-Md-02: 5-). Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor.
+document.querySelector("h1").textContent = "O nome é:";
+let h2 = document.querySelector("h2");
+h2.innerHTML = '';
+btn.addEventListener("click", () => {
+    if (input1.value === input2.value) {
+        h2.innerHTML = "As strings são iguais";
+    } else {
+        h2.textContent = "As strings são diferentes";
+    }
+
+    if (input1.value === " " || input2.value === "") {
+        h2.innerHTML = "Campo não deve estar vazio";
+    }
+}) */
+
+
+
+// Md-02: 5-). Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor.
+
+let btn = document.querySelector(".container button");
+let input1 = document.querySelector("#input-1");
+let input2 = document.querySelector("#input-2");
+
+let h1 = document.querySelector("h1");
+let h2 = document.querySelector("h2");
+h1.textContent = `Quem é o mais velho ?`
+h2.innerHTML = '';
+
+btn.addEventListener("click", function () {
+    if (input1.value === "" || input2.value === "") {
+        h1.textContent = `O campo de entrada deve ser preenchido.`;
+    } else if (input1.value === input2.value) {
+        h2.innerHTML = `As duas têm a mesma idade.`;
+    } else if (input1.value > input2.value) {
+        h2.innerHTML = `A primeira pessoa é mais velha`;
+    } else {
+        h2.innerHTML = `A segunda pessoa é mais velha`;
+    }
+
+
+    // if (input1.value === "" && input2.value === "") {
+    //     h1.textContent = `O campo de entrada deve ser preenchido.`
+    // } else {
+    //     h1.textContent = `ta errado.`
+    // }
+
+})
+
+
+/* 
+
 */
 
 
