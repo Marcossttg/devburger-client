@@ -37,7 +37,7 @@ createElement()//Chamado a função que vai criar um input e um botão;
 
 //2. Escreva um programa que calcule o resto da divisão entre dois números inteiros
 //e exiba o resultado.
-
+/* 
 function createElement() {
     let btn = document.createElement("button");
     let textBtn = document.createTextNode("Clique");
@@ -73,10 +73,12 @@ function createElement() {
     document.body.appendChild(btn);
 }
 createElement()
-
+*/
+//3. Escreva um programa que calcule a média de três números reais e exiba o resultado.
+let btn = document.createElement("button")
+console.log(btn)
 
 /*
-//3. Escreva um programa que calcule a média de três números reais e exiba o resultado.
 4. Escreva um programa que compare duas strings e exiba "As strings são iguais" se as strings forem iguais, ou "As strings são diferentes" se forem diferentes.
 5. Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor. 
 */
