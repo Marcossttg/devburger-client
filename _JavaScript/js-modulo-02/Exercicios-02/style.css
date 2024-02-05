@@ -24,6 +24,16 @@ main {
     height: auto;
     border-radius: 10px;
     background-color: gold;
+    gap: 10px;
+    padding: 10px;
+}
+
+h2 {
+    color: gray;
+}
+
+input {
+    font-size: 26px;
 }
 
 button {
