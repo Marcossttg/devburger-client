@@ -35,7 +35,7 @@ for (let i = 1; i <= 100; i++) {
 }
 */
 
-
+/* 
 //4. Escreva um programa que verifique se um número é primo e exiba o resultado no console.
 function nPrimo(n) {
     if (n < 2) {
@@ -49,9 +49,22 @@ function nPrimo(n) {
     return true;
 }
 console.log(nPrimo(5));
+*/
 
-/* 
-5. Escreva um programa que encontre o maior número em uma lista de números e exiba o resultado no console. 
+
+//5. Escreva um programa que encontre o maior número em uma lista de números e exiba o resultado no console.
+let list = [1, 2, 3, 4, 5];
+
+let maiorNumero = list[0];
+
+for (let i = 0; i < list.length; i++) {
+    if (list[i] > maiorNumero) {
+        maiorNumero = list[i];
+    }
+}
+console.log(`O maior é: ${maiorNumero}`)
+
+/*  
 */
 
 /* 
