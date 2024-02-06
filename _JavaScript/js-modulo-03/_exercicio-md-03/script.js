@@ -3,11 +3,11 @@
 //# Exercícios Módulo 2. EX: 1, 2
 
 // 1. Escreva um programa que exiba a soma dos números de 1 a 10 no console.
-/* let soma = 0;
+let soma = 0;
 for (let i = 1; i <= 10; i++) {
     soma += i;
     console.log(soma);
-} */
+}
 
 /*
 // 2. Escreva um programa que exiba os números pares de 1 a 20 no console.
@@ -51,7 +51,7 @@ function nPrimo(n) {
 console.log(nPrimo(5));
 */
 
-
+/* 
 //5. Escreva um programa que encontre o maior número em uma lista de números e exiba o resultado no console.
 let list = [1, 2, 3, 4, 5];
 
@@ -63,8 +63,6 @@ for (let i = 0; i < list.length; i++) {
     }
 }
 console.log(`O maior é: ${maiorNumero}`)
-
-/*  
 */
 
 /* 
