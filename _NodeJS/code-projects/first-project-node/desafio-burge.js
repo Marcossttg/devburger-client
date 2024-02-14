@@ -26,19 +26,27 @@ const purchaseOrders = [];
 //Crie um middleware que será utilizado em todas rotas que recebem o parâmetro ID, então ele deve verificar se o ID passado existe. Se não existir retorne um erro, caso contrário permita a requisição continuar normalmente;
 const checkOrderId = (request, response, next) => {
 
-    const { id } = request.params;
+    try {
+        const { id } = request.params;
 
-    const index = purchaseOrders.findIndex(order => order.id === id);
+        const index = purchaseOrders.findIndex(order => order.id === id);
 
-    if (index < 0) {
-        return response.status(404).json({ Error: "Order not found!" });
+        if (index < 0) {
+            throw new Error("Order not found!");
+        }
+
+        request.orderIndex = index;
+
+        request.orderId = id;
+
+        next();
+    } catch (error) {
+        console.log("Caiu no tryCatch");
+        return response.status(404).json({ Error: error.message });
+    } finally {
+        console.log("Saiu do tryCatch");
     }
 
-    request.orderIndex = index;
-
-    request.orderId = id;
-
-    next();
 }
 
 //Crie um middleware que é chamado em todas requisições que tenha um console.log que mostra o método da requisiçao(GET,POST,PUT,DELETE, etc) e também a url da requisição.
