@@ -1,5 +1,5 @@
 //# Exercícios Módulo 2
-
+/* 
 //1. Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
 
 function createElement() {//Criando uma função que vai criar um botão, input, texto.
@@ -31,7 +31,7 @@ function createElement() {//Criando uma função que vai criar um botão, input,
     document.body.appendChild(btn);//Aqui estamos adicionando o botão no body do HTML
 }
 createElement()//Chamado a função que vai criar um input e um botão;
-/* */
+*/
 
 //2. Escreva um programa que calcule o resto da divisão entre dois números inteiros
 //e exiba o resultado.
@@ -127,3 +127,32 @@ document.querySelector("button").onclick = () => {
     }
 }
 */
+
+//6. Faça um script que leia três números e mostre-os em ordem decrescente.
+function exibir() {
+    var n1 = parseFloat(6);
+    var n2 = parseFloat(9);
+    var n3 = parseFloat(3);
+
+    var aux = n1;
+
+    if (n2 > n1) {
+        aux = n2;
+        n2 = n1;
+        n1 = aux;
+    }
+
+    if (n3 > n1) {
+        aux = n3;
+        n3 = n1;
+        n1 = aux;
+    }
+
+    if (n3 > n2) {
+        aux = n3;
+        n3 = n2;
+        n2 = aux;
+    }
+    return (n1 + "-" + n2 + "-" + n3);
+}
+console.log(exibir())
