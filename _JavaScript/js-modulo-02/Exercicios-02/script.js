@@ -1,5 +1,5 @@
 //# Exercícios Módulo 2
-/* 
+/*
 //1. Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
 
 function createElement() {//Criando uma função que vai criar um botão, input, texto.
@@ -93,7 +93,7 @@ btn.onclick = function () {
 // 4. Escreva um programa que compare duas strings e exiba "As strings são iguais" se as strings forem
 // iguais, ou "As strings são diferentes" se forem diferentes.
 
-/* 
+/*
 let inputText01 = document.getElementById("input0");
 let inputText02 = document.getElementById("input1");
 let p = document.querySelector("p");
@@ -101,18 +101,18 @@ let p = document.querySelector("p");
 document.getElementById("input2").style.display = "none";
 
 document.querySelector("button").onclick = () => {
-    
+
     if (inputText01.value == inputText02.value) {
         p.textContent = "As strings são iguais"
     } else {
         p.textContent = "As strings são diferentes"
     }
-} 
+}
 */
 
 /*
 
-// 5. Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor. 
+// 5. Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor.
 const input = document.getElementById("input0");
 const input1 = document.getElementById("input1");
 document.getElementById("input2").style.display = "none";
@@ -128,6 +128,7 @@ document.querySelector("button").onclick = () => {
 }
 */
 
+/*
 //6. Faça um script que leia três números e mostre-os em ordem decrescente.
 function exibir() {
     var n1 = parseFloat(6);
@@ -156,3 +157,61 @@ function exibir() {
     return (n1 + "-" + n2 + "-" + n3);
 }
 console.log(exibir())
+*/
+
+//7. Faça um script que pergunte em que turno você estuda. Peça para digitar
+//M-matutino ou V-Vespertino ou N- Noturno. Imprima a mensagem "Bom Dia!",
+//"Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
+
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.innerText = `Em que turno você estuda? Digite
+    M para matutino ou V para Vespertino ou N para Noturno.`;
+
+    let btn = document.createElement("button");
+    let textBtn = document.createTextNode("clique");
+    btn.appendChild(textBtn);
+
+    let input = document.createElement("input");
+    input.style.marginTop = "15px";
+    input.style.fontSize = "30px";
+    input.type = Text;
+
+    document.body.appendChild(input);
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+        let matutino = "m";
+        let vespertino = "v";
+        let noturno = "n";
+
+        if (input.value.toLowerCase() == matutino) {
+            h2.innerText = "Bom Dia!";
+        } else if (input.value.toLowerCase() == vespertino) {
+            h2.innerText = "Boa Tarde!";
+        } else if (input.value.toLowerCase() == noturno) {
+            h2.innerText = "Boa Noite!";
+        } else {
+            h2.innerText = "Valor Inválido!";
+        }
+
+        /*        
+        switch (input.value.toLowerCase()) {
+        case matutino:
+            h2.innerText = "Bom Dia!";
+            break;
+
+        case vespertino:
+            h2.innerText = "Boa Tarde!";
+            break;
+
+        case noturno:
+            h2.innerText = "Boa Noite!";
+            break;
+        default:
+            h2.innerText = "Valor Inválido!";
+        } 
+        */
+    })
+}
+createElement()
