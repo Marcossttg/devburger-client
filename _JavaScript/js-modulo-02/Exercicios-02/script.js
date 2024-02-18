@@ -302,14 +302,11 @@ function createElement() {
         O novo salário, após o aumento: R$ ${salarioNovo}`
         h2.style.fontSize = "22px"
     })
-
 }
 createElement();
- */
+*/
 
-
-
-
+/* 
 // 9. Faça um script para o cálculo de uma folha de pagamento, sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário Líquido corresponde ao Salário Bruto menos os descontos. O script deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.
 
 //     Desconto do IR:
@@ -363,7 +360,6 @@ function createElement() {
 
     let salarioHora;
     let salarioMes;
-
 
     function calculaFolha() {
 
@@ -423,12 +419,78 @@ function createElement() {
         Salário Liquido: ${salarioLiquido.toFixed(2)}`;
     }
 }
-createElement();
+createElement(); 
+*/
+
+
+// 10. Faça um script que leia um número e exiba o dia correspondente da semana. (1-Domingo, 2- Segunda, etc.), se digitar outro valor deve aparecer valor inválido.
+
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.textContent = `Digite um dia da semana.`;
+
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.type = Number;
+    input.placeholder = "Digite um N/ de 1 a 7!";
+    document.body.appendChild(input);
+
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("Click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+        const diaSemana = Number(input.value);
+
+        if (input.value == 1) {
+            h2.textContent = "Hoje é Domingo";
+        } else if (input.value == 2) {
+            h2.textContent = "Hoje é Segunda-feira.";
+        } else if (input.value == 3) {
+            h2.textContent = "Hoje é Terça-feira.";
+        } else if (input.value == 4) {
+            h2.textContent = "Hoje é Quarta-feira";
+        } else if (input.value == 5) {
+            h2.textContent = "Hoje é Quinta-feira";
+        } else if (input.value == 6) {
+            h2.textContent = "Hoje e Sexta-feira";
+        } else if (input.value == 7) {
+            h2.textContent = "Hoje é Sábado";
+        } else {
+            h2.textContent = "valor inválido."
+        }
+
+        // switch (diaSemana) {
+        //     case 1:
+        //         h2.textContent = "Hoje é Domingo";
+        //         break;
+        //     case 2:
+        //         h2.textContent = "Hoje é Segunda-feira";
+        //         break;
+        //     case 3:
+        //         h2.textContent = "Hoje é Terça-feira.";
+        //         break;
+        //     case 4:
+        //         h2.textContent = "Hoje é Quarta-feira.";
+        //         break;
+        //     case 5:
+        //         h2.textContent = "Hoje é Quinta-feira.";
+        //         break;
+        //     case 6:
+        //         h2.textContent = "Hoje é Sexta-feira.";
+        //         break;
+        //     case 7:
+        //         h2.textContent = "Hoje é Sábado";
+        //         break;
+        //     default:
+        //         h2.textContent = "valor inválido."
+        // }
+    })
+}
+createElement()
 
 /* 
-10. Faça um script que leia um número e exiba o dia correspondente da semana. (1-Domingo, 2- Segunda, etc.), se digitar outro valor deve aparecer valor inválido.
-
-
 11. Faça um script que lê as duas notas parciais obtidas por um aluno numa disciplina ao longo de um semestre, e calcule a sua média. A atribuição de conceitos obedece à tabela abaixo:
 
       Média de Aproveitamento  Conceito
