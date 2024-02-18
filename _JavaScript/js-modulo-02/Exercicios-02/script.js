@@ -1,5 +1,5 @@
 //# Exercícios Módulo 2
-
+/*
 //1. Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
 
 function createElement() {//Criando uma função que vai criar um botão, input, texto.
@@ -31,7 +31,7 @@ function createElement() {//Criando uma função que vai criar um botão, input,
     document.body.appendChild(btn);//Aqui estamos adicionando o botão no body do HTML
 }
 createElement()//Chamado a função que vai criar um input e um botão;
-/* */
+*/
 
 //2. Escreva um programa que calcule o resto da divisão entre dois números inteiros
 //e exiba o resultado.
@@ -93,7 +93,7 @@ btn.onclick = function () {
 // 4. Escreva um programa que compare duas strings e exiba "As strings são iguais" se as strings forem
 // iguais, ou "As strings são diferentes" se forem diferentes.
 
-/* 
+/*
 let inputText01 = document.getElementById("input0");
 let inputText02 = document.getElementById("input1");
 let p = document.querySelector("p");
@@ -101,18 +101,18 @@ let p = document.querySelector("p");
 document.getElementById("input2").style.display = "none";
 
 document.querySelector("button").onclick = () => {
-    
+
     if (inputText01.value == inputText02.value) {
         p.textContent = "As strings são iguais"
     } else {
         p.textContent = "As strings são diferentes"
     }
-} 
+}
 */
 
 /*
 
-// 5. Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor. 
+// 5. Escreva um programa que compare a idade de duas pessoas e exiba "A primeira pessoa é mais velha" se a idade da primeira pessoa for maior que a idade da segunda pessoa, ou "A segunda pessoa é mais velha" se for menor.
 const input = document.getElementById("input0");
 const input1 = document.getElementById("input1");
 document.getElementById("input2").style.display = "none";
@@ -126,4 +126,456 @@ document.querySelector("button").onclick = () => {
         document.querySelector("p").textContent = "A segunda pessoa é mais velha";
     }
 }
+*/
+
+/*
+//6. Faça um script que leia três números e mostre-os em ordem decrescente.
+function exibir() {
+    var n1 = parseFloat(6);
+    var n2 = parseFloat(9);
+    var n3 = parseFloat(3);
+
+    var aux = n1;
+
+    if (n2 > n1) {
+        aux = n2;
+        n2 = n1;
+        n1 = aux;
+    }
+
+    if (n3 > n1) {
+        aux = n3;
+        n3 = n1;
+        n1 = aux;
+    }
+
+    if (n3 > n2) {
+        aux = n3;
+        n3 = n2;
+        n2 = aux;
+    }
+    return (n1 + "-" + n2 + "-" + n3);
+}
+console.log(exibir())
+*/
+
+/* 
+//7. Faça um script que pergunte em que turno você estuda. Peça para digitar
+//M-matutino ou V-Vespertino ou N- Noturno. Imprima a mensagem "Bom Dia!",
+//"Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
+
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.innerText = `Em que turno você estuda? Digite
+    M para matutino ou V para Vespertino ou N para Noturno.`;
+
+    let btn = document.createElement("button");
+    let textBtn = document.createTextNode("clique");
+    btn.appendChild(textBtn);
+
+    let input = document.createElement("input");
+    input.style.marginTop = "15px";
+    input.style.fontSize = "30px";
+    input.type = Text;
+
+    document.body.appendChild(input);
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+        let matutino = "m";
+        let vespertino = "v";
+        let noturno = "n";
+
+        if (input.value.toLowerCase() == matutino) {
+            h2.innerText = "Bom Dia!";
+        } else if (input.value.toLowerCase() == vespertino) {
+            h2.innerText = "Boa Tarde!";
+        } else if (input.value.toLowerCase() == noturno) {
+            h2.innerText = "Boa Noite!";
+        } else {
+            h2.innerText = "Valor Inválido!";
+        }
+
+                
+        // switch (input.value.toLowerCase()) {
+        // case matutino:
+        //     h2.innerText = "Bom Dia!";
+        //     break;
+
+        // case vespertino:
+        //     h2.innerText = "Boa Tarde!";
+        //     break;
+
+        // case noturno:
+        //     h2.innerText = "Boa Noite!";
+        //     break;
+        // default:
+        //     h2.innerText = "Valor Inválido!";
+        // } 
+       
+    })
+}
+createElement()
+*/
+
+/* 
+// 8. As Organizações Tabajara resolveram dar um aumento de salário aos seus colaboradores e lhe contrataram para desenvolver um script que calculará os reajustes.
+
+// Faça um script que recebe o salário de um colaborador e o reajuste segundo o seguinte critério, baseado no salário atual:
+
+//     salários até R$ 280,00 (incluindo) : aumento de 20%
+//     salários entre R$ 280,00 e R$ 700,00 : aumento de 15%
+//     salários entre R$ 700,00 e R$ 1500,00 : aumento de 10%
+//     salários de R$ 1500,00 em diante : aumento de 5% Após o aumento ser realizado, informe na tela:
+//     o salário antes do reajuste;
+//     o percentual de aumento aplicado;
+//     o valor do aumento;
+//     o novo salário, após o aumento.
+
+function createElement() {
+
+    const h2 = document.querySelector("h2");
+    h2.textContent = "Digite o seu salário";
+
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.fontSize = '30px';
+    input.type = Number;
+    document.body.appendChild(input);
+
+    const btn = document.createElement("button");
+    const btnText = document.createTextNode("click");
+    btn.appendChild(btnText);
+    document.body.appendChild(btn);
+
+    const s1 = parseFloat(280.00).toFixed(2);
+    const s2 = parseFloat(700.00).toFixed(2);
+    const s3 = parseFloat(1500.00).toFixed(2);
+
+    const au5 = 0.05; //igual a 5%
+    const au10 = 0.10; //igual a 10% 
+    const au15 = 0.15;
+    const au20 = 0.20;
+
+    btn.addEventListener("click", () => {
+        let salarioAtual = input.value
+        let valorPor100;
+        let percentual;
+        let salarioNovo;
+
+        if (Number(input.value) <= s1) {
+            percentual = 20;
+
+            valorPor100 = (salarioAtual * au20).toFixed(2);
+
+            salarioNovo = (Number(s1) + Number(valorPor100)).toFixed(2);
+        } else if (Number(input.value) <= s2) {
+            percentual = 15;
+
+            valorPor100 = (salarioAtual * au15).toFixed(2);
+
+            salarioNovo = (Number(salarioAtual) + Number(valorPor100)).toFixed(2);
+
+        } else if (Number(input.value) <= s3) {
+            percentual = 10;
+
+            salarioAtual = input.value;
+
+            valorPor100 = (salarioAtual * au10).toFixed(2);
+
+            salarioNovo = (Number(salarioAtual) + Number(valorPor100)).toFixed(2);
+
+        } else {
+            percentual = 5;
+
+            salarioAtual = input.value;
+
+            valorPor100 = (salarioAtual * au5).toFixed(2);
+
+            salarioNovo = (Number(salarioAtual) + Number(valorPor100)).toFixed(2);
+
+        }
+
+        h2.innerText = `O salário antes do reajuste: R$ ${salarioAtual}
+        O percentual de aumento aplicado: ${percentual}%
+        O valor do aumento e de R$ ${valorPor100}
+        O novo salário, após o aumento: R$ ${salarioNovo}`
+        h2.style.fontSize = "22px"
+    })
+}
+createElement();
+*/
+
+/* 
+// 9. Faça um script para o cálculo de uma folha de pagamento, sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário Líquido corresponde ao Salário Bruto menos os descontos. O script deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.
+
+//     Desconto do IR:
+//     Salário Bruto até 900 (inclusive) - isento
+//     Salário Bruto até 1500 (inclusive) - desconto de 5%
+//     Salário Bruto até 2500 (inclusive) - desconto de 10%
+//     Salário Bruto acima de 2500 - desconto de 20% Imprima na tela as informações, dispostas conforme o exemplo abaixo. No exemplo o valor da hora é 5 e a quantidade de hora é 220.
+
+// Salário Bruto: (5 * 220)        : R$ 1100,00
+// (-) IR (5%)                                : R$   55,00
+// (-) INSS ( 10%)                       : R$  110,00
+// FGTS (11%)                            : R$  121,00
+// Total de descontos                : R$  165,00
+// Salário Liquido                       : R$  935,00
+
+
+function createElement() {
+    const h2 = document.querySelector("h2");
+    h2.innerHTML = "Qual o valor da sua hora e a quantidade de horas trabalhadas no mês?"
+
+    //input valor hora
+    const inputHora = document.createElement("input");
+    inputHora.id = "inputHr";
+    inputHora.style.marginTop = "20px";
+    inputHora.style.paddingLeft = "5px";
+    inputHora.placeholder = "Valor da hora?";
+    inputHora.type = "Number";
+    document.body.appendChild(inputHora);
+
+    //input valor mês
+    const inputMes = document.createElement("input");
+    inputMes.id = "inputMes";
+    inputMes.style.marginTop = "20px";
+    inputMes.style.paddingLeft = "5px";
+    inputMes.placeholder = "Quantas horas no mês?";
+    inputMes.type = "Number";
+    document.body.appendChild(inputMes);
+
+    const btn = document.createElement("button");
+    const btnText = document.createTextNode("click");
+    btn.appendChild(btnText);
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+        calculaFolha();
+    })
+
+    const s1 = parseFloat(900.00);
+    const s2 = parseFloat(1500.00);
+    const s3 = parseFloat(2500.00);
+
+    let salarioHora;
+    let salarioMes;
+
+    function calculaFolha() {
+
+        let salarioHora = inputHora.value;
+        let salarioMes = inputMes.value;
+        let porcentagem;
+        let ir;
+        let calcInss;
+        let calcFgts;
+        let inss = 10;
+        let fgts = 11;
+        let totalDescontos;
+        let salarioLiquido;
+
+        let salarioBruto = (salarioHora * salarioMes);
+
+        if (salarioBruto <= s1) {
+            porcentagem = 0;
+            ir = ((porcentagem * salarioBruto) / 100);
+            calcInss = (inss * salarioBruto) / 100;
+            calcFgts = (fgts * salarioBruto) / 100;
+            totalDescontos = (ir + calcInss);
+            salarioLiquido = (salarioBruto - totalDescontos);
+
+        } else if (salarioBruto > s1 && salarioBruto <= s2) {
+            porcentagem = 5;
+            ir = ((porcentagem * salarioBruto) / 100);
+            calcInss = (inss * salarioBruto) / 100;
+            calcFgts = (fgts * salarioBruto) / 100;
+            totalDescontos = (ir + calcInss);
+            salarioLiquido = (salarioBruto - totalDescontos);
+
+        } else if (salarioBruto > s2 && salarioBruto <= s3) {
+            porcentagem = 10;
+            ir = ((porcentagem * salarioBruto) / 100);
+            calcInss = (inss * salarioBruto) / 100;
+            calcFgts = (fgts * salarioBruto) / 100;
+            totalDescontos = (ir + calcInss);
+            salarioLiquido = (salarioBruto - totalDescontos);
+
+        } else if (salarioBruto > s3) {
+            porcentagem = 20;
+            ir = ((porcentagem * salarioBruto) / 100);
+            calcInss = (inss * salarioBruto) / 100;
+            calcFgts = (fgts * salarioBruto) / 100;
+            totalDescontos = (ir + calcInss);
+            salarioLiquido = (salarioBruto - totalDescontos);
+
+        }
+
+        h2.style.fontSize = "24px";
+        h2.innerHTML = `Salário Bruto: R$ ${salarioBruto.toFixed(2)}<br>
+        (-)IR (${porcentagem}%): R$ ${ir.toFixed(2)}<br>
+        (-)INSS (${inss}%): R$ ${calcInss.toFixed(2)}<br>
+        FGTS (${fgts}%): R$ ${calcFgts.toFixed(2)}<br>
+        Total de descontos: R$ ${totalDescontos.toFixed(2)}<br>
+        Salário Liquido: ${salarioLiquido.toFixed(2)}`;
+    }
+}
+createElement(); 
+*/
+
+
+// 10. Faça um script que leia um número e exiba o dia correspondente da semana. (1-Domingo, 2- Segunda, etc.), se digitar outro valor deve aparecer valor inválido.
+
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.textContent = `Digite um dia da semana.`;
+
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.type = Number;
+    input.placeholder = "Digite um N/ de 1 a 7!";
+    document.body.appendChild(input);
+
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("Click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+        const diaSemana = Number(input.value);
+
+        if (input.value == 1) {
+            h2.textContent = "Hoje é Domingo";
+        } else if (input.value == 2) {
+            h2.textContent = "Hoje é Segunda-feira.";
+        } else if (input.value == 3) {
+            h2.textContent = "Hoje é Terça-feira.";
+        } else if (input.value == 4) {
+            h2.textContent = "Hoje é Quarta-feira";
+        } else if (input.value == 5) {
+            h2.textContent = "Hoje é Quinta-feira";
+        } else if (input.value == 6) {
+            h2.textContent = "Hoje e Sexta-feira";
+        } else if (input.value == 7) {
+            h2.textContent = "Hoje é Sábado";
+        } else {
+            h2.textContent = "valor inválido."
+        }
+
+        // switch (diaSemana) {
+        //     case 1:
+        //         h2.textContent = "Hoje é Domingo";
+        //         break;
+        //     case 2:
+        //         h2.textContent = "Hoje é Segunda-feira";
+        //         break;
+        //     case 3:
+        //         h2.textContent = "Hoje é Terça-feira.";
+        //         break;
+        //     case 4:
+        //         h2.textContent = "Hoje é Quarta-feira.";
+        //         break;
+        //     case 5:
+        //         h2.textContent = "Hoje é Quinta-feira.";
+        //         break;
+        //     case 6:
+        //         h2.textContent = "Hoje é Sexta-feira.";
+        //         break;
+        //     case 7:
+        //         h2.textContent = "Hoje é Sábado";
+        //         break;
+        //     default:
+        //         h2.textContent = "valor inválido."
+        // }
+    })
+}
+createElement()
+
+/* 
+11. Faça um script que lê as duas notas parciais obtidas por um aluno numa disciplina ao longo de um semestre, e calcule a sua média. A atribuição de conceitos obedece à tabela abaixo:
+
+      Média de Aproveitamento  Conceito
+      Entre 9.0 e 10.0                      A
+      Entre 7.5 e 9.0                        B
+      Entre 6.0 e 7.5                        C
+      Entre 4.0 e 6.0                        D
+      Entre 4.0 e zero                      E
+    O algoritmo deve mostrar numa janela de alert as notas, a média, o conceito correspondente e a mensagem “APROVADO” se o conceito for A, B ou C ou “REPROVADO” se o conceito for D ou E.
+
+
+12. Faça um script que peça os 3 lados de um triângulo. O script deverá informar se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno.
+
+    Dicas:
+    Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
+    Triângulo Equilátero: três lados iguais;
+    Triângulo Isósceles: quaisquer dois lados iguais;
+    Triângulo Escaleno: três lados diferentes;
+
+
+13. Faça um script que calcule as raízes de uma equação do segundo grau, na forma ax² + bx + c. O script deverá pedir os valores de a, b e c e fazer os testes necessários.
+
+
+14. Faça um script que peça um número correspondente a um determinado ano e em seguida informe se este ano é ou não bissexto.
+
+
+15. Faça um script que peça uma data no formato dd/mm/aaaa e determine se a mesma é uma data válida.
+
+16. Faça um script que peça um número inteiro e determine se ele é par ou ímpar.
+Dica: utilize o operador módulo (resto da divisão): %
+
+
+17. Faça um script que leia um número inteiro menor que 1000 e imprima a quantidade de centenas, dezenas e unidades do mesmo.
+Observando os termos no plural a colocação do "e", da vírgula entre outros. Exemplo:
+
+326 = 3 centenas, 2 dezenas e 6 unidades
+12 = 1 dezena e 2 unidades Testar com: 326, 300, 100, 320, 310,305, 301, 101, 311, 111, 25, 20, 10, 21, 11, 1, 7 e 16
+
+
+18. Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas existentes na máquina.
+
+ Exemplo: Para sacar a quantia de 256 reais, o script fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
+ Exemplo: Para sacar a quantia de 399 reais, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+
+
+
+19.Faça um script que peça um número e informe se o número é inteiro ou decimal. Dica: utilize uma função de arredondamento.
+
+
+20. Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
+
+    par ou ímpar;
+    positivo ou negativo;
+    inteiro ou decimal.
+
+
+21. Faça um script que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
+    "Telefonou para a vítima?"
+    "Esteve no local do crime?"
+    "Mora perto da vítima?"
+    "Devia para a vítima?"
+    "Já trabalhou com a vítima?" O script deve no final emitir uma classificação sobre a participação da pessoa no crime. Se a pessoa responder positivamente a 2 questões ela deve ser classificada como "Suspeita", entre 3 e 4 como "Cúmplice" e 5 como "Assassino". Caso contrário, ele será classificado como "Inocente".
+
+
+22. Um posto está vendendo combustíveis com a seguinte tabela de descontos:
+    Álcool: até 20 litros, desconto de 3% por litro
+    acima de 20 litros, desconto de 5% por litro
+
+    Gasolina:
+    até 20 litros, desconto de 4% por litro
+    acima de 20 litros, desconto de 6% por litro Escreva um algoritmo que leia o número de litros vendidos, o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,50 o preço do litro do álcool é R$ 1,90.
+
+
+23. Uma fruteira está vendendo frutas com a seguinte tabela de preços:
+                          Até 5 Kg                 Acima de 5 Kg
+    Morango         R$ 2,50 por Kg          R$ 2,20 por Kg
+    Maçã              R$ 1,80 por Kg          R$ 1,50 por Kg
+    Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá ainda um desconto de 10% sobre este total. Escreva um algoritmo para ler a quantidade (em Kg) de morangos e a quantidade (em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente.
+
+
+24. O Hipermercado Tabajara está com uma promoção de carnes que é imperdível. Confira:
+                          Até 5 Kg               Acima de 5 Kg
+    File Duplo      R$ 4,90 por Kg          R$ 5,80 por Kg
+    Alcatra           R$ 5,90 por Kg          R$ 6,80 por Kg
+    Picanha          R$ 6,90 por Kg          R$ 7,80 por Kg
+    Para atender a todos os clientes, cada cliente poderá levar apenas um dos tipos de carne da promoção, porém não há limites para a quantidade de carne por cliente. Se compra for feita no cartão Tabajara o cliente receberá ainda um desconto de 5% sobre o total a compra. Escreva um script que peça o tipo e a quantidade de carne comprada pelo usuário e gere um cupom fiscal, contendo as informações da compra: tipo e quantidade de carne, preço total, tipo de pagamento, valor do desconto e valor a pagar.
+
 */

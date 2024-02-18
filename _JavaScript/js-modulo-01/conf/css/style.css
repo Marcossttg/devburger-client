@@ -7,9 +7,9 @@
 @import url(../../assets/css/l-section/container__result.css);
 
 :root {
+    --color-bg-btn: #772FD3;
     --color-primary: #777;
     --color-secondy: #555;
-    --color-bg-btn: #772FD3;
 }
 
 * {
@@ -20,7 +20,10 @@
 }
 
 body {
+    align-items: center;
     background-color: grey;
-    width: 100vw;
+    display: flex;
     height: 100vh;
+    justify-content: center;
+    width: 100vw;
 }
