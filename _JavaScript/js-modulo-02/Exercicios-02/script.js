@@ -218,6 +218,7 @@ function createElement() {
 createElement()
 */
 
+/* 
 // 8. As Organizações Tabajara resolveram dar um aumento de salário aos seus colaboradores e lhe contrataram para desenvolver um script que calculará os reajustes.
 
 // Faça um script que recebe o salário de um colaborador e o reajuste segundo o seguinte critério, baseado no salário atual:
@@ -303,27 +304,128 @@ function createElement() {
     })
 
 }
-createElement()
+createElement();
+ */
 
+
+
+
+// 9. Faça um script para o cálculo de uma folha de pagamento, sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário Líquido corresponde ao Salário Bruto menos os descontos. O script deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.
+
+//     Desconto do IR:
+//     Salário Bruto até 900 (inclusive) - isento
+//     Salário Bruto até 1500 (inclusive) - desconto de 5%
+//     Salário Bruto até 2500 (inclusive) - desconto de 10%
+//     Salário Bruto acima de 2500 - desconto de 20% Imprima na tela as informações, dispostas conforme o exemplo abaixo. No exemplo o valor da hora é 5 e a quantidade de hora é 220.
+
+// Salário Bruto: (5 * 220)        : R$ 1100,00
+// (-) IR (5%)                                : R$   55,00
+// (-) INSS ( 10%)                       : R$  110,00
+// FGTS (11%)                            : R$  121,00
+// Total de descontos                : R$  165,00
+// Salário Liquido                       : R$  935,00
+
+
+function createElement() {
+    const h2 = document.querySelector("h2");
+    h2.innerHTML = "Qual o valor da sua hora e a quantidade de horas trabalhadas no mês?"
+
+    //input valor hora
+    const inputHora = document.createElement("input");
+    inputHora.id = "inputHr";
+    inputHora.style.marginTop = "20px";
+    inputHora.style.paddingLeft = "5px";
+    inputHora.placeholder = "Valor da hora?";
+    inputHora.type = "Number";
+    document.body.appendChild(inputHora);
+
+    //input valor mês
+    const inputMes = document.createElement("input");
+    inputMes.id = "inputMes";
+    inputMes.style.marginTop = "20px";
+    inputMes.style.paddingLeft = "5px";
+    inputMes.placeholder = "Quantas horas no mês?";
+    inputMes.type = "Number";
+    document.body.appendChild(inputMes);
+
+    const btn = document.createElement("button");
+    const btnText = document.createTextNode("click");
+    btn.appendChild(btnText);
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+        calculaFolha();
+    })
+
+    const s1 = parseFloat(900.00);
+    const s2 = parseFloat(1500.00);
+    const s3 = parseFloat(2500.00);
+
+    let salarioHora;
+    let salarioMes;
+
+
+    function calculaFolha() {
+
+        let salarioHora = inputHora.value;
+        let salarioMes = inputMes.value;
+        let porcentagem;
+        let ir;
+        let calcInss;
+        let calcFgts;
+        let inss = 10;
+        let fgts = 11;
+        let totalDescontos;
+        let salarioLiquido;
+
+        let salarioBruto = (salarioHora * salarioMes);
+
+        if (salarioBruto <= s1) {
+            porcentagem = 0;
+            ir = ((porcentagem * salarioBruto) / 100);
+            calcInss = (inss * salarioBruto) / 100;
+            calcFgts = (fgts * salarioBruto) / 100;
+            totalDescontos = (ir + calcInss);
+            salarioLiquido = (salarioBruto - totalDescontos);
+
+        } else if (salarioBruto > s1 && salarioBruto <= s2) {
+            porcentagem = 5;
+            ir = ((porcentagem * salarioBruto) / 100);
+            calcInss = (inss * salarioBruto) / 100;
+            calcFgts = (fgts * salarioBruto) / 100;
+            totalDescontos = (ir + calcInss);
+            salarioLiquido = (salarioBruto - totalDescontos);
+
+        } else if (salarioBruto > s2 && salarioBruto <= s3) {
+            porcentagem = 10;
+            ir = ((porcentagem * salarioBruto) / 100);
+            calcInss = (inss * salarioBruto) / 100;
+            calcFgts = (fgts * salarioBruto) / 100;
+            totalDescontos = (ir + calcInss);
+            salarioLiquido = (salarioBruto - totalDescontos);
+
+        } else if (salarioBruto > s3) {
+            porcentagem = 20;
+            ir = ((porcentagem * salarioBruto) / 100);
+            calcInss = (inss * salarioBruto) / 100;
+            calcFgts = (fgts * salarioBruto) / 100;
+            totalDescontos = (ir + calcInss);
+            salarioLiquido = (salarioBruto - totalDescontos);
+
+        }
+
+        h2.style.fontSize = "24px";
+        h2.innerHTML = `Salário Bruto: R$ ${salarioBruto.toFixed(2)}<br>
+        (-)IR (${porcentagem}%): R$ ${ir.toFixed(2)}<br>
+        (-)INSS (${inss}%): R$ ${calcInss.toFixed(2)}<br>
+        FGTS (${fgts}%): R$ ${calcFgts.toFixed(2)}<br>
+        Total de descontos: R$ ${totalDescontos.toFixed(2)}<br>
+        Salário Liquido: ${salarioLiquido.toFixed(2)}`;
+    }
+}
+createElement();
 
 /* 
-
-9. Faça um script para o cálculo de uma folha de pagamento, sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário Líquido corresponde ao Salário Bruto menos os descontos. O script deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.
-
-    Desconto do IR:
-    Salário Bruto até 900 (inclusive) - isento
-    Salário Bruto até 1500 (inclusive) - desconto de 5%
-    Salário Bruto até 2500 (inclusive) - desconto de 10%
-    Salário Bruto acima de 2500 - desconto de 20% Imprima na tela as informações, dispostas conforme o exemplo abaixo. No exemplo o valor da hora é 5 e a quantidade de hora é 220.
-
-    Salário Bruto: (5 * 220)        : R$ 1100,00
-    (-) IR (5%)                                : R$   55,00
-    (-) INSS ( 10%)                       : R$  110,00
-    FGTS (11%)                            : R$  121,00
-    Total de descontos                : R$  165,00
-    Salário Liquido                       : R$  935,00
-
-
 10. Faça um script que leia um número e exiba o dia correspondente da semana. (1-Domingo, 2- Segunda, etc.), se digitar outro valor deve aparecer valor inválido.
 
 
