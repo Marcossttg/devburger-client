@@ -422,7 +422,7 @@ function createElement() {
 createElement(); 
 */
 
-
+/* 
 // 10. Faça um script que leia um número e exiba o dia correspondente da semana. (1-Domingo, 2- Segunda, etc.), se digitar outro valor deve aparecer valor inválido.
 
 function createElement() {
@@ -488,32 +488,296 @@ function createElement() {
         // }
     })
 }
-createElement()
+createElement(); 
+*/
 
 /* 
-11. Faça um script que lê as duas notas parciais obtidas por um aluno numa disciplina ao longo de um semestre, e calcule a sua média. A atribuição de conceitos obedece à tabela abaixo:
+// 11. Faça um script que lê as duas notas parciais obtidas por um aluno numa disciplina ao longo de um semestre, e calcule a sua média. A atribuição de conceitos obedece à tabela abaixo:
 
-      Média de Aproveitamento  Conceito
-      Entre 9.0 e 10.0                      A
-      Entre 7.5 e 9.0                        B
-      Entre 6.0 e 7.5                        C
-      Entre 4.0 e 6.0                        D
-      Entre 4.0 e zero                      E
-    O algoritmo deve mostrar numa janela de alert as notas, a média, o conceito correspondente e a mensagem “APROVADO” se o conceito for A, B ou C ou “REPROVADO” se o conceito for D ou E.
+//       Média de Aproveitamento  Conceito
+//       Entre 9.0 e 10.0                      A
+//       Entre 7.5 e 9.0                        B
+//       Entre 6.0 e 7.5                        C
+//       Entre 4.0 e 6.0                        D
+//       Entre 4.0 e zero                      E
+//     O algoritmo deve mostrar numa janela de alert as notas, a média, o conceito correspondente e a mensagem “APROVADO” se o conceito for A, B ou C ou “REPROVADO” se o conceito for D ou E.
+
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.innerHTML = `Digite 2 notas para calcular sua média!`;
+
+    const input1 = document.createElement("input");
+    input1.style.marginTop = "20px";
+    input1.style.paddingLeft = "5px";
+    input1.type = "Number";
+    input1.placeholder = "Primeira Nota?"
+    input1.id = "input1";
+    document.body.appendChild(input1);
+
+    const input2 = document.createElement("input");
+    input2.style.marginTop = "20px";
+    input2.style.paddingLeft = "5px";
+    input2.type = "Number";
+    input2.placeholder = "Segunda Nota?"
+    input2.id = "input2";
+    document.body.appendChild(input2);
+
+    const btn = document.createElement("button");
+    const btnText = document.createTextNode("click");
+    btn.appendChild(btnText);
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+        const n1 = input1.value;
+        const n2 = input2.value;
+
+        function calculaMedia() {
+            let media = (Number(n1) + Number(n2)) / 2;
+            return media;
+        }
+
+        function mostraMedia() {
+            let media = calculaMedia();
+
+            const mdAprovado1 = 9.0;
+            const mdAprovado2 = 7.5;
+            const mdAprovado3 = 6.0;
+
+            const mdReprovado1 = 4.0;
+            const mdReprovado2 = 0;
+
+            const conceitoA = 'A';
+            const conceitoB = 'B';
+            const conceitoC = 'C';
+            const conceitoD = 'D';
+            const conceitoE = 'E';
+
+            let conceito;
+
+            function atualizarResultado(media, conceito, status) {
+                h2.style.fontSize = "32px";
+                h2.innerHTML = `Você foi: “${status}” <br>
+                Sua Média é: ${media} <br> Sua Nota é: ${conceito}`;
+            }
+
+            if (media >= mdAprovado1 && media <= 10.0) {
+
+                atualizarResultado(media, conceitoA, "APROVADO");
+
+            } else if (media >= mdAprovado2 && media <= mdAprovado1) {
+
+                atualizarResultado(media, conceitoB, "APROVADO");
+
+            } else if (media >= mdAprovado3 && media <= mdAprovado2) {
+
+                atualizarResultado(media, conceitoC, "APROVADO");
+
+            } else if (media >= mdReprovado1 && media <= mdAprovado3) {
+
+                atualizarResultado(media, conceitoD, "REPROVADO");
+
+            } else if (media >= mdReprovado2 && media <= mdReprovado1) {
+
+                atualizarResultado(media, conceitoE, "REPROVADO");
+            }
+        }
+        mostraMedia()
+    })
+}
+createElement();
+*/
+
+/* 
+correção da ia
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.innerHTML = `Digite 2 notas para calcular sua média!`;
+    const input1 = criarInput("Primeira Nota?");
+    const input2 = criarInput("Segunda Nota?");
+    const btn = criarBotao();
+    btn.addEventListener("click", () => {
+        const n1 = input1.value;
+        const n2 = input2.value;
+        if (n1 === "" || n2 === "" || isNaN(n1) || isNaN(n2)) {
+            alert("Por favor, insira duas notas válidas.");
+            return;
+        }
+        const media = calculaMedia(n1, n2);
+        mostraMedia(media);
+    });
+}
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.style.paddingLeft = "5px";
+    input.type = "Number";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+function criarBotao() {
+    const btn = document.createElement("button");
+    const btnText = document.createTextNode("click");
+    btn.appendChild(btnText);
+    document.body.appendChild(btn);
+    return btn;
+}
+function calculaMedia(n1, n2) {
+    return (Number(n1) + Number(n2)) / 2;
+}
+function mostraMedia(media) {
+    const mdAprovado1 = 9.0;
+    const mdAprovado2 = 7.5;
+    const mdAprovado3 = 6.0;
+    const mdReprovado1 = 4.0;
+    const mdReprovado2 = 0;
+    const conceitoA = 'A';
+    const conceitoB = 'B';
+    const conceitoC = 'C';
+    const conceitoD = 'D';
+    const conceitoE = 'E';
+    let conceito;
+    let status;
+    if (media >= mdAprovado1 && media <= 10.0) {
+        conceito = conceitoA;
+        status = "APROVADO";
+    } else if (media >= mdAprovado2 && media <= mdAprovado1) {
+        conceito = conceitoB;
+        status = "APROVADO";
+    } else if (media >= mdAprovado3 && media <= mdAprovado2) {
+        conceito = conceitoC;
+        status = "APROVADO";
+    } else if (media >= mdReprovado1 && media <= mdAprovado3) {
+        conceito = conceitoD;
+        status = "REPROVADO";
+    } else if (media >= mdReprovado2 && media <= mdReprovado1) {
+        conceito = conceitoE;
+        status = "REPROVADO";
+    }
+    atualizarResultado(media, conceito, status);
+}
+function atualizarResultado(media, conceito, status) {
+    let h2 = document.querySelector("h2");
+    h2.style.fontSize = "32px";
+    h2.innerHTML = `Você foi: “${status}” <br>
+                    Sua Média é: ${media} <br> Sua Nota é: ${conceito}`;
+}
+createElement(); 
+*/
+
+/* 
+// 12. Faça um script que peça os 3 lados de um triângulo. O script deverá informar se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno.
+
+//     Dicas:
+//     Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
+//     Triângulo Equilátero: três lados iguais;
+//     Triângulo Isósceles: quaisquer dois lados iguais;
+//     Triângulo Escaleno: três lados diferentes;
+
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.textContent = `Digite 3 números para saber se é um triangulo.`
+
+    const input = criarInput("Digite três número:");
+
+    const btn = criarButton();
+
+    btn.addEventListener("click", () => {
+        let inputN = input.value;
+        let valores = inputN.split(',');
+
+        valores = valores.map(Number);
+
+        let [a, b, c] = valores;
+
+        if (valores.length !== 3) {
+            h2.innerHTML = 'Por favor, insira exatamente três valores.';
+            return;
+        }
+
+        if (a === b && b === c) {
+            h2.innerHTML = 'Triângulo Equilátero';
+        } else if (a === b || b === c || a === c) {
+            h2.innerHTML = 'Triângulo Isósceles';
+        } else {
+            h2.innerHTML = 'Triângulo Escaleno';
+        }
+    })
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.style.paddingLeft = "5px";
+    input.type = "text";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarButton() {
+    const btn = document.createElement("button");
+    const btnText = document.createTextNode("Click");
+    btn.appendChild(btnText);
+    document.body.appendChild(btn);
+    return btn;
+}
+
+createElement(); 
+*/
 
 
-12. Faça um script que peça os 3 lados de um triângulo. O script deverá informar se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno.
+// 13. Faça um script que calcule as raízes de uma equação do segundo grau, na forma ax² + bx + c. O script deverá pedir os valores de a, b e c e fazer os testes necessários.
 
-    Dicas:
-    Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
-    Triângulo Equilátero: três lados iguais;
-    Triângulo Isósceles: quaisquer dois lados iguais;
-    Triângulo Escaleno: três lados diferentes;
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.textContent = "Digite três Números";
+
+    const input = criarInput("Digite três números");
+
+    const btn = criarBotao();
+
+    btn.addEventListener("click", () => {
+        let inputNumber = input.value;
+        let valores = inputNumber.split(',');
+
+        valores = valores.map(Number);
+
+        let [a, b, c] = valores
+
+        let formula = b * b - 4 * a * c;
+
+        if (formula < 0) {
+            h2.textContent = 'A equação não tem raízes reais';
+        } else {
+            let raiz1 = (-b + Math.sqrt(formula)) / (2 * a);
+            let raiz2 = (-b - Math.sqrt(formula)) / (2 * a);
+
+            h2.textContent = `As raízes da equação são ${raiz1.toFixed(2)} e ${raiz2.toFixed(2)}`;
+        }
+
+    })
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarBotao() {
+    const btn = document.createElement("button");
+    const btnText = document.createTextNode("click");
+    btn.appendChild(btnText);
+    document.body.appendChild(btn);
+    return btn;
+}
+createElement();
 
 
-13. Faça um script que calcule as raízes de uma equação do segundo grau, na forma ax² + bx + c. O script deverá pedir os valores de a, b e c e fazer os testes necessários.
-
-
+/*
 14. Faça um script que peça um número correspondente a um determinado ano e em seguida informe se este ano é ou não bissexto.
 
 
