@@ -726,7 +726,7 @@ function criarButton() {
 createElement(); 
 */
 
-
+/* 
 // 13. Faça um script que calcule as raízes de uma equação do segundo grau, na forma ax² + bx + c. O script deverá pedir os valores de a, b e c e fazer os testes necessários.
 
 function createElement() {
@@ -775,12 +775,50 @@ function criarBotao() {
     return btn;
 }
 createElement();
+*/
+
+// 14. Faça um script que peça um número correspondente a um determinado ano e em seguida informe se este ano é ou não bissexto.
+
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.textContent = "Digite um ano para saber se o ano é ou não bissexto.";
+
+    const input = criarInput("Digite um ano:");
+
+    const btn = criarBtn();
+
+    btn.addEventListener("click", () => {
+        let inputAno = input.value;
+
+        if (inputAno % 4 == 0 && inputAno % 100 != 0 || inputAno % 400 == 0) {
+            h2.textContent = `Este ano ${inputAno} é bissexto.
+            `;
+        } else {
+            h2.textContent = `Este ano ${inputAno} não bissexto.
+            `;
+        }
+    });
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarBtn() {
+    const btn = document.createElement("button")
+    const btnText = document.createTextNode("click");
+    btn.appendChild(btnText);
+    document.body.appendChild(btn);
+    return btn;
+}
+createElement();
 
 
 /*
-14. Faça um script que peça um número correspondente a um determinado ano e em seguida informe se este ano é ou não bissexto.
-
-
 15. Faça um script que peça uma data no formato dd/mm/aaaa e determine se a mesma é uma data válida.
 
 16. Faça um script que peça um número inteiro e determine se ele é par ou ímpar.
