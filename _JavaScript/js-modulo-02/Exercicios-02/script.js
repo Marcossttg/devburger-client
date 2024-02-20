@@ -777,6 +777,7 @@ function criarBotao() {
 createElement();
 */
 
+/* 
 // 14. Faça um script que peça um número correspondente a um determinado ano e em seguida informe se este ano é ou não bissexto.
 
 function createElement() {
@@ -816,11 +817,53 @@ function criarBtn() {
     return btn;
 }
 createElement();
+*/
+
+
+// 15. Faça um script que peça uma data no formato dd/mm/aaaa e determine se a mesma é uma data válida.
+function createElement() {
+    let h2 = document.querySelector("h2");
+    h2.textContent = "Digite uma data no formato dd/mm/aaaa.";
+    const input = criarInput("Digite uma data:");
+    const btn = criarBtn();
+
+    btn.addEventListener("click", () => {
+        const inputAno = input.value;
+        let anoPartes = inputAno.split("/");
+
+        let dia = parseInt(anoPartes[0], 10);
+        let mes = parseInt(anoPartes[1], 10) - 1;
+        let ano = parseInt(anoPartes[2], 10);
+
+        let dataCompleta = new Date(ano, mes, dia);
+
+        if (dataCompleta.getFullYear() == ano && dataCompleta.getMonth() == mes && dataCompleta.getDate() == dia) {
+            h2.textContent = " É uma data válida.";
+        } else {
+            h2.textContent = " Não é uma data válida.";
+        }
+    })
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarBtn() {
+    const btn = document.createElement("button");
+    const btnText = document.createTextNode("click");
+    btn.appendChild(btnText);
+    document.body.appendChild(btn);
+    return btn;
+}
+createElement();
 
 
 /*
-15. Faça um script que peça uma data no formato dd/mm/aaaa e determine se a mesma é uma data válida.
-
 16. Faça um script que peça um número inteiro e determine se ele é par ou ímpar.
 Dica: utilize o operador módulo (resto da divisão): %
 
