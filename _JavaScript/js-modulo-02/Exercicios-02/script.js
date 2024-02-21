@@ -819,7 +819,7 @@ function criarBtn() {
 createElement();
 */
 
-
+/* 
 // 15. Faça um script que peça uma data no formato dd/mm/aaaa e determine se a mesma é uma data válida.
 function createElement() {
     let h2 = document.querySelector("h2");
@@ -861,13 +861,48 @@ function criarBtn() {
     return btn;
 }
 createElement();
+*/
 
+
+// 16. Faça um script que peça um número inteiro e determine se ele é par ou ímpar.
+// Dica: utilize o operador módulo (resto da divisão): %
+function criarElemento() {
+    const h2 = document.querySelector("h2");
+    h2.textContent = "Digite um Número para saber se ele é par ou ímpar!";
+
+    const input = criarInput("Digite um número?");
+
+    const btn = criarBtn();
+
+    btn.addEventListener("click", () => {
+        const n = Number(input.value);
+        if (n % 2 == 0) {
+            h2.textContent = "Número " + n + " é par";
+        } else {
+            h2.textContent = "Número " + n + " é ímpar";
+        }
+    })
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarBtn() {
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+    return btn;
+}
+
+criarElemento();
 
 /*
-16. Faça um script que peça um número inteiro e determine se ele é par ou ímpar.
-Dica: utilize o operador módulo (resto da divisão): %
-
-
 17. Faça um script que leia um número inteiro menor que 1000 e imprima a quantidade de centenas, dezenas e unidades do mesmo.
 Observando os termos no plural a colocação do "e", da vírgula entre outros. Exemplo:
 
