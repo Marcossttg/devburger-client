@@ -863,7 +863,7 @@ function criarBtn() {
 createElement();
 */
 
-
+/* 
 // 16. Faça um script que peça um número inteiro e determine se ele é par ou ímpar.
 // Dica: utilize o operador módulo (resto da divisão): %
 function criarElemento() {
@@ -900,16 +900,67 @@ function criarBtn() {
     return btn;
 }
 
+criarElemento(); 
+*/
+
+
+// 17. Faça um script que leia um número inteiro menor que 1000 e imprima a quantidade de centenas, dezenas e unidades do mesmo.
+// Observando os termos no plural a colocação do "e", da vírgula entre outros. Exemplo:
+
+// 326 = 3 centenas, 2 dezenas e 6 unidades
+// 12 = 1 dezena e 2 unidades Testar com: 326, 300, 100, 320, 310,305, 301, 101, 311, 111, 25, 20, 10, 21, 11, 1, 7 e 16
+
+function criarElemento() {
+    const h2 = document.querySelector("h2");
+    h2.textContent = "Digite um número entre 0 e 1000:";
+
+    const input = criarInput("Digite seu número:");
+    const btn = criarButton();
+
+    let numerosteste = [
+        326, 300, 100, 320, 310, 305, 301, 101,
+        311, 111, 25, 20, 10, 21, 11, 1, 7, 16
+    ]
+
+    btn.addEventListener("click", () => {
+        const input1 = input.value;
+        let n = numerosteste.sort()
+
+        for (let i = 0; i < n.length; i++) {
+            if (input1 == n[i]) {
+                let centenas = Math.floor(input1 / 100);
+                let dezenas = Math.floor((input1 % 100) / 10);
+                let unidades = input1 % 10;
+
+                h2.textContent = input1 + " = " +
+                    (centenas ? centenas + (centenas > 1 ? " centenas" : " centena") + ", " : "") +
+                    (dezenas ? dezenas + (dezenas > 1 ? " dezenas" : " dezena") + " e " : "") +
+                    (unidades ? unidades + (unidades > 1 ? " unidades" : " unidade") : "");
+            }
+        }
+    })
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement('input');
+    input.style.marginTop = '20px';
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarButton() {
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+    return btn;
+}
+
 criarElemento();
 
+
 /*
-17. Faça um script que leia um número inteiro menor que 1000 e imprima a quantidade de centenas, dezenas e unidades do mesmo.
-Observando os termos no plural a colocação do "e", da vírgula entre outros. Exemplo:
-
-326 = 3 centenas, 2 dezenas e 6 unidades
-12 = 1 dezena e 2 unidades Testar com: 326, 300, 100, 320, 310,305, 301, 101, 311, 111, 25, 20, 10, 21, 11, 1, 7 e 16
-
-
 18. Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas existentes na máquina.
 
  Exemplo: Para sacar a quantia de 256 reais, o script fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
