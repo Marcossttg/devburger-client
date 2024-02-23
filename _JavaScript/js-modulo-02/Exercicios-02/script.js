@@ -903,7 +903,7 @@ function criarBtn() {
 criarElemento(); 
 */
 
-
+/* 
 // 17. Faça um script que leia um número inteiro menor que 1000 e imprima a quantidade de centenas, dezenas e unidades do mesmo.
 // Observando os termos no plural a colocação do "e", da vírgula entre outros. Exemplo:
 
@@ -958,19 +958,52 @@ function criarButton() {
 }
 
 criarElemento();
+*/
 
+
+/* // 18. Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas existentes na máquina.
+
+//  Exemplo: Para sacar a quantia de 256 reais, o script fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
+//  Exemplo: Para sacar a quantia de 399 reais, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+*/
+
+
+
+// 19.Faça um script que peça um número e informe se o número é inteiro ou decimal. Dica: utilize uma função de arredondamento.
+
+function criarElemento() {
+    const h2 = document.querySelector("h2");
+    h2.textContent = "Digite um número"
+    const input = criarInput("Digite");
+    const btn = criarBtn();
+
+    btn.addEventListener("click", () => {
+        let n = input.value;
+        if (Math.round(n) == n) {
+            h2.innerHTML = "O número " + n + " é inteiro.";
+        } else {
+            h2.innerHTML = "O número " + n + " é decimal.";
+        }
+    })
+}
+function criarBtn() {
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+    return btn;
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+criarElemento();
 
 /*
-18. Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas existentes na máquina.
-
- Exemplo: Para sacar a quantia de 256 reais, o script fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
- Exemplo: Para sacar a quantia de 399 reais, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
-
-
-
-19.Faça um script que peça um número e informe se o número é inteiro ou decimal. Dica: utilize uma função de arredondamento.
-
-
 20. Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
 
     par ou ímpar;
