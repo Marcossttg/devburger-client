@@ -1005,7 +1005,7 @@ function criarInput(placeholder) {
 criarElemento(); 
 */
 
-
+/* 
 // 20. Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
 
 //     par ou ímpar;
@@ -1075,17 +1075,91 @@ function criarBtn() {
 }
 
 criarElemento();
+*/
 
+
+// 21. Faça um script que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
+//     "Telefonou para a vítima?"
+//     "Esteve no local do crime?"
+//     "Mora perto da vítima?"
+//     "Devia para a vítima?"
+//     "Já trabalhou com a vítima?" O script deve no final emitir uma classificação sobre a participação da pessoa no crime. Se a pessoa responder positivamente a 2 questões ela deve ser classificada como "Suspeita", entre 3 e 4 como "Cúmplice" e 5 como "Assassino". Caso contrário, ele será classificado como "Inocente".
+
+function criarElemento() {
+    const h2 = document.querySelector("h2");
+    h2.innerHTML = `Responda as perguntas com 's' para sim ou 'n' para não.<br> 
+    Vamos começar?`
+
+    const input = criarInput("Ex: 's' ou 'n'");
+
+    const btn = criarBtn();
+
+    const perguntas = [
+        "Telefonou para a vítima", "Esteve no local do crime",
+        "Mora perto da vítima", "Devia para a vítima",
+        "Já trabalhou com a vítima"
+    ]
+
+    let perguntasAtual = -1;
+    let contagem = 0;
+
+    btn.addEventListener("click", () => {
+        const resposta = input.value.toLowerCase();
+        if (resposta === 's') {
+            contagem++;
+        }
+        perguntasAtual++;
+
+        if (perguntasAtual < perguntas.length) {
+            h2.innerHTML = perguntas[perguntasAtual];
+            input.value = '';
+        } else {
+            let classificacao;
+            if (contagem < 3) {
+                classificacao = "Inocente";
+            } else if (contagem === 3) {
+                classificacao = "Suspeita";
+            } else if (contagem >= 4 && contagem <= 5) {
+                classificacao = "Cúmplice";
+            } else if (contagem === 6) {
+                classificacao = "Assassino";
+            }
+            h2.innerHTML = `Você é classificado como: ${classificacao}`;
+        }
+
+        function pegandoValor() {
+            const resposta = input.value.split(',');
+            console.log(resposta);
+
+            const r1 = resposta[0];
+            const r2 = resposta[1];
+
+            console.log(r1);
+            return { r1, r2: r2 || "" };
+        }
+        pegandoValor();
+    })
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarBtn() {
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+    return btn;
+}
+
+criarElemento();
 
 /*
-21. Faça um script que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
-    "Telefonou para a vítima?"
-    "Esteve no local do crime?"
-    "Mora perto da vítima?"
-    "Devia para a vítima?"
-    "Já trabalhou com a vítima?" O script deve no final emitir uma classificação sobre a participação da pessoa no crime. Se a pessoa responder positivamente a 2 questões ela deve ser classificada como "Suspeita", entre 3 e 4 como "Cúmplice" e 5 como "Assassino". Caso contrário, ele será classificado como "Inocente".
-
-
 22. Um posto está vendendo combustíveis com a seguinte tabela de descontos:
     Álcool: até 20 litros, desconto de 3% por litro
     acima de 20 litros, desconto de 5% por litro
