@@ -159,7 +159,7 @@ function exibir() {
 console.log(exibir())
 */
 
-/* 
+/*
 //7. Faça um script que pergunte em que turno você estuda. Peça para digitar
 //M-matutino ou V-Vespertino ou N- Noturno. Imprima a mensagem "Bom Dia!",
 //"Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
@@ -196,7 +196,7 @@ function createElement() {
             h2.innerText = "Valor Inválido!";
         }
 
-                
+
         // switch (input.value.toLowerCase()) {
         // case matutino:
         //     h2.innerText = "Bom Dia!";
@@ -211,14 +211,14 @@ function createElement() {
         //     break;
         // default:
         //     h2.innerText = "Valor Inválido!";
-        // } 
-       
+        // }
+
     })
 }
 createElement()
 */
 
-/* 
+/*
 // 8. As Organizações Tabajara resolveram dar um aumento de salário aos seus colaboradores e lhe contrataram para desenvolver um script que calculará os reajustes.
 
 // Faça um script que recebe o salário de um colaborador e o reajuste segundo o seguinte critério, baseado no salário atual:
@@ -253,7 +253,7 @@ function createElement() {
     const s3 = parseFloat(1500.00).toFixed(2);
 
     const au5 = 0.05; //igual a 5%
-    const au10 = 0.10; //igual a 10% 
+    const au10 = 0.10; //igual a 10%
     const au15 = 0.15;
     const au20 = 0.20;
 
@@ -306,7 +306,7 @@ function createElement() {
 createElement();
 */
 
-/* 
+/*
 // 9. Faça um script para o cálculo de uma folha de pagamento, sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário Líquido corresponde ao Salário Bruto menos os descontos. O script deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.
 
 //     Desconto do IR:
@@ -419,10 +419,10 @@ function createElement() {
         Salário Liquido: ${salarioLiquido.toFixed(2)}`;
     }
 }
-createElement(); 
+createElement();
 */
 
-/* 
+/*
 // 10. Faça um script que leia um número e exiba o dia correspondente da semana. (1-Domingo, 2- Segunda, etc.), se digitar outro valor deve aparecer valor inválido.
 
 function createElement() {
@@ -488,10 +488,10 @@ function createElement() {
         // }
     })
 }
-createElement(); 
+createElement();
 */
 
-/* 
+/*
 // 11. Faça um script que lê as duas notas parciais obtidas por um aluno numa disciplina ao longo de um semestre, e calcule a sua média. A atribuição de conceitos obedece à tabela abaixo:
 
 //       Média de Aproveitamento  Conceito
@@ -587,7 +587,7 @@ function createElement() {
 createElement();
 */
 
-/* 
+/*
 correção da ia
 function createElement() {
     let h2 = document.querySelector("h2");
@@ -662,10 +662,10 @@ function atualizarResultado(media, conceito, status) {
     h2.innerHTML = `Você foi: “${status}” <br>
                     Sua Média é: ${media} <br> Sua Nota é: ${conceito}`;
 }
-createElement(); 
+createElement();
 */
 
-/* 
+/*
 // 12. Faça um script que peça os 3 lados de um triângulo. O script deverá informar se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno.
 
 //     Dicas:
@@ -723,10 +723,10 @@ function criarButton() {
     return btn;
 }
 
-createElement(); 
+createElement();
 */
 
-/* 
+/*
 // 13. Faça um script que calcule as raízes de uma equação do segundo grau, na forma ax² + bx + c. O script deverá pedir os valores de a, b e c e fazer os testes necessários.
 
 function createElement() {
@@ -777,7 +777,7 @@ function criarBotao() {
 createElement();
 */
 
-/* 
+/*
 // 14. Faça um script que peça um número correspondente a um determinado ano e em seguida informe se este ano é ou não bissexto.
 
 function createElement() {
@@ -819,7 +819,7 @@ function criarBtn() {
 createElement();
 */
 
-/* 
+/*
 // 15. Faça um script que peça uma data no formato dd/mm/aaaa e determine se a mesma é uma data válida.
 function createElement() {
     let h2 = document.querySelector("h2");
@@ -863,7 +863,7 @@ function criarBtn() {
 createElement();
 */
 
-/* 
+/*
 // 16. Faça um script que peça um número inteiro e determine se ele é par ou ímpar.
 // Dica: utilize o operador módulo (resto da divisão): %
 function criarElemento() {
@@ -900,10 +900,10 @@ function criarBtn() {
     return btn;
 }
 
-criarElemento(); 
+criarElemento();
 */
 
-/* 
+/*
 // 17. Faça um script que leia um número inteiro menor que 1000 e imprima a quantidade de centenas, dezenas e unidades do mesmo.
 // Observando os termos no plural a colocação do "e", da vírgula entre outros. Exemplo:
 
@@ -968,7 +968,7 @@ criarElemento();
 */
 
 
-/* 
+/*
 // 19.Faça um script que peça um número e informe se o número é inteiro ou decimal. Dica: utilize uma função de arredondamento.
 
 function criarElemento() {
@@ -1002,10 +1002,10 @@ function criarInput(placeholder) {
     document.body.appendChild(input);
     return input;
 }
-criarElemento(); 
+criarElemento();
 */
 
-/* 
+/*
 // 20. Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
 
 //     par ou ímpar;
@@ -1077,7 +1077,7 @@ function criarBtn() {
 criarElemento();
 */
 
-
+/*
 // 21. Faça um script que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
 //     "Telefonou para a vítima?"
 //     "Esteve no local do crime?"
@@ -1087,7 +1087,7 @@ criarElemento();
 
 function criarElemento() {
     const h2 = document.querySelector("h2");
-    h2.innerHTML = `Responda as perguntas com 's' para sim ou 'n' para não.<br> 
+    h2.innerHTML = `Responda as perguntas com 's' para sim ou 'n' para não.<br>
     Vamos começar?`
 
     const input = criarInput("Ex: 's' ou 'n'");
@@ -1158,17 +1158,127 @@ function criarBtn() {
 }
 
 criarElemento();
+*/
+
+
+// 22. Um posto está vendendo combustíveis com a seguinte tabela de descontos:
+//     Álcool: até 20 litros, desconto de 3% por litro
+//     acima de 20 litros, desconto de 5% por litro
+
+//     Gasolina:
+//     até 20 litros, desconto de 4% por litro
+//     acima de 20 litros, desconto de 6% por litro Escreva um algoritmo que leia o número de litros vendidos, o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,50 o preço do litro do álcool é R$ 1,90.
+
+// Função principal que cria os elementos na página e adiciona a funcionalidade do botão
+function criarElemento() {
+    // Seleciona o elemento h2 na página
+    const h2 = document.querySelector("h2");
+    // Define o conteúdo do h2
+    h2.innerHTML = `Quantos litros e qual tipo de combustível você vai abastecer? <br>
+    A-álcool, R$ 1,90 por litro. <br>
+    G-gasolina, R$ 2,50 por litro.`;
+
+    // Cria um campo de entrada para o usuário inserir a quantidade de litros e o tipo de combustível
+    const input = criarInput("EX: 10L, G");
+    // Cria um botão que o usuário pode clicar para calcular o preço
+    const btn = criarBtn();
+
+    // Adiciona um ouvinte de evento ao botão para que, quando o usuário clicar nele, a função seja executada
+    btn.addEventListener("click", () => {
+
+        // Função para pegar o valor do campo de entrada e dividir em litros e tipo de combustível
+        function pegandoValor() {
+            const inputValor = input.value.split(',');
+
+            const litros = parseFloat(inputValor[0]);  //litros
+            const tipo = inputValor[1];  //tipo
+
+            return { litros, tipo };
+        }
+
+        // Define os produtos disponíveis e seus preços
+        const produtos = [
+            { tipo: "a", preco: 1.90 },  //tipo / preco
+            { tipo: "g", preco: 2.50 }
+        ];
+
+        // Define os descontos disponíveis
+        const descontos = [
+            3, 4, 5, 6
+        ];
+
+        // Encontra o produto que corresponde ao tipo de combustível escolhido pelo usuário
+        let findProduto = produtos.find((produto) => produto.tipo === pegandoValor().tipo);
+
+        // Inicializa as variáveis que serão usadas para calcular o preço final, o tipo de combustível e o valor do desconto
+        let precoFinal;
+        let tipoConbustivel;
+        let valorDesconto;
+        // Verifica se o produto foi encontrado
+        if (findProduto) {
+            // Primeiro, pegamos a quantidade de litros que o cliente quer abastecer
+            const litrosAbastecidos = pegandoValor().litros;
+
+            // Em seguida, verificamos se a quantidade de litros é menor ou igual a 20
+            if (litrosAbastecidos <= 20) {
+                // Se for menor ou igual a 20, aplicamos o desconto correspondente
+                if (findProduto.tipo === 'a') {
+                    // Se o combustível for álcool, aplicamos um desconto de 3%
+                    precoFinal = litrosAbastecidos * findProduto.preco * (1 - descontos[0] / 100);
+                    tipoConbustivel = "Álcool";
+                    valorDesconto = litrosAbastecidos * findProduto.preco - precoFinal;
+                } else {
+                    // Se o combustível for gasolina, aplicamos um desconto de 4%
+                    precoFinal = litrosAbastecidos * findProduto.preco * (1 - descontos[1] / 100);
+                    tipoConbustivel = "Gasolina";
+                    valorDesconto = litrosAbastecidos * findProduto.preco - precoFinal;
+                }
+            } else {
+                // Se a quantidade de litros for maior que 20, aplicamos um desconto maior
+                if (findProduto.tipo === 'a') {
+                    // Se o combustível for álcool, aplicamos um desconto de 5%
+                    precoFinal = litrosAbastecidos * findProduto.preco * (1 - descontos[2] / 100);
+                    tipoConbustivel = "Álcool";
+                    valorDesconto = litrosAbastecidos * findProduto.preco - precoFinal;
+                } else {
+                    // Se o combustível for gasolina, aplicamos um desconto de 6%
+                    precoFinal = litrosAbastecidos * findProduto.preco * (1 - descontos[3] / 100);
+                    tipoConbustivel = "Gasolina";
+                    valorDesconto = litrosAbastecidos * findProduto.preco - precoFinal;
+                }
+            }
+            // Atualiza o conteúdo do h2 para mostrar o preço final, o tipo de combustível e o valor do desconto
+            h2.innerHTML = `O valor a ser pago é R$ ${precoFinal.toFixed(2)}. <br>
+            O tipo de combustível é ${tipoConbustivel}. <br>
+            O valor do desconto foi de R$ ${valorDesconto.toFixed(2)}.`;
+        }
+
+    })
+
+}
+
+// Função para criar um campo de entrada
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+// Função para criar um botão
+function criarBtn() {
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+    return btn;
+}
+
+// Chama a função principal para iniciar o programa
+criarElemento();
 
 /*
-22. Um posto está vendendo combustíveis com a seguinte tabela de descontos:
-    Álcool: até 20 litros, desconto de 3% por litro
-    acima de 20 litros, desconto de 5% por litro
-
-    Gasolina:
-    até 20 litros, desconto de 4% por litro
-    acima de 20 litros, desconto de 6% por litro Escreva um algoritmo que leia o número de litros vendidos, o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,50 o preço do litro do álcool é R$ 1,90.
-
-
 23. Uma fruteira está vendendo frutas com a seguinte tabela de preços:
                           Até 5 Kg                 Acima de 5 Kg
     Morango         R$ 2,50 por Kg          R$ 2,20 por Kg
