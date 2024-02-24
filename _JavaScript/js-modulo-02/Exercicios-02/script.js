@@ -1,5 +1,5 @@
 //# Exercícios Módulo 2
-/*
+
 //1. Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
 
 function createElement() {//Criando uma função que vai criar um botão, input, texto.
@@ -31,6 +31,7 @@ function createElement() {//Criando uma função que vai criar um botão, input,
     document.body.appendChild(btn);//Aqui estamos adicionando o botão no body do HTML
 }
 createElement()//Chamado a função que vai criar um input e um botão;
+/*
 */
 
 //2. Escreva um programa que calcule o resto da divisão entre dois números inteiros
@@ -960,11 +961,68 @@ function criarButton() {
 criarElemento();
 */
 
-
-/* // 18. Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas existentes na máquina.
+/* 
+// 18. Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas existentes na máquina.
 
 //  Exemplo: Para sacar a quantia de 256 reais, o script fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
 //  Exemplo: Para sacar a quantia de 399 reais, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+function criarElemento() {
+    const h2 = document.querySelector("h2");
+    h2.innerHTML = `Qual o valor que você deseja sacar? <br>
+    Notas disponíveis: 1, 5, 10, 50 e 100 reais. <br>
+    Valor mínimo: 10 reais. Valor máximo: 600 reais.`;
+
+    const input = criarInput("EX: 256");
+    const btn = criarBtn();
+
+    btn.addEventListener("click", () => {
+
+        function pegandoValor() {
+            const valorSaque = parseFloat(input.value);  // valor do saque
+
+            return valorSaque;
+        }
+
+        const notas = [100, 50, 10, 5, 1];
+        let valorSaque = pegandoValor();
+        let saque = {};
+
+        if (valorSaque < 10 || valorSaque > 600) {
+            h2.innerHTML = `Valor inválido para saque. Tente novamente.`;
+            return;
+        }
+
+        for (let nota of notas) {
+            saque[nota] = Math.floor(valorSaque / nota);
+            valorSaque %= nota;
+        }
+
+        h2.innerHTML = `Você receberá: <br>
+        Notas de 100: ${saque[100]} <br>
+        Notas de 50: ${saque[50]} <br>
+        Notas de 10: ${saque[10]} <br>
+        Notas de 5: ${saque[5]} <br>
+        Notas de 1: ${saque[1]}`;
+    })
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarBtn() {
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+    return btn;
+}
+
+criarElemento();
 */
 
 
@@ -1160,7 +1218,7 @@ function criarBtn() {
 criarElemento();
 */
 
-
+/* 
 // 22. Um posto está vendendo combustíveis com a seguinte tabela de descontos:
 //     Álcool: até 20 litros, desconto de 3% por litro
 //     acima de 20 litros, desconto de 5% por litro
@@ -1252,9 +1310,172 @@ function criarElemento() {
             O tipo de combustível é ${tipoConbustivel}. <br>
             O valor do desconto foi de R$ ${valorDesconto.toFixed(2)}.`;
         }
-
     })
+}
 
+// Função para criar um campo de entrada
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+// Função para criar um botão
+function criarBtn() {
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+    return btn;
+}
+
+// Chama a função principal para iniciar o programa
+criarElemento(); 
+*/
+
+/* 
+// 23. Uma fruteira está vendendo frutas com a seguinte tabela de preços:
+//                           Até 5 Kg                 Acima de 5 Kg
+//     Morango         R$ 2,50 por Kg          R$ 2,20 por Kg
+//     Maçã              R$ 1,80 por Kg          R$ 1,50 por Kg
+//     Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá ainda um desconto de 10% sobre este total. Escreva um algoritmo para ler a quantidade (em Kg) de morangos e a quantidade (em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente.
+function criarElemento() {
+    const h2 = document.querySelector("h2");
+    h2.innerHTML = `Quantos Kg de morangos e maçãs você vai comprar? <br>
+    Morango: R$ 2,50 por Kg. Acima de 5 Kg, R$ 2,20 por Kg. <br>
+    Maçã: R$ 1,80 por Kg. Acima de 5 Kg, R$ 1,50 por Kg.`;
+
+    const input = criarInput("EX: 3Kg Morango, 6Kg Maçã");
+    const btn = criarBtn();
+
+    btn.addEventListener("click", () => {
+
+        function pegandoValor() {
+            const inputValor = input.value.split(',');
+
+            const morangoKg = parseFloat(inputValor[0]);  // Kg de morangos
+            const macaKg = parseFloat(inputValor[1]);  // Kg de maçãs
+
+            return { morangoKg, macaKg };
+        }
+
+        const produtos = {
+            morango: { precoMenor5Kg: 2.50, precoMaior5Kg: 2.20 },  // tipo / preço
+            maca: { precoMenor5Kg: 1.80, precoMaior5Kg: 1.50 }
+        };
+
+        let totalKg = pegandoValor().morangoKg + pegandoValor().macaKg;
+        let valorTotal = 0;
+
+        // Calcula o valor para os morangos se a quantidade for maior que zero
+        if (pegandoValor().morangoKg > 0) {
+            valorTotal += pegandoValor().morangoKg <= 5 ? pegandoValor().morangoKg * produtos.morango.precoMenor5Kg : pegandoValor().morangoKg * produtos.morango.precoMaior5Kg;
+        }
+
+        // Calcula o valor para as maçãs se a quantidade for maior que zero
+        if (pegandoValor().macaKg > 0) {
+            valorTotal += pegandoValor().macaKg <= 5 ? pegandoValor().macaKg * produtos.maca.precoMenor5Kg : pegandoValor().macaKg * produtos.maca.precoMaior5Kg;
+        }
+
+        if (totalKg > 8 || valorTotal > 25) {
+            valorTotal *= 0.9;  // Aplica o desconto de 10%
+        }
+
+        h2.innerHTML = `Você comprou ${pegandoValor().morangoKg} Kg de morangos e ${pegandoValor().macaKg} Kg de maçãs. <br>
+        O valor a ser pago é R$ ${valorTotal.toFixed(2)}.`;
+    })
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarBtn() {
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+    return btn;
+}
+
+criarElemento(); 
+*/
+
+/*
+// 24. O Hipermercado Tabajara está com uma promoção de carnes que é imperdível. Confira:
+// Até 5 Kg               Acima de 5 Kg
+// File Duplo      R$ 4,90 por Kg          R$ 5,80 por Kg
+// Alcatra           R$ 5,90 por Kg          R$ 6,80 por Kg
+// Picanha          R$ 6,90 por Kg          R$ 7,80 por Kg
+// Para atender a todos os clientes, cada cliente poderá levar apenas um dos tipos de carne da promoção, porém não há limites para a quantidade de carne por cliente. Se compra for feita no cartão Tabajara o cliente receberá ainda um desconto de 5% sobre o total a compra. Escreva um script que peça o tipo e a quantidade de carne comprada pelo usuário e gere um cupom fiscal, contendo as informações da compra: tipo e quantidade de carne, preço total, tipo de pagamento, valor do desconto e valor a pagar.
+// Função principal que cria os elementos na página e adiciona a funcionalidade do botão
+function criarElemento() {
+    // Seleciona o elemento h2 na página
+    const h2 = document.querySelector("h2");
+    // Define o conteúdo do h2
+    h2.innerHTML = `Quantos Kg de filé duplo, alcatra e picanha você vai comprar? <br>
+    Filé Duplo: Até 5 Kg, R$ 4,90 por Kg. Acima de 5 Kg, R$ 5,80 por Kg. <br>
+    Alcatra: Até 5 Kg, R$ 5,90 por Kg. Acima de 5 Kg, R$ 6,80 por Kg. <br>
+    Picanha: Até 5 Kg, R$ 6,90 por Kg. Acima de 5 Kg, R$ 7,80 por Kg.`;
+
+    const input = criarInput("EX: 3Kg Filé Duplo, Cartão Tabajara");
+
+    const btn = criarBtn();
+
+    btn.addEventListener("click", () => {
+
+        // Função para pegar o valor do campo de entrada e dividir em Kg de carne e tipo de pagamento
+        function pegandoValor() {
+            const inputValor = input.value.split(',');
+
+            const carneKg = parseFloat(inputValor[0]);  // Kg de carne
+            const tipoPagamento = inputValor[1].trim();  // tipo de pagamento
+
+            return { carneKg, tipoPagamento };
+        }
+
+        // Define os produtos disponíveis e seus preços
+        const produtos = {
+            fileDuplo: { precoMenor5Kg: 4.90, precoMaior5Kg: 5.80 },  // tipo / preço
+            alcatra: { precoMenor5Kg: 5.90, precoMaior5Kg: 6.80 },
+            picanha: { precoMenor5Kg: 6.90, precoMaior5Kg: 7.80 }
+        };
+
+        // Inicializa o valor total da compra
+        let valorTotal = 0;
+        // Inicializa o valor do desconto
+        let valorDesconto = 0;
+
+        // Calcula o valor para cada tipo de carne se a quantidade for maior que zero
+        for (let tipoCarne in produtos) {
+            if (pegandoValor().carneKg > 0) {
+                // Verifica se a quantidade de carne é menor ou igual a 5 Kg
+                // Se for, usa o preço para até 5 Kg
+                // Se for maior que 5 Kg, usa o preço para mais de 5 Kg
+                valorTotal += pegandoValor().carneKg <= 5 ? pegandoValor().carneKg * produtos[tipoCarne].precoMenor5Kg : pegandoValor().carneKg * produtos[tipoCarne].precoMaior5Kg;
+            }
+        }
+
+        // Verifica se o pagamento será feito com o cartão Tabajara
+        // Se for, aplica um desconto de 5% sobre o valor total da compra
+        if (pegandoValor().tipoPagamento.toLowerCase() === 'cartão tabajara') {
+            valorDesconto = valorTotal * 0.05;
+            valorTotal -= valorDesconto;
+        }
+
+        // Atualiza o conteúdo do h2 para mostrar a quantidade de carne comprada, o valor total, o tipo de pagamento, o valor do desconto e o valor a pagar
+        h2.innerHTML = `Você comprou ${pegandoValor().carneKg} Kg de carne. <br>
+        O valor total é R$ ${valorTotal.toFixed(2)}. <br>
+        O tipo de pagamento é ${pegandoValor().tipoPagamento}. <br>
+        O valor do desconto foi de R$ ${valorDesconto.toFixed(2)}. <br>
+        O valor a pagar é R$ ${(valorTotal - valorDesconto).toFixed(2)}.`;
+    })
 }
 
 // Função para criar um campo de entrada
@@ -1277,20 +1498,4 @@ function criarBtn() {
 
 // Chama a função principal para iniciar o programa
 criarElemento();
-
-/*
-23. Uma fruteira está vendendo frutas com a seguinte tabela de preços:
-                          Até 5 Kg                 Acima de 5 Kg
-    Morango         R$ 2,50 por Kg          R$ 2,20 por Kg
-    Maçã              R$ 1,80 por Kg          R$ 1,50 por Kg
-    Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá ainda um desconto de 10% sobre este total. Escreva um algoritmo para ler a quantidade (em Kg) de morangos e a quantidade (em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente.
-
-
-24. O Hipermercado Tabajara está com uma promoção de carnes que é imperdível. Confira:
-                          Até 5 Kg               Acima de 5 Kg
-    File Duplo      R$ 4,90 por Kg          R$ 5,80 por Kg
-    Alcatra           R$ 5,90 por Kg          R$ 6,80 por Kg
-    Picanha          R$ 6,90 por Kg          R$ 7,80 por Kg
-    Para atender a todos os clientes, cada cliente poderá levar apenas um dos tipos de carne da promoção, porém não há limites para a quantidade de carne por cliente. Se compra for feita no cartão Tabajara o cliente receberá ainda um desconto de 5% sobre o total a compra. Escreva um script que peça o tipo e a quantidade de carne comprada pelo usuário e gere um cupom fiscal, contendo as informações da compra: tipo e quantidade de carne, preço total, tipo de pagamento, valor do desconto e valor a pagar.
-
 */
