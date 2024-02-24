@@ -968,13 +968,13 @@ criarElemento();
 */
 
 
-
+/* 
 // 19.Faça um script que peça um número e informe se o número é inteiro ou decimal. Dica: utilize uma função de arredondamento.
 
 function criarElemento() {
     const h2 = document.querySelector("h2");
     h2.textContent = "Digite um número"
-    const input = criarInput("Digite");
+    const input = criarInput("Ex: 123");
     const btn = criarBtn();
 
     btn.addEventListener("click", () => {
@@ -986,6 +986,7 @@ function criarElemento() {
         }
     })
 }
+
 function criarBtn() {
     const btn = document.createElement("button");
     const textBtn = document.createTextNode("click");
@@ -1001,16 +1002,82 @@ function criarInput(placeholder) {
     document.body.appendChild(input);
     return input;
 }
+criarElemento(); 
+*/
+
+
+// 20. Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
+
+//     par ou ímpar;
+//     positivo ou negativo;
+//     inteiro ou decimal.
+function criarElemento() {
+    const h2 = document.querySelector("h2");
+    h2.textContent = "Digite 2 números";
+
+    const input = criarInput("Ex: 1, 2");
+
+    const inputOperacao = criarInput("Ex: +, -, *, /")
+
+    const btn = criarBtn();
+
+    btn.addEventListener("click", () => {
+
+        function pegandoValor() {
+            const numeros = input.value.split(',');
+
+            const n1 = numeros[0];
+            const n2 = numeros[1];
+
+            return { n1, n2 };
+        }
+
+        function criaOperacao() {
+            const op = inputOperacao.value;
+            return op
+        }
+
+        const numeros = pegandoValor();
+        const op = criaOperacao()
+        let resultado;
+        if (op == "+") {
+            resultado = Number(numeros.n1) + Number(numeros.n2);
+        } else if (op == "-") {
+            resultado = Number(numeros.n1) - Number(numeros.n2);
+        } else if (op == "*") {
+            resultado = Number(numeros.n1) * Number(numeros.n2);
+        } else if (op == "/") {
+            resultado = Number(numeros.n1) - Number(numeros.n2);
+        }
+
+        h2.innerHTML = `Você escolheu a operação de ${op} e o resultado é ${resultado}.<br>`;
+        h2.innerHTML += `O número é ${resultado % 2 === 0 ? 'par' : 'ímpar'}.<br>`;
+        h2.innerHTML += `O número é ${resultado > 0 ? 'positivo' : 'negativo'}.<br>`;
+        h2.innerHTML += `O número é ${Number.isInteger(resultado) ? 'inteiro' : 'decimal'}.`;
+
+    })
+}
+
+function criarInput(placeholder) {
+    const input = document.createElement("input");
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    document.body.appendChild(input);
+    return input;
+}
+
+function criarBtn() {
+    const btn = document.createElement("button");
+    const textBtn = document.createTextNode("click");
+    btn.appendChild(textBtn);
+    document.body.appendChild(btn);
+    return btn;
+}
+
 criarElemento();
 
+
 /*
-20. Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
-
-    par ou ímpar;
-    positivo ou negativo;
-    inteiro ou decimal.
-
-
 21. Faça um script que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
     "Telefonou para a vítima?"
     "Esteve no local do crime?"
