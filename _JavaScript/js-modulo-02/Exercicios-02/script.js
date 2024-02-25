@@ -1,7 +1,6 @@
 //# Exercícios Módulo 2
-
+/*
 //1. Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
-
 function createElement() {//Criando uma função que vai criar um botão, input, texto.
     let btn = document.createElement("button");//cria o button
     let textBtn = document.createTextNode("Clique");//cria o texto
@@ -31,7 +30,7 @@ function createElement() {//Criando uma função que vai criar um botão, input,
     document.body.appendChild(btn);//Aqui estamos adicionando o botão no body do HTML
 }
 createElement()//Chamado a função que vai criar um input e um botão;
-/*
+
 */
 
 //2. Escreva um programa que calcule o resto da divisão entre dois números inteiros
@@ -1499,3 +1498,54 @@ function criarBtn() {
 // Chama a função principal para iniciar o programa
 criarElemento();
 */
+
+/* 
+//Exercícios simples de condicional:
+// Faça o resultado ser TRUE.
+let x = 10;
+let y = 5;
+console.log(x > y);
+
+// Faça o resultado ser FALSE.
+let x = "10";
+let y = 10;
+console.log(x === y);
+
+// Faça o resultado ser TRUE.
+let r = 10;
+let i = 5;
+console.log(r != i);
+
+// Faça uma condicional para verificar se o preço barato até 35.
+let preco = 39.00;
+if (preco <= 35) {
+    console.log('Está barato')
+} else {
+    console.log('Está caro');
+}
+// let preco = 30.00;
+// let resultado = preco <= 35;
+// if (resultado) {
+//     console.log('Está barato');
+// } else {
+//     console.log('Está caro');
+// }
+*/
+
+/* 
+Calcule a porcentagem entre 2 números. 
+Exemplo: 25% de 40 é 10
+Fórmula da porcentagem: (y / x) * 100
+Uso da função:
+let x = 40;
+let y = 10;
+let pct = clacPct(x, y);
+console.log( `${pct} % de ${x} é ${y}`);
+*/
+function clacPct(x, y) {
+    return (y / x) * 100;
+}
+let x = 40;
+let y = 10;
+let pct = clacPct(x, y);
+console.log(`${pct} % de ${x} é ${y}`);
