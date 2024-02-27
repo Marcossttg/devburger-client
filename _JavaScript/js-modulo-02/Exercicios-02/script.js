@@ -1558,7 +1558,7 @@ Calcule o preço do imóvel
 -Se tiver 2 quartos, o m2 é 1.2x
 -Se tiver 3 quartos, o m3 é 1.5x
 Uso da função:
-*/
+
 let metragem = 123;
 let quartos = 3;
 
@@ -1580,3 +1580,25 @@ function calcularImovel(metragem, quartos) {
 }
 let preco = calcularImovel(metragem, quartos);
 console.log(`A casa custa R$ ${preco}`);
+*/
+
+/* Crie uma função que valide usuário e sena.
+Usuário crreto: pedro
+Senha correta: 123 
+*/
+
+let usuario = "Marcos";
+let senha = Number(123);
+function validar(usuario, senha) {
+    if (usuario === "Marcos" && senha === 123) {
+        return true;
+    } else {
+        return false
+    }
+}
+let validacao = validar(usuario, senha);
+if (validacao) {
+    console.log("Usuário Logado")
+} else {
+    console.log("Usuário não encontrado!");
+}
