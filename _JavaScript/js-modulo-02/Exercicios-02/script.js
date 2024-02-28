@@ -1,5 +1,5 @@
 //# Exercícios Módulo 2
-/*
+
 //1. Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
 function createElement() {//Criando uma função que vai criar um botão, input, texto.
     let btn = document.createElement("button");//cria o button
@@ -30,7 +30,7 @@ function createElement() {//Criando uma função que vai criar um botão, input,
     document.body.appendChild(btn);//Aqui estamos adicionando o botão no body do HTML
 }
 createElement()//Chamado a função que vai criar um input e um botão;
-
+/*
 */
 
 //2. Escreva um programa que calcule o resto da divisão entre dois números inteiros
@@ -1582,10 +1582,10 @@ let preco = calcularImovel(metragem, quartos);
 console.log(`A casa custa R$ ${preco}`);
 */
 
-/* Crie uma função que valide usuário e sena.
-Usuário crreto: pedro
-Senha correta: 123 
-*/
+/* 
+// Crie uma função que valide usuário e sena.
+// Usuário crreto: pedro
+// Senha correta: 123 
 
 let usuario = "Marcos";
 let senha = Number(123);
@@ -1602,3 +1602,116 @@ if (validacao) {
 } else {
     console.log("Usuário não encontrado!");
 }
+*/
+
+/* 
+function square(x) {
+    return x * x;
+}
+
+function addSquare(a, b) {
+    let n1 = square(a);
+    let n2 = square(b);
+    return n1 + n2;
+}
+
+console.log(addSquare(2, 3)); 
+*/
+/* 
+//Lista de Exercícios – Funções em JavaScript
+//1. Escreva uma função em JavaScript que mostre na tela a mensagem “Bom dia, Mundo!!!”.
+let msg = "Bom dia, Mundo!!!";
+function mostra() {
+    return console.log(msg);
+}
+mostra();
+
+//2. Escreva uma função que retorne o cubo de um número fornecido pelo usuário.
+let n = 2;
+function cubo(n) {
+    return n * n * n;
+}
+let res = cubo(n);
+console.log(res)
+
+
+// 3. Escreva uma função em JavaScript que realize a conversão de uma temperatura fornecida em graus Fahrenheit (F) para Celsius (C).
+Dica: para converter uma temperatura em F para C, subtraia 32 da temperatura e multiplique o resultado por 0,5556 (ou 5/9).
+let tempFa = Number(55);
+function convertFa(fahrenheit) {
+    let calculaConver = Number(32);
+    let resultConver = (fahrenheit - calculaConver) * 5 / 9;
+    return resultConver;
+}
+let celsius = (convertFa(tempFa).toFixed(2));
+console.log(celsius + " Graus Celsius");
+
+//4. Escreva uma função que retorne a área de um triângulo, a partir dos valores de base e altura fornecidos.
+let base = 12;
+let altura = 8;
+function triangulo(base, altura) {
+    let calcArea = (base * altura) / 2;
+    return calcArea;
+}
+console.log(triangulo(base, altura));
+
+
+// 5. Escreva uma função que encontre a área e o perímetro de um círculo, de acordo com o raio fornecido.
+let pI = Number(3.14); //Pi 
+let r = Number(3); //raio do centro a uma estremidade
+function calcCirculo() {
+    let area = pI * (r * r);
+    let circulo = (pI * 2) * r;
+    return { area, circulo };
+}
+let encontradoAr = calcCirculo()
+console.log("Área: " + encontradoAr.area.toFixed(2) + ", Circuferência " + encontradoAr.circulo.toFixed(2));
+
+// 6. Escreva uma função que mostre na tela um número fornecido pelo usuário, porém invertido. Por exemplo, o usuário fornece o número 875 e a função mostra na tela o número 578.
+let num = 1234
+function inverteNum(num) {
+    var inverso = 0;
+    while (num != 0) {
+        inverso = inverso * 10;
+        inverso = inverso + num % 10;
+        num = Math.trunc(num / 10); // Remover casas decimais
+    }
+    return inverso;
+}
+let most = inverteNum(875);
+console.log(most)
+
+let num1 = 1234
+
+function reverseNum(num1) {
+    return (
+        parseFloat(
+            num1
+                .toString()
+                .split('')
+                .reverse()
+                .join('')
+        ) * Math.sign(num1)
+    )
+}
+let mostra = reverseNum(num1)
+console.log(mostra)
+
+
+// 7. Escreva uma função que permita contar o número de vogais contidas em uma string fornecida pelo usuário. Por exemplo, o usuário informa a string “Beterraba”, e a função retorna o número 4 (há 4 vogais nessa palavra).
+// Obs. Ignore vogais acentuadas, para simplificar.
+let texto = "Beterraba";
+texto = texto.toLowerCase();
+function contaTexto(texto) {
+    let contador = 0;
+    for (let i = 0; i < texto.length; i++) {
+        if (texto.charAt(i) == "a" || texto.charAt(i) == "e" || texto.charAt(i) == "i"
+            || texto.charAt(i) == "o" || texto.charAt(i) == "u") {
+            contador++;
+        }
+    }
+    return contador;
+}
+let reuslt = contaTexto(texto);
+console.log(reuslt)
+*/
