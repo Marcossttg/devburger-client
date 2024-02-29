@@ -1724,6 +1724,10 @@ console.log(reuslt)
 // t = Tempo do investimento, em meses
 // Exiba o resultado com duas casas decimais. 
 
+let valorInicial = parseFloat(150);
+let TaxaJuros = parseFloat(10);
+let tempo = parseFloat(12);
+
 function calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo) {
     // converte taxa de juros
     TaxaJuros = TaxaJuros / 100;
@@ -1736,12 +1740,7 @@ function calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo) {
     return calculaTotal;
 }
 
-let valorInicial = parseFloat(150);
-let TaxaJuros = parseFloat(10);
-let tempo = parseFloat(12);
-
 // calcula da função
 let calculaTotal = calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo);
 
 console.log("O retorno do seu investimento será: " + calculaTotal);
-
