@@ -1,5 +1,5 @@
 //# Exercícios Módulo 2
-
+/*
 //1. Escreva um programa que verifique se um número é par ou ímpar e exiba o resultado no console.
 function createElement() {//Criando uma função que vai criar um botão, input, texto.
     let btn = document.createElement("button");//cria o button
@@ -30,7 +30,7 @@ function createElement() {//Criando uma função que vai criar um botão, input,
     document.body.appendChild(btn);//Aqui estamos adicionando o botão no body do HTML
 }
 createElement()//Chamado a função que vai criar um input e um botão;
-/*
+
 */
 
 //2. Escreva um programa que calcule o resto da divisão entre dois números inteiros
@@ -1715,3 +1715,33 @@ function contaTexto(texto) {
 let reuslt = contaTexto(texto);
 console.log(reuslt)
 */
+
+// 8. Escreva uma função que informe o retorno de um investimento (montante) com base nos valores do capital inicial, tempo em meses e taxa de juros mensal, fornecidos pelo usuário.
+// Use a fórmula: M = C * (1+i)t
+// Onde:
+// C = Capital inicial investido
+// i = Taxa de juros, em percentual
+// t = Tempo do investimento, em meses
+// Exiba o resultado com duas casas decimais. 
+
+function calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo) {
+    // converte taxa de juros
+    TaxaJuros = TaxaJuros / 100;
+
+    // calcula o total
+    let calculaTotal = valorInicial * Math.pow((1 + TaxaJuros), tempo);
+
+    calculaTotal = calculaTotal.toFixed(2);
+
+    return calculaTotal;
+}
+
+let valorInicial = parseFloat(150);
+let TaxaJuros = parseFloat(10);
+let tempo = parseFloat(12);
+
+// calcula da função
+let calculaTotal = calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo);
+
+console.log("O retorno do seu investimento será: " + calculaTotal);
+
