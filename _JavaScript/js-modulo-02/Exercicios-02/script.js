@@ -1744,7 +1744,7 @@ function calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo) {
 let calculaTotal = calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo);
 
 console.log("O retorno do seu investimento será: " + calculaTotal);
-*/
+
 //Array
 // let nome = ['marcos', 'mario', ['20', '30']];
 // console.log(nome[0]);
@@ -1776,3 +1776,36 @@ carros.splice(1, 1, 'Audi');
 console.log(carros)
 carros.push('Volvo');
 console.log(`Tem ${carros.length} itens no Array`);
+
+
+let personagem = {
+    nome: 'Pedro',
+    idade: 29,
+    pais: 'Brasil',
+    olhos: ['petro', 'azul'],
+    caracteristicas: {
+        forca: 29,
+        magia: 10,
+        agilidade: 5
+    }
+}
+// console.log(`O seu nome é ${personagem.nome} você tem ${personagem.idade} anos é tem ${personagem.caracteristicas.forca} de força é ${personagem.caracteristicas.magia} magia`)
+// console.log(personagem.nome, personagem.olhos[1])
+
+personagem.nome = "Mario";
+personagem.caracteristicas.forca += 3;
+personagem.olhos.push("verde");
+console.log(personagem.olhos);
+console.log(personagem.caracteristicas.forca);
+*/
+
+let pessoa = {
+    nome: 'Mario',
+    idade: 39,
+    carros: [
+        { modelo: "Fiat", cor: "Branco" },
+        { modelo: "Audi", cor: "Vermelho" }
+    ]
+}
+console.log(pessoa.nome, pessoa.carros[0].modelo);
+console.log(pessoa.idade, pessoa.carros[1].cor)
