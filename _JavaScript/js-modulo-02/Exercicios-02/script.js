@@ -1714,7 +1714,7 @@ function contaTexto(texto) {
 }
 let reuslt = contaTexto(texto);
 console.log(reuslt)
-*/
+
 
 // 8. Escreva uma função que informe o retorno de um investimento (montante) com base nos valores do capital inicial, tempo em meses e taxa de juros mensal, fornecidos pelo usuário.
 // Use a fórmula: M = C * (1+i)t
@@ -1744,3 +1744,35 @@ function calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo) {
 let calculaTotal = calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo);
 
 console.log("O retorno do seu investimento será: " + calculaTotal);
+*/
+//Array
+// let nome = ['marcos', 'mario', ['20', '30']];
+// console.log(nome[0]);
+// console.log(nome[1]);
+// console.log(nome[2][1]);
+// console.log(nome[2][0]);
+
+let ingredientes = [
+    'agua',
+    'farinha',
+    'ovo',
+    'sal'
+];
+ingredientes[4] = 'cebola';
+// ingredientes.push('corante')
+ingredientes.pop() //remove o último
+ingredientes.shift() //remove o primeiro
+// console.log(`total de igredientes: ${ingredientes.length}`);
+// console.log(ingredientes);
+//Qual o número que pega o Ferari.
+let carros = ['BMW', 'Ferrari', 'Mercedes'];
+let x = 1;
+console.log(`O número 1 é: ${carros[x]}`);
+//Troque a Ferrari por Audi
+carros[1] = "Audi";
+carros.splice(1, 1, 'Audi');
+// Adicione o Volvo a lista
+
+console.log(carros)
+carros.push('Volvo');
+console.log(`Tem ${carros.length} itens no Array`);
