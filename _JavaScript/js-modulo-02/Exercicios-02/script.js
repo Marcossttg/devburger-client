@@ -1797,7 +1797,7 @@ personagem.caracteristicas.forca += 3;
 personagem.olhos.push("verde");
 console.log(personagem.olhos);
 console.log(personagem.caracteristicas.forca);
-*/
+
 
 let pessoa = {
     nome: 'Mario',
@@ -1809,3 +1809,67 @@ let pessoa = {
 }
 console.log(pessoa.nome, pessoa.carros[0].modelo);
 console.log(pessoa.idade, pessoa.carros[1].cor)
+
+//função dentro de objeto
+let pessoa = {
+    nome: 'Paulo',
+    sobrenome: 'Melo',
+    idade: 83,
+    nomeCompleto: () => { //com arrow => a propriedade this não pode ser usada
+        // return this.nome + ' ' + this.sobrenome;
+        return pessoa.nome + ' ' + pessoa.sobrenome;
+    },
+    pais: 'Brasil'
+}
+console.log(pessoa.nomeCompleto(), pessoa.idade)
+
+//for 
+let cores = [
+    { nome: 'preto', qnt: 20 },
+    { nome: 'azul', qnt: 10 },
+    { nome: 'vermelho', qnt: 5 }
+]
+
+// for (let i = 0; i < cores.length; i++) {
+//     console.log(cores[i])
+// }
+
+// for (let i in cores) {
+//     console.log(cores[i].nome)
+// }
+
+for (let cor of cores) {
+    console.log(cor.nome)
+}
+*/
+
+/*
+*/
+//faça um loop que mostre todas as frutas
+let fruits = ['Maça', 'Uva', 'Banana'];
+let count = 0;
+while (count < fruits.length) {
+    console.log(fruits[count])
+    count++
+}
+
+console.log('------------------');
+
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i])
+}
+
+console.log('------------------');
+
+for (let f in fruits) {
+    console.log(fruits[f])
+}
+
+console.log('------------------');
+
+// conte de 1 até 10 através de um while
+let n = 1
+while (n <= 10) {
+    console.log('O número é: ' + n);
+    n++
+}
