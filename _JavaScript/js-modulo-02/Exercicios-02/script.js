@@ -1558,7 +1558,7 @@ Calcule o preço do imóvel
 -Se tiver 2 quartos, o m2 é 1.2x
 -Se tiver 3 quartos, o m3 é 1.5x
 Uso da função:
-*/
+
 let metragem = 123;
 let quartos = 3;
 
@@ -1580,3 +1580,329 @@ function calcularImovel(metragem, quartos) {
 }
 let preco = calcularImovel(metragem, quartos);
 console.log(`A casa custa R$ ${preco}`);
+*/
+
+/* 
+// Crie uma função que valide usuário e sena.
+// Usuário crreto: pedro
+// Senha correta: 123 
+
+let usuario = "Marcos";
+let senha = Number(123);
+function validar(usuario, senha) {
+    if (usuario === "Marcos" && senha === 123) {
+        return true;
+    } else {
+        return false
+    }
+}
+let validacao = validar(usuario, senha);
+if (validacao) {
+    console.log("Usuário Logado")
+} else {
+    console.log("Usuário não encontrado!");
+}
+*/
+
+/* 
+function square(x) {
+    return x * x;
+}
+
+function addSquare(a, b) {
+    let n1 = square(a);
+    let n2 = square(b);
+    return n1 + n2;
+}
+
+console.log(addSquare(2, 3)); 
+*/
+/* 
+//Lista de Exercícios – Funções em JavaScript
+//1. Escreva uma função em JavaScript que mostre na tela a mensagem “Bom dia, Mundo!!!”.
+let msg = "Bom dia, Mundo!!!";
+function mostra() {
+    return console.log(msg);
+}
+mostra();
+
+//2. Escreva uma função que retorne o cubo de um número fornecido pelo usuário.
+let n = 2;
+function cubo(n) {
+    return n * n * n;
+}
+let res = cubo(n);
+console.log(res)
+
+
+// 3. Escreva uma função em JavaScript que realize a conversão de uma temperatura fornecida em graus Fahrenheit (F) para Celsius (C).
+Dica: para converter uma temperatura em F para C, subtraia 32 da temperatura e multiplique o resultado por 0,5556 (ou 5/9).
+let tempFa = Number(55);
+function convertFa(fahrenheit) {
+    let calculaConver = Number(32);
+    let resultConver = (fahrenheit - calculaConver) * 5 / 9;
+    return resultConver;
+}
+let celsius = (convertFa(tempFa).toFixed(2));
+console.log(celsius + " Graus Celsius");
+
+//4. Escreva uma função que retorne a área de um triângulo, a partir dos valores de base e altura fornecidos.
+let base = 12;
+let altura = 8;
+function triangulo(base, altura) {
+    let calcArea = (base * altura) / 2;
+    return calcArea;
+}
+console.log(triangulo(base, altura));
+
+
+// 5. Escreva uma função que encontre a área e o perímetro de um círculo, de acordo com o raio fornecido.
+let pI = Number(3.14); //Pi 
+let r = Number(3); //raio do centro a uma estremidade
+function calcCirculo() {
+    let area = pI * (r * r);
+    let circulo = (pI * 2) * r;
+    return { area, circulo };
+}
+let encontradoAr = calcCirculo()
+console.log("Área: " + encontradoAr.area.toFixed(2) + ", Circuferência " + encontradoAr.circulo.toFixed(2));
+
+// 6. Escreva uma função que mostre na tela um número fornecido pelo usuário, porém invertido. Por exemplo, o usuário fornece o número 875 e a função mostra na tela o número 578.
+let num = 1234
+function inverteNum(num) {
+    var inverso = 0;
+    while (num != 0) {
+        inverso = inverso * 10;
+        inverso = inverso + num % 10;
+        num = Math.trunc(num / 10); // Remover casas decimais
+    }
+    return inverso;
+}
+let most = inverteNum(875);
+console.log(most)
+
+let num1 = 1234
+
+function reverseNum(num1) {
+    return (
+        parseFloat(
+            num1
+                .toString()
+                .split('')
+                .reverse()
+                .join('')
+        ) * Math.sign(num1)
+    )
+}
+let mostra = reverseNum(num1)
+console.log(mostra)
+
+
+// 7. Escreva uma função que permita contar o número de vogais contidas em uma string fornecida pelo usuário. Por exemplo, o usuário informa a string “Beterraba”, e a função retorna o número 4 (há 4 vogais nessa palavra).
+// Obs. Ignore vogais acentuadas, para simplificar.
+let texto = "Beterraba";
+texto = texto.toLowerCase();
+function contaTexto(texto) {
+    let contador = 0;
+    for (let i = 0; i < texto.length; i++) {
+        if (texto.charAt(i) == "a" || texto.charAt(i) == "e" || texto.charAt(i) == "i"
+            || texto.charAt(i) == "o" || texto.charAt(i) == "u") {
+            contador++;
+        }
+    }
+    return contador;
+}
+let reuslt = contaTexto(texto);
+console.log(reuslt)
+
+
+// 8. Escreva uma função que informe o retorno de um investimento (montante) com base nos valores do capital inicial, tempo em meses e taxa de juros mensal, fornecidos pelo usuário.
+// Use a fórmula: M = C * (1+i)t
+// Onde:
+// C = Capital inicial investido
+// i = Taxa de juros, em percentual
+// t = Tempo do investimento, em meses
+// Exiba o resultado com duas casas decimais. 
+
+let valorInicial = parseFloat(150);
+let TaxaJuros = parseFloat(10);
+let tempo = parseFloat(12);
+
+function calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo) {
+    // converte taxa de juros
+    TaxaJuros = TaxaJuros / 100;
+
+    // calcula o total
+    let calculaTotal = valorInicial * Math.pow((1 + TaxaJuros), tempo);
+
+    calculaTotal = calculaTotal.toFixed(2);
+
+    return calculaTotal;
+}
+
+// calcula da função
+let calculaTotal = calcularRetornoInvestimento(valorInicial, TaxaJuros, tempo);
+
+console.log("O retorno do seu investimento será: " + calculaTotal);
+
+//Array
+// let nome = ['marcos', 'mario', ['20', '30']];
+// console.log(nome[0]);
+// console.log(nome[1]);
+// console.log(nome[2][1]);
+// console.log(nome[2][0]);
+
+let ingredientes = [
+    'agua',
+    'farinha',
+    'ovo',
+    'sal'
+];
+ingredientes[4] = 'cebola';
+// ingredientes.push('corante')
+ingredientes.pop() //remove o último
+ingredientes.shift() //remove o primeiro
+// console.log(`total de igredientes: ${ingredientes.length}`);
+// console.log(ingredientes);
+//Qual o número que pega o Ferari.
+let carros = ['BMW', 'Ferrari', 'Mercedes'];
+let x = 1;
+console.log(`O número 1 é: ${carros[x]}`);
+//Troque a Ferrari por Audi
+carros[1] = "Audi";
+carros.splice(1, 1, 'Audi');
+// Adicione o Volvo a lista
+
+console.log(carros)
+carros.push('Volvo');
+console.log(`Tem ${carros.length} itens no Array`);
+
+
+let personagem = {
+    nome: 'Pedro',
+    idade: 29,
+    pais: 'Brasil',
+    olhos: ['petro', 'azul'],
+    caracteristicas: {
+        forca: 29,
+        magia: 10,
+        agilidade: 5
+    }
+}
+// console.log(`O seu nome é ${personagem.nome} você tem ${personagem.idade} anos é tem ${personagem.caracteristicas.forca} de força é ${personagem.caracteristicas.magia} magia`)
+// console.log(personagem.nome, personagem.olhos[1])
+
+personagem.nome = "Mario";
+personagem.caracteristicas.forca += 3;
+personagem.olhos.push("verde");
+console.log(personagem.olhos);
+console.log(personagem.caracteristicas.forca);
+
+
+let pessoa = {
+    nome: 'Mario',
+    idade: 39,
+    carros: [
+        { modelo: "Fiat", cor: "Branco" },
+        { modelo: "Audi", cor: "Vermelho" }
+    ]
+}
+console.log(pessoa.nome, pessoa.carros[0].modelo);
+console.log(pessoa.idade, pessoa.carros[1].cor)
+
+//função dentro de objeto
+let pessoa = {
+    nome: 'Paulo',
+    sobrenome: 'Melo',
+    idade: 83,
+    nomeCompleto: () => { //com arrow => a propriedade this não pode ser usada
+        // return this.nome + ' ' + this.sobrenome;
+        return pessoa.nome + ' ' + pessoa.sobrenome;
+    },
+    pais: 'Brasil'
+}
+console.log(pessoa.nomeCompleto(), pessoa.idade)
+
+//for 
+let cores = [
+    { nome: 'preto', qnt: 20 },
+    { nome: 'azul', qnt: 10 },
+    { nome: 'vermelho', qnt: 5 }
+]
+
+// for (let i = 0; i < cores.length; i++) {
+//     console.log(cores[i])
+// }
+
+// for (let i in cores) {
+//     console.log(cores[i].nome)
+// }
+
+for (let cor of cores) {
+    console.log(cor.nome)
+}
+*/
+
+/*
+//faça um loop que mostre todas as frutas
+let fruits = ['Maça', 'Uva', 'Banana'];
+let count = 0;
+while (count < fruits.length) {
+    console.log(fruits[count])
+    count++
+}
+
+console.log('------------------');
+
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i])
+}
+
+console.log('------------------');
+
+for (let f in fruits) {
+    console.log(fruits[f])
+}
+
+console.log('------------------');
+
+// conte de 1 até 10 através de um while
+let n = 1
+while (n <= 10) {
+    console.log('O número é: ' + n);
+    n++
+}
+*/
+//Criando listas
+let ul = document.querySelector('ul');
+let novoInput = createInput("Digite um texto");
+let novoBtn = createBtn();
+//evento no botão
+novoBtn.addEventListener("click", () => {
+    createLi();
+})
+//adiciona uma nova li na ul
+function createLi() {
+    let novaLi = document.createElement('li');// cria nova li
+    if (novoInput.value.trim() !== "") {//compara se o input esta vazio ou não 
+        novaLi.textContent = novoInput.value; //se não estivar vazio adiciona o valor do input na li
+        novoInput.value = ''; //depois de adicionado ele deixa o input vazio
+        ul.appendChild(novaLi);//adiciona a nova li ao ul
+    } else {
+        alert("O campo de entrada está vazio.");//mostra um alerta para o campo vazio
+    }
+}
+//cria input
+function createInput(placeholder) {
+    const input = document.createElement('input');
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    return document.body.appendChild(input);
+}
+//cria botão
+function createBtn() {
+    const btn = document.createElement('button');
+    btn.innerText = "click";
+    return document.body.appendChild(btn)
+}
+
