@@ -1844,7 +1844,6 @@ for (let cor of cores) {
 */
 
 /*
-*/
 //faça um loop que mostre todas as frutas
 let fruits = ['Maça', 'Uva', 'Banana'];
 let count = 0;
@@ -1873,3 +1872,37 @@ while (n <= 10) {
     console.log('O número é: ' + n);
     n++
 }
+*/
+//Criando listas
+let ul = document.querySelector('ul');
+let novoInput = createInput("Digite um texto");
+let novoBtn = createBtn();
+//evento no botão
+novoBtn.addEventListener("click", () => {
+    createLi();
+})
+//adiciona uma nova li na ul
+function createLi() {
+    let novaLi = document.createElement('li');// cria nova li
+    if (novoInput.value.trim() !== "") {//compara se o input esta vazio ou não 
+        novaLi.textContent = novoInput.value; //se não estivar vazio adiciona o valor do input na li
+        novoInput.value = ''; //depois de adicionado ele deixa o input vazio
+        ul.appendChild(novaLi);//adiciona a nova li ao ul
+    } else {
+        alert("O campo de entrada está vazio.");//mostra um alerta para o campo vazio
+    }
+}
+//cria input
+function createInput(placeholder) {
+    const input = document.createElement('input');
+    input.style.marginTop = "20px";
+    input.placeholder = placeholder;
+    return document.body.appendChild(input);
+}
+//cria botão
+function createBtn() {
+    const btn = document.createElement('button');
+    btn.innerText = "click";
+    return document.body.appendChild(btn)
+}
+
