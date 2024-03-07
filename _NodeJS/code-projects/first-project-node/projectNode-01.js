@@ -1,9 +1,12 @@
+const cors = require("cors")
 const express = require("express");
 const app = express();
-app.use(express.json());
-const uuid = require("uuid");//Instalado appi que cria id único.
-const port = 3000;
 
+app.use(express.json());
+app.use(cors());
+
+const uuid = require("uuid");//Instalado appi que cria id único.
+const port = 3001;
 
 const users = [];
 
@@ -55,6 +58,6 @@ app.delete("/projectNode-01/:id", (request, response) => {
 })
 
 app.listen(port, () => {
-    console.log(`💻 Server started.`);
+    console.log(`💻 Server starte on port ${port}`);
 })
 

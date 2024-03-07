@@ -1,5 +1,7 @@
 //Add react hooks ou ferramentas auxiliares
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+//add axios api para acessar outra api 
+import axios from 'axios';
 
 import ImgPeople from './assets/image-bg_people.svg';
 import ArrowRight from './assets/arrow-right.svg';
@@ -17,21 +19,20 @@ const App = () => {
 
   // const users = [];
   const [users, setUsers] = useState([]);
-  const [name, setName] = useState();
-  const [age, setAge] = useState();
+
+  const inputName = useRef();
+  const inputAge = useRef();
+
+  // const [name, setName] = useState();
+  // const [age, setAge] = useState();
 
   //add novo user c/ React Hooks
-  function addNewUser() {
-    setUsers([...users, { id: Math.random(), name, age }]);
-  }
-  //pega evento de change no input
-  function changeInputName(event) {
-    setName(event.target.value);
-  }
-
-  //pega evento de change no input
-  function changeInputAge(event) {
-    setAge(event.target.value);
+  async function addNewUser() {
+    const data = await axios.post("http://localhost:3001/projectNode-01", {
+      name: inputName.current.value,
+      age: inputAge.current.value
+    })
+    console.log(data)
   }
 
   //deleta user utilizando filter
@@ -48,10 +49,10 @@ const App = () => {
         <H1>Olá!</H1>
 
         <InputLabel>Nome:</InputLabel>
-        <Input onChange={changeInputName} placeholder="Digite seu nome!" />
+        <Input ref={inputName} placeholder="Digite seu nome!" />
 
         <InputLabel>Idade:</InputLabel>
-        <Input onChange={changeInputAge} placeholder="Digite sua Idade!" />
+        <Input ref={inputAge} placeholder="Digite sua Idade!" />
 
         <Button onClick={addNewUser}>
           Cadastrar<img alt="arrow" src={ArrowRight} />
