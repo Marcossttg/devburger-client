@@ -1,40 +1,22 @@
 //Add react hooks ou ferramentas auxiliares
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 //add axios api para acessar outra api 
 import axios from 'axios';
 
-import ImgPeople from '../../assets/image-bg_people.svg';
-import ArrowRight from '../../assets/arrow-right.svg';
+import ImgPeople01 from '../../assets/image-bg_people-01.svg';
+import ArrowLeft from '../../assets/arrow-left.svg';
 import ImgLixeira from '../../assets/img-lixeira.svg';
 
 import {
   Container, Image,
   ContainerItens,
-  H1, InputLabel,
-  Input, Button,
+  H1, Button,
   User,
 } from "./styles"
 
-const App = () => {
-
+const Users = () => {
   // const users = [];
   const [users, setUsers] = useState([]);
-
-  const inputName = useRef();
-  const inputAge = useRef();
-
-  // const [name, setName] = useState();
-  // const [age, setAge] = useState();
-
-  //add novo user c/ React Hooks
-  async function addNewUser() {
-    const { data: newUsers } = await axios.post("http://localhost:3001/projectNode-01", {
-      name: inputName.current.value,
-      age: inputAge.current.value
-    })
-    setUsers([...users, newUsers]);
-
-  }
 
   useEffect(() => {   //React Hook => com useEffect (Efeito Colateral)
     //A minha aplicação inicia ( Quando a pagina e carregado, o useEffect é chamado)
@@ -58,20 +40,9 @@ const App = () => {
 
   return (
     <Container >
-      <Image alt="logo-imagem" src={ImgPeople} />
-
+      <Image alt="logo-imagem" src={ImgPeople01} />
       <ContainerItens>
-        <H1>Olá!</H1>
-
-        <InputLabel>Nome:</InputLabel>
-        <Input ref={inputName} placeholder="Digite seu nome!" />
-
-        <InputLabel>Idade:</InputLabel>
-        <Input ref={inputAge} placeholder="Digite sua Idade!" />
-
-        <Button onClick={addNewUser}>
-          Cadastrar<img alt="arrow" src={ArrowRight} />
-        </Button>
+        <H1>Usuários</H1>
 
         <ul>
           {users.map((user) => (
@@ -84,10 +55,15 @@ const App = () => {
             </User>
           ))}
         </ul>
+
+        <Button>
+          <img alt="arrow" src={ArrowLeft} />Voltar
+        </Button>
+
       </ContainerItens>
     </Container>
   );
 
 }
 
-export default App
+export default Users
