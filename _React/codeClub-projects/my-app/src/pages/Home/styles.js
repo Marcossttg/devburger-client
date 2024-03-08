@@ -1,8 +1,11 @@
 import styled from 'styled-components';
-import BgImgDisplay from './assets/bg-image_display.svg';
-import BgImgDisplay01 from './assets/bg-image_display-01.svg';
-import ImgPeople01 from './assets/image-bg_people-01.svg';
-import ArrowLeft from './assets/arrow-left.svg';
+import BgImgDisplay from '../../assets/bg-image_display.svg';
+
+/* 
+import BgImgDisplay01 from '../../assets/bg-image_display-01.svg';
+import ImgPeople01 from '../../assets/image-bg_people-01.svg';
+import ArrowLeft from '../../assets/arrow-left.svg'; 
+*/
 
 
 export const Container = styled.div`
@@ -86,39 +89,13 @@ display: flex;
 align-items: center;
 justify-content: center;
 gap: 20px;
+margin-top: 130px;
+
 &:hover{
     opacity: 0.8;
 }
+
 &:active{
     opacity: 0.5;
 }
 `;
-
-export const User = styled.li`
-display: flex;
-justify-content: space-around;
-align-items: center;
-width: 342px;
-height: 58px;
-background: rgba(255, 255, 255, 0.25);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 14px;
-border: none;
-outline: none;
-margin-top: 25px;
-
-p {
-color: #FFFFFF;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 28px;
-}
-
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-`;
-

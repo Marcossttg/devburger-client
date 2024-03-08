@@ -3,9 +3,9 @@ import React, { useState, useRef, useEffect } from "react";
 //add axios api para acessar outra api 
 import axios from 'axios';
 
-import ImgPeople from './assets/image-bg_people.svg';
-import ArrowRight from './assets/arrow-right.svg';
-import ImgLixeira from './assets/img-lixeira.svg';
+import ImgPeople from '../../assets/image-bg_people.svg';
+import ArrowRight from '../../assets/arrow-right.svg';
+import ImgLixeira from '../../assets/img-lixeira.svg';
 
 import {
   Container, Image,
