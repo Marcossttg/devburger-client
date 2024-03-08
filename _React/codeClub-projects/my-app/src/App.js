@@ -1,5 +1,5 @@
 //Add react hooks ou ferramentas auxiliares
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 //add axios api para acessar outra api 
 import axios from 'axios';
 
@@ -28,16 +28,31 @@ const App = () => {
 
   //add novo user c/ React Hooks
   async function addNewUser() {
-    const data = await axios.post("http://localhost:3001/projectNode-01", {
+    const { data: newUsers } = await axios.post("http://localhost:3001/projectNode-01", {
       name: inputName.current.value,
       age: inputAge.current.value
     })
-    console.log(data)
+    setUsers([...users, newUsers]);
+
   }
 
+  useEffect(() => {   //React Hook => com useEffect (Efeito Colateral)
+    //A minha aplicação inicia ( Quando a pagina e carregado, o useEffect é chamado)
+    //Quando um estado que está no array de dependencia do useEffect é alterado 
+    async function fetchUsers() {
+      const { data: newUsers } = await axios.get("http://localhost:3001/projectNode-01");
+
+      setUsers(newUsers);
+    }
+    fetchUsers();
+  }, []);
+
   //deleta user utilizando filter
-  function deleteUser(userId) {
+  async function deleteUser(userId) {
+    await axios.delete(`http://localhost:3001/projectNode-01/${userId}`);
+
     const newUsers = users.filter(user => user.id !== userId);
+
     setUsers(newUsers);
   }
 
