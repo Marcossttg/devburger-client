@@ -1,6 +1,6 @@
 //Add react hooks ou ferramentas auxiliares
 import React, { useState, useEffect } from "react";
-//add axios api para acessar outra api 
+
 import axios from 'axios';
 
 import ImgPeople01 from '../../assets/image-bg_people-01.svg';
@@ -56,7 +56,7 @@ const Users = () => {
           ))}
         </ul>
 
-        <Button>
+        <Button >
           <img alt="arrow" src={ArrowLeft} />Voltar
         </Button>
 

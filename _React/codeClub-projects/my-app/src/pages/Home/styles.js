@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 import BgImgDisplay from '../../assets/bg-image_display.svg';
 
-/* 
-import BgImgDisplay01 from '../../assets/bg-image_display-01.svg';
-import ImgPeople01 from '../../assets/image-bg_people-01.svg';
-import ArrowLeft from '../../assets/arrow-left.svg'; 
-*/
-
-
 export const Container = styled.div`
 height: 100vh;
 background: url("${BgImgDisplay}");

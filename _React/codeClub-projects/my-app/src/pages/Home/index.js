@@ -14,7 +14,7 @@ import {
   InputLabel,
   Input,
   Button,
-} from "./styles"
+} from "./styles";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -30,26 +30,6 @@ const App = () => {
 
     setUsers([...users, newUsers]);
   }
-
-  /*   useEffect(() => {   //React Hook => com useEffect (Efeito Colateral)
-      //A minha aplicação inicia ( Quando a pagina e carregado, o useEffect é chamado)
-      //Quando um estado que está no array de dependencia do useEffect é alterado 
-      async function fetchUsers() {
-        const { data: newUsers } = await axios.get("http://localhost:3001/projectNode-01");
-  
-        setUsers(newUsers);
-      }
-      fetchUsers();
-    }, []); */
-
-  /*   //deleta user utilizando filter
-    async function deleteUser(userId) {
-      await axios.delete(`http://localhost:3001/projectNode-01/${userId}`);
-  
-      const newUsers = users.filter(user => user.id !== userId);
-  
-      setUsers(newUsers);
-    } */
 
   return (
     <Container >
