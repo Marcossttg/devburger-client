@@ -7,11 +7,11 @@ import ImgPeople from '../../assets/image-bg_people.svg';
 import ArrowRight from '../../assets/arrow-right.svg';
 //Components
 import { H1 } from "../../components/Title/styles";
+import { ContainerItens } from "../../components/ConteinerItens/styles";
 
 import {
   Container,
   Image,
-  ContainerItens,
   InputLabel,
   Input,
   Button,

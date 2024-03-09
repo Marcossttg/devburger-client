@@ -8,15 +8,15 @@ import ImgPeople01 from '../../assets/image-bg_people-01.svg';
 import ArrowLeft from '../../assets/arrow-left.svg';
 import ImgLixeira from '../../assets/img-lixeira.svg';
 
-import { H1 } from "../../components/Title/styles";
-
+import { H1 } from '../../components/Title/styles';
+import { ContainerItens } from '../../components/ConteinerItens/styles';
 
 import {
-  Container, Image,
-  ContainerItens,
+  Container,
+  Image,
   Button,
   User,
-} from './styles'
+} from './styles';
 
 const Users = () => {
 
@@ -51,7 +51,7 @@ const Users = () => {
   return (
     <Container >
       <Image alt="logo-imagem" src={ImgPeople01} />
-      <ContainerItens>
+      <ContainerItens isBlur={true}>
         <H1>Usuários</H1>
 
         <ul>
@@ -76,4 +76,4 @@ const Users = () => {
 
 }
 
-export default Users
+export default Users;

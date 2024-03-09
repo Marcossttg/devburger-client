@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import BgImgDisplay01 from '../../assets/bg-image_display-01.svg';
 
-
-
 export const Container = styled.div`
 height: 100vh;
 background: url("${BgImgDisplay01}");
@@ -18,21 +16,6 @@ min-height: 100vh;
 
 export const Image = styled.img`
 margin-top: 30px;
-`;
-
-export const ContainerItens = styled.div`
-background: linear-gradient(
-157.44deg, 
-rgba(255, 255, 255, 0.6)0.84%, 
-rgba(255, 255, 255,0.6) 0.85%,
-rgba(255, 255, 255, 0.15)100%);
-backdrop-filter: blur(45px);
-border-radius: 61px 61px 0px 0px;
-padding: 50px 30px;
-display: flex;
-flex-direction: column;
-height: 100%;
-min-height: calc(100vh - 170px);
 `;
 
 export const Button = styled.button`
