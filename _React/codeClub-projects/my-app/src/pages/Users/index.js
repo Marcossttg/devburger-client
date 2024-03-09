@@ -1,5 +1,6 @@
 //Add react hooks ou ferramentas auxiliares
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -12,11 +13,13 @@ import {
   ContainerItens,
   H1, Button,
   User,
-} from "./styles"
+} from './styles'
 
 const Users = () => {
-  // const users = [];
+
   const [users, setUsers] = useState([]);
+
+  const history = useHistory(); //react-router-dom
 
   useEffect(() => {   //React Hook => com useEffect (Efeito Colateral)
     //A minha aplicação inicia ( Quando a pagina e carregado, o useEffect é chamado)
@@ -38,6 +41,10 @@ const Users = () => {
     setUsers(newUsers);
   }
 
+  function goBackPage() {
+    history.push('/');
+  }
+
   return (
     <Container >
       <Image alt="logo-imagem" src={ImgPeople01} />
@@ -56,7 +63,7 @@ const Users = () => {
           ))}
         </ul>
 
-        <Button >
+        <Button onClick={goBackPage}>
           <img alt="arrow" src={ArrowLeft} />Voltar
         </Button>
 

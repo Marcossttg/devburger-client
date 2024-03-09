@@ -1,7 +1,7 @@
 //Add react hooks ou ferramentas auxiliares
 import React, { useState, useRef } from "react";
-//add axios api para acessar outra api 
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 import ImgPeople from '../../assets/image-bg_people.svg';
 import ArrowRight from '../../assets/arrow-right.svg';
@@ -20,6 +20,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const inputName = useRef();
   const inputAge = useRef();
+  const history = useHistory();
 
   //add novo user c/ React Hooks
   async function addNewUser() {
@@ -29,6 +30,8 @@ const App = () => {
     })
 
     setUsers([...users, newUsers]);
+
+    history.push('usuarios');
   }
 
   return (

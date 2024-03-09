@@ -10,6 +10,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 gap: 40px;
+height: 100vh;
 `;
 
 export const Image = styled.img`
@@ -63,7 +64,6 @@ font-weight: normal;
 font-size: 20px;
 line-height: 28px;
 margin-bottom: 25px;
-
 `;
 
 export const Button = styled.button`

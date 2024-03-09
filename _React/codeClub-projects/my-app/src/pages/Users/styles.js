@@ -12,6 +12,8 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 gap: 40px;
+height: 100%;
+min-height: 100vh;
 `;
 
 export const Image = styled.img`
@@ -30,6 +32,7 @@ padding: 50px 30px;
 display: flex;
 flex-direction: column;
 height: 100%;
+min-height: calc(100vh - 170px);
 `;
 
 export const H1 = styled.h1`
