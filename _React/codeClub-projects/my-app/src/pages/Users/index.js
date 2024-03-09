@@ -8,10 +8,13 @@ import ImgPeople01 from '../../assets/image-bg_people-01.svg';
 import ArrowLeft from '../../assets/arrow-left.svg';
 import ImgLixeira from '../../assets/img-lixeira.svg';
 
+import { H1 } from "../../components/Title/styles";
+
+
 import {
   Container, Image,
   ContainerItens,
-  H1, Button,
+  Button,
   User,
 } from './styles'
 

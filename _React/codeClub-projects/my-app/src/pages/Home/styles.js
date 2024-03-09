@@ -30,15 +30,6 @@ flex-direction: column;
 height: 100%;
 `;
 
-export const H1 = styled.h1`
-text-align: center;
-color: #FFFF;
-font-size: 34px;
-font-weight: bold;
-line-height: 40px;
-margin-bottom: 50px;
-`;
-
 export const InputLabel = styled.p`
 margin-left: 25px;
 color: #eeeeee;

@@ -5,12 +5,13 @@ import { useHistory } from 'react-router-dom';
 
 import ImgPeople from '../../assets/image-bg_people.svg';
 import ArrowRight from '../../assets/arrow-right.svg';
+//Components
+import { H1 } from "../../components/Title/styles";
 
 import {
   Container,
   Image,
   ContainerItens,
-  H1,
   InputLabel,
   Input,
   Button,
