@@ -8,13 +8,13 @@ import ArrowRight from '../../assets/arrow-right.svg';
 //Components
 import { H1 } from "../../components/Title/styles";
 import { ContainerItens } from "../../components/ConteinerItens/styles";
+import { Button } from '../../components/Button/styles'
 
 import {
   Container,
   Image,
   InputLabel,
   Input,
-  Button,
 } from "./styles";
 
 const App = () => {

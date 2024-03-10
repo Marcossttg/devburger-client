@@ -10,11 +10,11 @@ import ImgLixeira from '../../assets/img-lixeira.svg';
 
 import { H1 } from '../../components/Title/styles';
 import { ContainerItens } from '../../components/ConteinerItens/styles';
+import { Button } from '../../components/Button/styles';
 
 import {
   Container,
   Image,
-  Button,
   User,
 } from './styles';
 
@@ -66,7 +66,7 @@ const Users = () => {
           ))}
         </ul>
 
-        <Button onClick={goBackPage}>
+        <Button isBack={true} onClick={goBackPage}>
           <img alt="arrow" src={ArrowLeft} />Voltar
         </Button>
 
