@@ -2,7 +2,7 @@
   "name": "first-project-node",
   "version": "1.0.0",
   "description": "",
-  "main": "projectNode-01.js",
+  "main": "desafio-burge.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon"
