@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GlobalStyle from './styles/globalGlobal';
-import App from './App';
+import Home from './pages/home';
 
 ReactDOM.render(
   <>
-    <App />
+    <Home />
     <GlobalStyle />
   </>, document.getElementById("root"))

@@ -1,14 +1,14 @@
 import React from 'react';
-import ImgBurg from './assets/img/burger-1.svg'
+import ImgBurg from '../../assets/img/burger-1.svg'
 
-import { H2 } from './components/Title/styles';
-import { Container } from './styles';
-import { ContainerItens } from './styles'
-import { P } from './styles';
-import { Button } from './components/Button/styles';
+import { H2 } from '../../components/Title/styles';
+import { Button } from '../../components/Button/styles';
 
 import {
   Image,
+  Container,
+  ContainerItens,
+  P,
   Input,
 } from './styles'
 
