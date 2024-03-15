@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 background-color: #0A0A10;
-height: 100vh;
+/* height: 100vh; */
+height: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -34,11 +35,49 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 14px;
 border: none;
 outline: none;
-padding-left: 25px;
+padding-left: 20px;
 color: #FFFFFF;
 font-style: normal;
 font-weight: normal;
 font-size: 20px;
 line-height: 28px;
 margin-bottom: 25px;
+`;
+
+export const OrderList = styled.li`
+width: 342px;
+height: 101px;
+background: rgba(255, 255, 255, 0.25);
+border-radius: 14px;
+margin-bottom: 25px;
+list-style: none;
+margin-top: 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+
+    P {
+        margin-left: 0;
+    }
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+`;
+
+export const ParagraphOrder = styled.p`
+color: #FFFFFF;
+font-weight: lighter;
+font-size: 18px;
+line-height: 20px;
 `;
