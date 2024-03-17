@@ -19,7 +19,7 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 const uuid = require("uuid");
-const port = 4001;
+const port = 3001;
 
 const purchaseOrders = [];
 
