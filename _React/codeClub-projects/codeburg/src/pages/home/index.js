@@ -34,10 +34,16 @@ const App = () => {
   function addNewRequest() {
     setRequests([...requests, {
       id: Math.random(),
-      name: InputOrder.current.value,
-      order: InputName.current.value,
+      order: InputOrder.current.value,
+      name: InputName.current.value,
     }]);
-    console.log(requests)
+  }
+
+  function DeleteOrder(requestId) {
+    const newRequest = requests.filter(request => request.id !== requestId);
+
+    setRequests(newRequest)
+    console.log(newRequest);
   }
 
 
@@ -56,6 +62,8 @@ const App = () => {
         <Button onClick={addNewRequest} >
           <P>Novo Pedido</P>
         </Button>
+
+
         {/* TIRAR ESTA PARTE----- */}
         <ul>
           {requests.map((request) => (
@@ -64,7 +72,9 @@ const App = () => {
                 <ParagraphOrder>{request.order}</ParagraphOrder>
                 <P>{request.name}</P>
               </div>
-              <button><img alt='imagem de uma lixeira' src={ImgLixeira} /></button>
+              <button>
+                <img onClick={() => DeleteOrder(request.id)} alt='imagem de uma lixeira' src={ImgLixeira} />
+              </button>
             </OrderList>
           ))}
         </ul>
