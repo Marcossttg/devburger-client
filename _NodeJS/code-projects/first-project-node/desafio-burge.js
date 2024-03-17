@@ -16,10 +16,14 @@ PATCH /order/:id: Essa rota recebe o id nos parâmetros e assim que ela for cham
  */
 
 const express = require("express");
+const uuid = require("uuid");
+
+const cors = require("cors");
+
+const port = 3001;
 const app = express();
 app.use(express.json());
-const uuid = require("uuid");
-const port = 3001;
+app.use(cors());
 
 const purchaseOrders = [];
 
@@ -70,11 +74,11 @@ app.get("/desafio-burge.js", checkMethod, (request, response) => {
 ///* POST /order: A rota deve receber o pedido do cliente
 app.post("/desafio-burge.js", checkMethod, (request, response) => {
 
-    const { order, clienteName, price } = request.body;
+    const { order, name, price } = request.body;
 
     const status = "Em preparação";
 
-    const orderItem = { id: uuid.v4(), order, clienteName, price, status };
+    const orderItem = { id: uuid.v4(), order, name, price, status };
 
     purchaseOrders.push(orderItem);
 
@@ -88,9 +92,9 @@ app.put("/desafio-burge.js/:id", checkOrderId, checkMethod, (request, response) 
 
     const index = request.orderIndex;
 
-    const { order, clienteName, price, status } = request.body;
+    const { order, name, price, status } = request.body;
 
-    const updateOrder = { id, order, clienteName, price, status };
+    const updateOrder = { id, order, name, price, status };
 
     purchaseOrders[index] = updateOrder
 
@@ -122,9 +126,9 @@ app.patch("/desafio-burge.js/:id", checkOrderId, checkMethod, (request, response
 
     const index = request.orderIndex;
 
-    const { order, clienteName, price, status } = request.body;
+    const { order, name, price, status } = request.body;
 
-    const updateStatus = { id, order, clienteName, price, status: "Pronto" };
+    const updateStatus = { id, order, name, price, status: "Pronto" };
 
     purchaseOrders[index] = updateStatus;
 
