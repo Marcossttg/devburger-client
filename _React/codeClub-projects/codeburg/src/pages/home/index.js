@@ -1,7 +1,8 @@
 
 import React, { useState, useRef } from 'react';
-import ImgBurg from '../../assets/img/burger-1.svg';
+import axios from 'axios';
 
+import ImgBurg from '../../assets/img/burger-1.svg';
 import { H2 } from '../../components/Title/styles';
 import { Button } from '../../components/Button/styles';
 
@@ -31,12 +32,20 @@ const App = () => {
   const InputOrder = useRef()
   const InputName = useRef()
 
-  function addNewRequest() {
-    setRequests([...requests, {
-      id: Math.random(),
+  async function addNewRequest() {
+
+    const data = await axios.post("http://localhost:3001/desafio-burge.js", {
       order: InputOrder.current.value,
-      name: InputName.current.value,
-    }]);
+      name: InputName.current.value
+    });
+
+    console.log(data)
+
+    // setRequests([...requests, {
+    //   id: Math.random(),
+    //   order: InputOrder.current.value,
+    //   name: InputName.current.value,
+    // }]);
   }
 
   function DeleteOrder(requestId) {
