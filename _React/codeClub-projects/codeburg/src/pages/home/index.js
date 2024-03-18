@@ -6,55 +6,30 @@ import ImgBurg from '../../assets/img/burger-1.svg';
 import { H2 } from '../../components/Title/styles';
 import { Button } from '../../components/Button/styles';
 
-
-//TIRAR 
-import ImgLixeira from '../../assets/img/img-lixeira.svg';
-//ate aki-----
-
 import {
   Image,
   Container,
   ContainerItens,
   P,
   Input,
-
-  /* tirar----- */
-  OrderList,
-  ParagraphOrder,
-  /* ate aki--- */
-
 } from './styles'
 
 const App = () => {
-
   //add react hooks {useState}
   const [requests, setRequests] = useState([]);
   const InputOrder = useRef()
   const InputName = useRef()
 
+  //add novo pedido
   async function addNewRequest() {
-
-    const data = await axios.post("http://localhost:3001/desafio-burge.js", {
+    const { data: newRequest } = await axios.post("http://localhost:3001/desafio-burge.js", {
       order: InputOrder.current.value,
       name: InputName.current.value
     });
 
-    console.log(data)
+    setRequests([...requests, newRequest]);
 
-    // setRequests([...requests, {
-    //   id: Math.random(),
-    //   order: InputOrder.current.value,
-    //   name: InputName.current.value,
-    // }]);
   }
-
-  function DeleteOrder(requestId) {
-    const newRequest = requests.filter(request => request.id !== requestId);
-
-    setRequests(newRequest)
-    console.log(newRequest);
-  }
-
 
   return (
     <Container>
@@ -71,24 +46,6 @@ const App = () => {
         <Button onClick={addNewRequest} >
           <P>Novo Pedido</P>
         </Button>
-
-
-        {/* TIRAR ESTA PARTE----- */}
-        <ul>
-          {requests.map((request) => (
-            <OrderList key={request.id}>
-              <div>
-                <ParagraphOrder>{request.order}</ParagraphOrder>
-                <P>{request.name}</P>
-              </div>
-              <button>
-                <img onClick={() => DeleteOrder(request.id)} alt='imagem de uma lixeira' src={ImgLixeira} />
-              </button>
-            </OrderList>
-          ))}
-        </ul>
-        {/* ate aki-------- */}
-
 
       </ContainerItens>
     </Container>
