@@ -60,7 +60,7 @@ const Requests = () => {
                     ))}
                 </ul>
 
-                <Button >
+                <Button to="/" >
                     <P>Voltar</P>
                 </Button>
             </ContainerItens>

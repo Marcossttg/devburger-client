@@ -43,7 +43,7 @@ const App = () => {
         <P>Nome do Cliente</P>
         <Input ref={InputName} placeholder='Digite seu Nome' />
 
-        <Button onClick={addNewRequest} >
+        <Button to="./requests" onClick={addNewRequest} >
           <P>Novo Pedido</P>
         </Button>
 
