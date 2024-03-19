@@ -1,8 +1,9 @@
 import React, { useState, useEffect, } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
 import ImgBurg2 from '../../assets/img/burger-2.svg';
 import ImgLixeira from '../../assets/img/img-lixeira.svg';
-
 import { H2 } from '../../components/Title/styles';
 import { Button } from '../../components/Button/styles';
 
@@ -20,7 +21,7 @@ const Requests = () => {
 
     //add react hooks {useState}
     const [requests, setRequests] = useState([]);
-
+    const navHistory = useHistory();
     useEffect(() => {
 
         async function fetchRequests() {
@@ -38,6 +39,10 @@ const Requests = () => {
         const newRequest = requests.filter(request => request.id !== requestId);
 
         setRequests(newRequest)
+    }
+
+    function goBackPage() {
+        navHistory.push('/')
     }
 
     return (
@@ -60,7 +65,7 @@ const Requests = () => {
                     ))}
                 </ul>
 
-                <Button to="/" >
+                <Button bgBlack={true} onClick={goBackPage} >
                     <P>Voltar</P>
                 </Button>
             </ContainerItens>

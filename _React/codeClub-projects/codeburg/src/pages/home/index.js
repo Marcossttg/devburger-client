@@ -1,6 +1,7 @@
 
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 import ImgBurg from '../../assets/img/burger-1.svg';
 import { H2 } from '../../components/Title/styles';
@@ -17,6 +18,7 @@ import {
 const App = () => {
   //add react hooks {useState}
   const [requests, setRequests] = useState([]);
+  const navHistory = useHistory();
   const InputOrder = useRef()
   const InputName = useRef()
 
@@ -28,7 +30,7 @@ const App = () => {
     });
 
     setRequests([...requests, newRequest]);
-
+    navHistory.push('/requests')
   }
 
   return (
@@ -43,7 +45,7 @@ const App = () => {
         <P>Nome do Cliente</P>
         <Input ref={InputName} placeholder='Digite seu Nome' />
 
-        <Button to="./requests" onClick={addNewRequest} >
+        <Button onClick={addNewRequest} >
           <P>Novo Pedido</P>
         </Button>
 

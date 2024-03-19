@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const Button = styled(Link)`
+export const Button = styled.button`
 width: 342px;
 height: 68px;
 background: ${props => props.bgBlack ? '#21212f' : '#D93856'};
@@ -14,6 +13,7 @@ margin-top: 50px;
 display: flex;
 justify-content: center;
 align-items: center;
+margin-bottom: 100px;
 
 &:hover{
     opacity: 0.8;

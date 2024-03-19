@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Button as ContainerButton } from './styles';
 
-function Button() {
+function Button(children, ...rest) {
     return (
-        <ContainerButton></ContainerButton>
+        <ContainerButton {...rest}>{children}</ContainerButton>
     );
 }
 export default Button;
