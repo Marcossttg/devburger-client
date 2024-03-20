@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.18.3",
+    "yarn": "^1.22.22"
+  },
+  "packageManager": "yarn@4.1.1",
+  "name": "codeburger-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
