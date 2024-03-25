@@ -6,12 +6,12 @@
     "configurations": [
         {
             "type": "node",
-            "request": "launch",
+            "request": "attach",
             "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\_JavaScript\\js-modulo-02\\Exercicios-02\\script.js"
+            "protocol": "inspector"
         }
     ]
 }

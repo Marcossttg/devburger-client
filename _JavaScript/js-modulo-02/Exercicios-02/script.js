@@ -1873,7 +1873,8 @@ while (n <= 10) {
     n++
 }
 */
-//Criando listas
+
+/* //Criando listas
 let ul = document.querySelector('ul');
 let novoInput = createInput("Digite um texto");
 let novoBtn = createBtn();
@@ -1905,4 +1906,4 @@ function createBtn() {
     btn.innerText = "click";
     return document.body.appendChild(btn)
 }
-
+ */
