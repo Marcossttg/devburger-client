@@ -3,6 +3,7 @@ import { v4 } from 'uuid'
 import * as Yup from 'yup'
 
 import User from '../models/User'
+
 /*
  Padrão MVC nos controles tem este padrão
  store => Cadastra ou Adicina
@@ -17,7 +18,7 @@ class UserController {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
       email: Yup.string().email().required(),
-      password_hash: Yup.string().required().min(3),
+      password: Yup.string().required().min(3),
       admin: Yup.boolean(),
     })
 
@@ -41,7 +42,7 @@ class UserController {
       response.status(400).json({ error: err.errors })
     }
 
-    const { name, email, password_hash, admin } = request.body
+    const { name, email, password, admin } = request.body
 
     //validação do email com findOne
     const userExists = await User.findOne({
@@ -57,7 +58,7 @@ class UserController {
       id: v4(),
       name,
       email,
-      password_hash,
+      password,
       admin,
     })
     return response.status(201).json({ id: user.id, name, email, admin })
