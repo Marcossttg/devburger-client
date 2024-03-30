@@ -36,6 +36,7 @@ class UserController {
     //validataSync(request.body,  {abortEarly: false}  ). Mas para ser possível
     //retornar todos os campos de cada campo devemos colocar como segundo parâmetro
     //o {abortEarly: false}
+
     try {
       await schema.validateSync(request.body, { abortEarly: false })
     } catch (err) {
