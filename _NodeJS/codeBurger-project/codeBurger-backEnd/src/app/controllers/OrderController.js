@@ -2,7 +2,8 @@ import * as Yup from 'yup'
 import Product from '../models/Product'
 import Category from '../models/Category'
 
-import Order from '../schemas/Order' //**teste**
+import Order from '../schemas/Order'
+import User from '../models/User'
 
 class OrderController {
   async store(request, response) {
@@ -25,24 +26,22 @@ class OrderController {
 
     const productsId = request.body.products.map((product) => product.id)
 
-    console.log(productsId)
-
     const updatedProducts = await Product.findAll({
       where: {
         id: productsId,
       },
-      include: {
-        model: Category,
-        as: 'category',
-        attributes: ['name'],
-      },
+      include: [
+        {
+          model: Category,
+          as: 'category',
+          attributes: ['name'],
+        },
+      ],
     })
-
-    console.log(updatedProducts)
 
     const editedProduct = updatedProducts.map((product) => {
       const productIndex = request.body.products.findIndex(
-        (requestProduct) => requestProduct.id === request.product
+        (requestProduct) => requestProduct.id === product.id
       )
 
       const newProduct = {
@@ -53,10 +52,9 @@ class OrderController {
         url: product.url,
         quantity: request.body.products[productIndex].quantity,
       }
+
       return newProduct
     })
-
-    console.log(editedProduct)
 
     const order = {
       user: {
@@ -64,9 +62,47 @@ class OrderController {
         name: request.userName,
       },
       products: editedProduct,
+      status: 'Pedido realizado',
     }
 
-    return response.status(201).json(editedProduct)
+    const orderResponse = await Order.create(order)
+
+    return response.status(201).json(orderResponse)
+  }
+
+  async index(request, response) {
+    const orders = await Order.find()
+
+    return response.json(orders)
+  }
+
+  async update(request, response) {
+    const schema = Yup.object().shape({
+      status: Yup.string().required(),
+    })
+
+    try {
+      await schema.validateSync(request.body, { abortEarly: false })
+    } catch (err) {
+      return response.status(400).json({ error: err.errors })
+    }
+
+    const { admin: isAdmin } = await User.findByPk(request.userId)
+
+    if (!isAdmin) {
+      return response.status(401).json()
+    }
+
+    const { id } = request.params
+    const { status } = request.body
+
+    try {
+      await Order.updateOne({ _id: id }, { status })
+    } catch (error) {
+      return response.status(400).json({ error: error.message })
+    }
+
+    return response.json({ message: 'Status was updated' })
   }
 }
 
