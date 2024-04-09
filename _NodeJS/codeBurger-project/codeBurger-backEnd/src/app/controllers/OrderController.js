@@ -38,7 +38,6 @@ class OrderController {
         },
       ],
     })
-
     const editedProduct = updatedProducts.map((product) => {
       const productIndex = request.body.products.findIndex(
         (requestProduct) => requestProduct.id === product.id
