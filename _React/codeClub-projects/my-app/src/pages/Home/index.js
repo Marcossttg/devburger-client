@@ -1,21 +1,16 @@
 //Add react hooks ou ferramentas auxiliares
 import React, { useState, useRef } from "react";
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
-import ImgPeople from '../../assets/image-bg_people.svg';
-import ArrowRight from '../../assets/arrow-right.svg';
+import ImgPeople from "../../assets/image-bg_people.svg";
+import ArrowRight from "../../assets/Arrow-right.svg";
 //Components
 import { H1 } from "../../components/Title/styles";
 import { ContainerItens } from "../../components/ConteinerItens/styles";
-import { Button } from '../../components/Button/styles'
+import { Button } from "../../components/Button/styles";
 
-import {
-  Container,
-  Image,
-  InputLabel,
-  Input,
-} from "./styles";
+import { Container, Image, InputLabel, Input } from "./styles";
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -25,18 +20,21 @@ const App = () => {
 
   //add novo user c/ React Hooks
   async function addNewUser() {
-    const { data: newUsers } = await axios.post("http://localhost:3001/projectNode-01", {
-      name: inputName.current.value,
-      age: inputAge.current.value
-    })
+    const { data: newUsers } = await axios.post(
+      "http://localhost:3001/projectNode-01",
+      {
+        name: inputName.current.value,
+        age: inputAge.current.value,
+      }
+    );
 
     setUsers([...users, newUsers]);
 
-    history.push('usuarios');
+    history.push("usuarios");
   }
 
   return (
-    <Container >
+    <Container>
       <Image alt="logo-imagem" src={ImgPeople} />
 
       <ContainerItens>
@@ -49,13 +47,12 @@ const App = () => {
         <Input ref={inputAge} placeholder="Digite sua Idade!" />
 
         <Button onClick={addNewUser}>
-          Cadastrar<img alt="arrow" src={ArrowRight} />
+          Cadastrar
+          <img alt="arrow" src={ArrowRight} />
         </Button>
-
       </ContainerItens>
     </Container>
   );
+};
 
-}
-
-export default App
+export default App;
