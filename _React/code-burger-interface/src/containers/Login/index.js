@@ -22,7 +22,7 @@ import {
 
 function Login() {
   const schema = Yup.object().shape({
-    email: Yup.string().email("Digite um e-mail ou senha válida").required("O e-mail é obrigatório"),
+    email: Yup.string().email("Digite um e-mail ou senha válida.").required("O e-mail é obrigatório"),
     password: Yup.string().required("A senha é obrigatória").min(6, "A senha deve ter no minimo 6 digítos"),
   })
 
