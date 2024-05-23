@@ -43,12 +43,12 @@ form {
 `
 
 export const ErrorMessage = styled.p`
-	color: #CC1717;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-	margin-top: 5px;
+color: #CC1717;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 5px;
 `
 
 export const Label = styled.p`
@@ -66,33 +66,6 @@ background-color: #fff;
 height: 38.3px;
 border: ${props => (props.error ? '2px solid #CC1717' : "none")};
 padding-left: 10px;
-`
-
-export const Button = styled.button`
-
-border-radius: 20px;
-width: 182.81px;
-height: 36.13px;
-background-color: #9758A6;
-cursor: pointer;
-margin-top: 65px;
-margin-bottom: 25px;
-border: none;
-transition: ease-in-out;
-
-&:hover {
-	opacity: 0.8;
-	transform: scale(1.1);
-}
-
-&:active {
-	opacity: 0.6;
-}
-
-font-size: 16px;
-font-weight: 500;
-color: #eee;
-text-align: center;
 `
 
 export const SignInLink = styled.p`

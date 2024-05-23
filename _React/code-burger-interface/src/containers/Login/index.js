@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import LoginImag from "../../assets/login-img.svg";
 import Logo from "../../assets/logo-burger.svg";
+import Button from "../../components/Button";
 
 import api from "../../services/api";
 
@@ -16,7 +17,6 @@ import {
   Label,
   Input,
   ErrorMessage,
-  Button,
   SignInLink
 } from "./styles"
 
@@ -60,7 +60,10 @@ function Login() {
           <Input type="password" {...register("password")} error={errors.password?.message} />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Button type="submit">Sing in</Button>
+          <Button type="submit" style={{
+            marginTop: 65,
+            marginBottom: 25
+          }}>Sing in</Button>
         </form>
         <SignInLink>Não possui conta ? <a>Sing up</a></SignInLink>
       </ContainerItens>
