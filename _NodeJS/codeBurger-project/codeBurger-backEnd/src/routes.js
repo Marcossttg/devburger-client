@@ -21,7 +21,7 @@ routes.post('/users', UserController.store)
 routes.post('/sessions', SessionController.store)
 
 //Adicionando routes.use() com middleware para que todas as rotas abaixo.
-//Quando chamado receba o middleware como autenticação
+//Quando chamado, recebe o middleware como autenticação.
 routes.use(authMiddleware)
 
 routes.post('/products', upload.single('file'), ProductController.store)
