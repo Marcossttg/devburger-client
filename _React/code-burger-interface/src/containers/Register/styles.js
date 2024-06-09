@@ -13,7 +13,7 @@ justify-content: center;
 align-items: center;
 `
 
-export const LoginImage = styled.img`
+export const RegisterImage = styled.img`
 height: 70%;
 `
 
@@ -33,7 +33,7 @@ h1 {
 	color: #fff;
 	text-align: left;
 	text-align: center;
-	margin-top: 100px;
+	margin-top: 10px;
 }
 
 form {
@@ -55,7 +55,8 @@ export const Label = styled.p`
 font-size: 12px;
 font-weight: 500;
 color: #fff;
-margin: 28px 0 5px;
+margin: ${props => (props.error ? '12px' : "28px")};
+margin-bottom: 5px;
 `
 
 export const Input = styled.input`

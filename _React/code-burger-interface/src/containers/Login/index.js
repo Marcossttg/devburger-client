@@ -1,11 +1,19 @@
 import React from "react";
 
 import { useForm } from "react-hook-form";
+
+//feedback de eventos
+import { toast } from 'react-toastify';
+
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 
+//UseContext hook 
+import { useUser } from "../../hooks/UserContext";
+
 import LoginImag from "../../assets/login-img.svg";
 import Logo from "../../assets/logo-burger.svg";
+import Button from "../../components/Button";
 
 import api from "../../services/api";
 
@@ -16,11 +24,13 @@ import {
   Label,
   Input,
   ErrorMessage,
-  Button,
   SignInLink
 } from "./styles"
 
 function Login() {
+
+  const { putUseData } = useUser()
+
   const schema = Yup.object().shape({
     email: Yup.string().email("Digite um e-mail ou senha válida.").required("O e-mail é obrigatório"),
     password: Yup.string().required("A senha é obrigatória").min(6, "A senha deve ter no minimo 6 digítos"),
@@ -36,11 +46,19 @@ function Login() {
 
 
   const onSubmit = async clientData => {
-    const response = await api.post("sessions", {
-      email: clientData.email,
-      password: clientData.password
-    })
-    // console.log(response)
+    const { data } = await toast.promise(
+      api.post("sessions", {
+        email: clientData.email,
+        password: clientData.password
+      }),
+      {
+        pending: 'Verificado dados',
+        success: 'Seja bem-vindo(a) 👌',
+        error: 'Verifique seu e-mail e senha 🤯'
+      }
+    );
+
+    putUseData(data)
   }
 
   return (
@@ -60,7 +78,10 @@ function Login() {
           <Input type="password" {...register("password")} error={errors.password?.message} />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Button type="submit">Sing in</Button>
+          <Button type="submit" style={{
+            marginTop: 65,
+            marginBottom: 25
+          }}>Sing in</Button>
         </form>
         <SignInLink>Não possui conta ? <a>Sing up</a></SignInLink>
       </ContainerItens>
