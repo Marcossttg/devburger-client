@@ -1,10 +1,15 @@
 import React from "react";
 
 import { useForm } from "react-hook-form";
+
+//feedback de eventos
 import { toast } from 'react-toastify';
 
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
+
+//UseContext hook 
+import { useUser } from "../../hooks/UserContext";
 
 import LoginImag from "../../assets/login-img.svg";
 import Logo from "../../assets/logo-burger.svg";
@@ -23,6 +28,9 @@ import {
 } from "./styles"
 
 function Login() {
+
+  const { putUseData, userData } = useUser()
+
   const schema = Yup.object().shape({
     email: Yup.string().email("Digite um e-mail ou senha válida.").required("O e-mail é obrigatório"),
     password: Yup.string().required("A senha é obrigatória").min(6, "A senha deve ter no minimo 6 digítos"),
@@ -38,7 +46,7 @@ function Login() {
 
 
   const onSubmit = async clientData => {
-    const response = await toast.promise(
+    const { data } = await toast.promise(
       api.post("sessions", {
         email: clientData.email,
         password: clientData.password
@@ -49,6 +57,8 @@ function Login() {
         error: 'Verifique seu e-mail e senha 🤯'
       }
     );
+    putUseData(data)
+    console.log(data)
   }
 
   return (
