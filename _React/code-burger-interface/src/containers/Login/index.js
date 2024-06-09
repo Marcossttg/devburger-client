@@ -29,7 +29,7 @@ import {
 
 function Login() {
 
-  const { putUseData, userData } = useUser()
+  const { putUseData } = useUser()
 
   const schema = Yup.object().shape({
     email: Yup.string().email("Digite um e-mail ou senha válida.").required("O e-mail é obrigatório"),
@@ -57,8 +57,8 @@ function Login() {
         error: 'Verifique seu e-mail e senha 🤯'
       }
     );
+
     putUseData(data)
-    console.log(data)
   }
 
   return (
