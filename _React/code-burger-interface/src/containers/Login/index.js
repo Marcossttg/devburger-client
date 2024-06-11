@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 //feedback de eventos
 import { toast } from 'react-toastify';
 
+import { Link } from "react-router-dom";
+
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -83,7 +85,10 @@ function Login() {
             marginBottom: 25
           }}>Sing in</Button>
         </form>
-        <SignInLink>Não possui conta ? <a>Sing up</a></SignInLink>
+        <SignInLink>
+          Não possui conta ? {" "}
+          <Link style={{ color: "white" }} to="/cadastro" >Sing up</Link>
+        </SignInLink>
       </ContainerItens>
     </Container>
   );
