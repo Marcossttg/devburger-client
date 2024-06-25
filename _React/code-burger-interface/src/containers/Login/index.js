@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 //feedback de eventos
 import { toast } from 'react-toastify';
 
+import { Link, useHistory } from "react-router-dom";
+
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -28,7 +30,7 @@ import {
 } from "./styles"
 
 function Login() {
-
+  const history = useHistory()
   const { putUseData } = useUser()
 
   const schema = Yup.object().shape({
@@ -59,6 +61,11 @@ function Login() {
     );
 
     putUseData(data)
+
+    setTimeout(() => {
+      history.push("/")
+    }, 2000)
+
   }
 
   return (
@@ -83,7 +90,10 @@ function Login() {
             marginBottom: 25
           }}>Sing in</Button>
         </form>
-        <SignInLink>Não possui conta ? <a>Sing up</a></SignInLink>
+        <SignInLink>
+          Não possui conta ? {" "}
+          <Link style={{ color: "white" }} to="/cadastro" >Sing up</Link>
+        </SignInLink>
       </ContainerItens>
     </Container>
   );
