@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 import RegisterImg from "../../assets/register-img.svg";
 import Logo from "../../assets/logo-burger.svg";
-import Button from "../../components/Button";
+import { Button } from "../../components";
 
 import api from "../../services/api";
 
@@ -24,7 +24,7 @@ import {
   SignInLink
 } from "./styles"
 
-function Register() {
+export function Register() {
   const schema = Yup.object().shape({
     name: Yup.string().required("O seu nome é obrigatório"),
     email: Yup.string().email("Digite um e-mail ou senha válida.").required("O e-mail é obrigatório"),
@@ -98,4 +98,3 @@ function Register() {
     </Container>
   );
 }
-export default Register;

@@ -15,7 +15,7 @@ import { useUser } from "../../hooks/UserContext";
 
 import LoginImag from "../../assets/login-img.svg";
 import Logo from "../../assets/logo-burger.svg";
-import Button from "../../components/Button";
+import { Button } from "../../components";
 
 import api from "../../services/api";
 
@@ -29,7 +29,7 @@ import {
   SignInLink
 } from "./styles"
 
-function Login() {
+export function Login() {
   const history = useHistory()
   const { putUseData } = useUser()
 
@@ -98,4 +98,3 @@ function Login() {
     </Container>
   );
 }
-export default Login;
