@@ -5,29 +5,29 @@ import PropTypes from "prop-types"
 const CardContext = createContext({})
 
 export const CartProvider = ({ children }) => {
-	const [cartProduts, setCartProducts] = useState([])
+	const [cartProducts, setCartProducts] = useState([])
 
 	//adicionando produtos
 	const putProductInCart = async product => {
 		console.log(product)
-		const cartIndex = cartProduts.findIndex(prd => prd.id === product.id)
+		const cartIndex = cartProducts.findIndex(prd => prd.id === product.id)
 
-		let newCartProdutcts = []
+		let newCartProducts = []
 		if (cartIndex >= 0) {
 
-			newCartProdutcts = cartProduts
+			newCartProducts = cartProducts
 
-			newCartProdutcts[cartIndex].quantity =
-				newCartProdutcts[cartIndex].quantity + 1
+			newCartProducts[cartIndex].quantity =
+				newCartProducts[cartIndex].quantity + 1
 
-			setCartProducts(newCartProdutcts)
+			setCartProducts(newCartProducts)
 		} else {
 			product.quantity = 1
-			newCartProdutcts = [...cartProduts, product]
-			setCartProducts(newCartProdutcts)
+			newCartProducts = [...cartProducts, product]
+			setCartProducts(newCartProducts)
 		}
 		//gravando no local storage
-		await localStorage.setItem("codeburger:cartInfo", JSON.stringify(newCartProdutcts))
+		await localStorage.setItem("codeburger:cartInfo", JSON.stringify(newCartProducts))
 	}
 
 	useEffect(() => {
@@ -42,7 +42,7 @@ export const CartProvider = ({ children }) => {
 	}, [])
 
 	return (
-		<CardContext.Provider value={{ putProductInCart, cartProduts }}>
+		<CardContext.Provider value={{ putProductInCart, cartProducts }}>
 			{children}
 		</CardContext.Provider>
 	)
