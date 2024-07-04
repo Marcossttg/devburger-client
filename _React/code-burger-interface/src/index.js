@@ -8,15 +8,15 @@ import Routes from "./routes/routes";
 import GlobalStyles from "./styles/globalStyles"
 
 //UseContext hook do react para compartilhar dados sem precisar do props.
-import { UserProvider } from "./hooks/UserContext"
+import AppProvider from "./hooks";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
 	<>
-		<UserProvider>
+		<AppProvider>
 			<Routes />
-		</UserProvider>
+		</AppProvider>
 		<ToastContainer autoClose={3000} theme="colored" />
 		<GlobalStyles />
 	</>
