@@ -15,7 +15,7 @@ import {
 
 
 export function Header() {
-  const { logout } = useUser()
+  const { logout, userData } = useUser()
 
   const {
     push,
@@ -47,7 +47,7 @@ export function Header() {
         </PageLink>
 
         <ContainerText>
-          <p>Olá, Marcos</p>
+          <p>Olá, {userData.name}</p>
           <PageLink className="exit" onClick={logoutUser}>Sair</PageLink>
         </ContainerText>
       </ContainerRight>

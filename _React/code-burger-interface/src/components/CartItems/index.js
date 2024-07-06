@@ -12,8 +12,6 @@ export function CartItems() {
 
 	const { cartProducts, increaseProducts, decreaseProducts } = useCart()
 
-	console.log(cartProducts)
-
 	return (
 		<Container>
 			<Header>
