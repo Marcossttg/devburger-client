@@ -4,11 +4,15 @@ import Carousel from 'react-elastic-carousel';
 import Offers from "../../assets/offers.png";
 import api from "../../services/api";
 import { Container, CategoryImg, ContainerItems, Image, Button } from "./styles";
+import { useCart } from "../../hooks/CartContext";
+import { useHistory } from "react-router-dom";
 
 import formatCurrency from "../../utils/formatCurrency";
 
 export function OffersCarousel() {
 	const [offers, setOffers] = useState([])
+	const { putProductInCart } = useCart()
+	const { push } = useHistory()
 
 	useEffect(() => {
 		async function loadOffers() {
@@ -19,11 +23,7 @@ export function OffersCarousel() {
 				return { ...product, formatedPrice: formatCurrency(product.price) }
 			})
 
-			console.log(data)
-
 			setOffers(onlyOffers)
-
-			console.log(onlyOffers)
 		};
 
 		loadOffers()
@@ -49,7 +49,11 @@ export function OffersCarousel() {
 						<p>{product.name}</p>
 						<p>{product.formatedPrice}</p>
 						{/* <p>{formatCurrency(product.price)}</p> */} {/* outra forma de retornar o valor em "R$" */}
-						<Button>Peça agora</Button>
+						<Button onClick={() => {
+							putProductInCart(product)
+							push('/carrinho')
+						}}
+						>Peça agora</Button>
 					</ContainerItems>
 				))}
 			</Carousel>
