@@ -8,6 +8,7 @@ import {
 	Login,
 	Products,
 	Register,
+	Admin
 } from "../containers";
 
 import PrivateRoute from "./private-route";
@@ -22,6 +23,7 @@ function Routes() {
 				<PrivateRoute exact component={Home} path="/"></PrivateRoute>
 				<PrivateRoute component={Products} path="/produtos"></PrivateRoute>
 				<PrivateRoute component={Cart} path="/carrinho"></PrivateRoute>
+				<PrivateRoute component={Admin} path="/pedidos" isAdmin={true}></PrivateRoute>
 			</Switch>
 		</Router>
 	)
