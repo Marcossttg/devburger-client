@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Orders } from "./Orders";
+import Orders from "./Orders";
 
 import {
   Container

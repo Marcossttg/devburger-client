@@ -1,28 +1,21 @@
 import React, { useEffect, useState } from "react";
 
-import Box from '@mui/material/Box';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import api from "../../../services/api";
-import {
-  Container
-} from "./styles"
+import { Container } from "./styles"
+import Row from "./row";
+import formatDate from "../../../utils/formatDate";
 
-export function Orders() {
+function Orders() {
   const [orders, setOrders] = useState([])
   const [rows, setRows] = useState([])
-
 
   useEffect(() => {
     async function loadOrders() {
@@ -35,11 +28,10 @@ export function Orders() {
   }, [])
 
   function createData(order) {
-
     return {
-      name: order.user.mane,
+      name: order.user.name,
       orderId: order._id,
-      date: order.createAt,
+      date: formatDate(order.createdAt),
       status: order.status,
       products: order.products,
     }
@@ -51,11 +43,28 @@ export function Orders() {
 
   }, [orders])
 
-  console.log(rows)
-
   return (
     <Container>
-      <p>PEDIDOS</p>
+      <TableContainer component={Paper}>
+        <Table aria-label="collapsible table">
+          <TableHead>
+            <TableRow>
+              <TableCell />
+              <TableCell>Pedidos</TableCell>
+              <TableCell>Cliente</TableCell>
+              <TableCell>Data do pedido</TableCell>
+              <TableCell>Status</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <Row key={row.orderId} row={row} />
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Container>
   );
 }
+
+export default Orders
