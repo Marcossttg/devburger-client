@@ -13,10 +13,27 @@ import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-import { ProductsImg } from "./styles"
+//api react-select
+// import ReactSelect from 'react-select'
+
+import api from "../../../services/api";
+import { ProductsImg, ReactSelectStyle } from "./styles"
+import status from "./order-status";
 
 function Row({ row }) {
   const [open, setOpen] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  async function setNewStatus(id, status) {
+    setIsLoading(true)
+    try {
+      await api.put(`orders/${id}`, { status })
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setIsLoading(false)
+    }
+  };
 
   return (
     <React.Fragment>
@@ -35,7 +52,16 @@ function Row({ row }) {
         </TableCell>
         <TableCell>{row.name}</TableCell>
         <TableCell>{row.date}</TableCell>
-        <TableCell>{row.status}</TableCell>
+        <TableCell>
+          <ReactSelectStyle options={status}
+            menuPortalTarget={document.body}
+            placeholder='Status'
+            defaultValue={status.find(option => option.value === row.status) || null}
+            onChange={newStatus => {
+              setNewStatus(row.orderId, newStatus.value)
+            }} isLoading={isLoading}
+          />
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
