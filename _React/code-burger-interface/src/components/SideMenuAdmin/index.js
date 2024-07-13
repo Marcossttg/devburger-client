@@ -4,14 +4,15 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { Container, ItemContainer, ListLinks } from "./styles";
 import listLinks from "./menu-list.";
 import { useUser } from "../../hooks/UserContext";
+import PropTypes from "prop-types";
 
-export function SideMenuAdmin() {
+export function SideMenuAdmin({ path }) {
 	const { logout } = useUser
 	return (
 		<Container>
 			<hr></hr>
 			{listLinks.map(item => (
-				<ItemContainer key={item.id} isActive={true}>
+				<ItemContainer key={item.id} isActive={path === item.link}>
 					<item.icon className="icon" />
 					<ListLinks to={item.link}>{item.label}</ListLinks>
 				</ItemContainer>
@@ -24,4 +25,8 @@ export function SideMenuAdmin() {
 			</ItemContainer>
 		</Container>
 	)
+}
+
+SideMenuAdmin.propTypes = {
+	path: PropTypes.string
 }
