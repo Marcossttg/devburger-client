@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Container = styled.div`
 	top: 0;
 	left: 0;	
-	width: 300vw;
+	width: 300px;
 	background: #3C3C3C;
 	box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.15);
 
