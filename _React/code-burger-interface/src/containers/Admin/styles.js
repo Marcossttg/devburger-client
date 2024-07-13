@@ -6,4 +6,8 @@ export const Container = styled.div`
 	width: 100vw;
 	background: #EFEFEF;
 	justify-content: flex-start;
-`
+`;
+
+export const ContainerItens = styled.div`
+	padding: 20px;
+`;
