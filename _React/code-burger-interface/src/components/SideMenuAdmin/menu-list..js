@@ -18,8 +18,8 @@ const listLinks = [
 	},
 	{
 		id: 3,
-		label: 'Adicionar Produto',
-		link: paths.EditProduct,
+		label: 'Novo Produto',
+		link: paths.NewProduct,
 		icon: DashboardCustomizeIcon
 	}
 ]
