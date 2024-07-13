@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form"
 
-import { Container, Label, Input } from "./styles";
+import { Container, Label, Input, ButtonStyles } from "./styles";
 import api from "../../../services/api";
 import ReactSelect from "react-select";
-import { Button } from "../../../components"
 
 
 function NewProduct() {
   const { register, handleSubmit } = useForm()
   const onSubmit = data => console.log(data)
-
 
   useEffect(() => {
     async function loadOrders() {
@@ -33,7 +31,7 @@ function NewProduct() {
         <Input type="file" accept="image/png, image/jpeg" />
 
         <ReactSelect />
-        <Button>Adicionar produto</Button>
+        <ButtonStyles >Adicionar produto</ButtonStyles>
       </form>
     </Container>
   );
