@@ -30,9 +30,27 @@ export const Input = styled.input`
 	border: none;
 	margin-bottom: 25px;
 	width: 100%;
+	min-width: 280px;
 `;
 
 export const ButtonStyles = styled(Button)`
 	margin-top: 25px;
 	width: 100%;
+`;
+
+export const LabelUpLoad = styled.label`
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+	border: 1px dashed #ffffff;
+	padding: 10px;
+	margin-bottom: 25px;
+	gap: 10px;
+
+	input {
+		opacity: 0;
+		display: none;
+		width: 1px;
+	}
 `;
