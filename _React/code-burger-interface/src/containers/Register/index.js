@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 import RegisterImg from "../../assets/register-img.svg";
 import Logo from "../../assets/logo-burger.svg";
-import { Button } from "../../components";
+import { Button, ErrorMessage } from "../../components";
 
 import api from "../../services/api";
 
@@ -20,9 +20,8 @@ import {
   ContainerItens,
   Label,
   Input,
-  ErrorMessage,
   SignInLink
-} from "./styles"
+} from "./styles";
 
 export function Register() {
   const schema = Yup.object().shape({

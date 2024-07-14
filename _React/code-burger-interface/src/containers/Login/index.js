@@ -15,7 +15,7 @@ import { useUser } from "../../hooks/UserContext";
 
 import LoginImag from "../../assets/login-img.svg";
 import Logo from "../../assets/logo-burger.svg";
-import { Button } from "../../components";
+import { Button, ErrorMessage } from "../../components";
 
 import api from "../../services/api";
 
@@ -25,9 +25,8 @@ import {
   ContainerItens,
   Label,
   Input,
-  ErrorMessage,
   SignInLink
-} from "./styles"
+} from "./styles";
 
 export function Login() {
   const history = useHistory()
@@ -61,7 +60,6 @@ export function Login() {
     );
 
     putUseData(data)
-    console.log(data)
 
     setTimeout(() => {
       if (data.admin) {

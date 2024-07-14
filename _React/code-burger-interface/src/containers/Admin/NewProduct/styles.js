@@ -12,6 +12,9 @@ export const Container = styled.div`
 		background: #565656;
 		border-radius: 5px;
 		padding: 30px;
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
 	}
 `;
 
@@ -28,9 +31,10 @@ export const Input = styled.input`
 	background: #FFF;
 	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.10);
 	border: none;
-	margin-bottom: 25px;
 	width: 100%;
 	min-width: 280px;
+	padding-left: 10px;
+	/* margin-bottom: 25px; */
 `;
 
 export const ButtonStyles = styled(Button)`
@@ -45,8 +49,8 @@ export const LabelUpLoad = styled.label`
 	border-radius: 5px;
 	border: 1px dashed #ffffff;
 	padding: 10px;
-	margin-bottom: 25px;
 	gap: 10px;
+	/* margin-bottom: 25px; */
 
 	input {
 		opacity: 0;
