@@ -15,7 +15,7 @@ import { useUser } from "../../hooks/UserContext";
 
 import LoginImag from "../../assets/login-img.svg";
 import Logo from "../../assets/logo-burger.svg";
-import Button from "../../components/Button";
+import { Button, ErrorMessage } from "../../components";
 
 import api from "../../services/api";
 
@@ -25,11 +25,10 @@ import {
   ContainerItens,
   Label,
   Input,
-  ErrorMessage,
   SignInLink
-} from "./styles"
+} from "./styles";
 
-function Login() {
+export function Login() {
   const history = useHistory()
   const { putUseData } = useUser()
 
@@ -63,9 +62,12 @@ function Login() {
     putUseData(data)
 
     setTimeout(() => {
-      history.push("/")
+      if (data.admin) {
+        history.push("/pedidos")
+      } else {
+        history.push("/")
+      }
     }, 2000)
-
   }
 
   return (
@@ -98,4 +100,3 @@ function Login() {
     </Container>
   );
 }
-export default Login;

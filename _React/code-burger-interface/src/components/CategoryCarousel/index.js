@@ -5,7 +5,7 @@ import Category from "../../assets/category.png";
 import api from "../../services/api";
 import { Container, CategoryImg, ContainerItems, Image, Button } from "./styles";
 
-function CategoryCarousel() {
+export function CategoryCarousel() {
 	const [categories, setCategories] = useState([])
 
 	useEffect(() => {
@@ -35,7 +35,10 @@ function CategoryCarousel() {
 				{categories && categories.map(category => (
 					<ContainerItems key={category.id} >
 						<Image src={category.url} alt="foto da categoria"></Image>
-						<Button>{category.name}</Button>
+						<Button to={{
+							pathname: '/produtos',
+							state: { categoryId: category.id }
+						}} >{category.name}</Button>
 					</ContainerItems>
 				))}
 			</Carousel>
@@ -43,5 +46,3 @@ function CategoryCarousel() {
 		</Container>
 	)
 }
-
-export default CategoryCarousel
