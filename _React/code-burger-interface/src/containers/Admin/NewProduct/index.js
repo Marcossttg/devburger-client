@@ -14,7 +14,7 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 function NewProduct() {
 
   const [fileName, setFileName] = useState(null)
-  const [categories, seCategores] = useState([])
+  const [categories, setCategories] = useState([])
 
   const schema = Yup.object().shape({
     name: Yup.string().required('Digite o nome do produto'),
@@ -22,12 +22,16 @@ function NewProduct() {
     category: Yup.object().required('Escolha uma categoria'),
     file: Yup.mixed()
       .test('required', 'Carregue um arquivo', value => {
+        console.log('required', value?.length > 0)
         return value?.length > 0
       })
       .test('fileSize', 'Carregue arquivo de até 2mb', value => {
+        console.log('fileSize', value[0]?.size <= 200000)
         return value[0]?.size <= 200000;
       })
       .test('type', 'Carregue arquivo tipo JPEG ou PNG', value => {
+        console.log('type', (value[0]?.type === 'image/jpeg') ||
+          (value[0]?.type === 'image/png'))
         return (
           (value[0]?.type === 'image/jpeg') ||
           (value[0]?.type === 'image/png')
@@ -47,11 +51,12 @@ function NewProduct() {
   const onSubmit = data => console.log(data)
 
   useEffect(() => {
-    async function loadOrders() {
+    async function loadCategories() {
       const { data } = await api.get("categories")
-      seCategores(data)
+      console.log(data)
+      setCategories(data)
     };
-    loadOrders()
+    loadCategories()
   }, [])
 
   return (
