@@ -34,7 +34,6 @@ export const Input = styled.input`
 	width: 100%;
 	min-width: 280px;
 	padding-left: 10px;
-	/* margin-bottom: 25px; */
 `;
 
 export const ButtonStyles = styled(Button)`
@@ -50,7 +49,6 @@ export const LabelUpLoad = styled.label`
 	border: 1px dashed #ffffff;
 	padding: 10px;
 	gap: 10px;
-	/* margin-bottom: 25px; */
 
 	input {
 		opacity: 0;
