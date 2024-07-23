@@ -98,7 +98,7 @@ class ProductController {
         path,
         offer,
       },
-      { where: { id } }
+      { where: { id } },
     )
 
     return response.status(200).json()

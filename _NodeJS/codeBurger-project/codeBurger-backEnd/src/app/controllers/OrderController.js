@@ -14,7 +14,7 @@ class OrderController {
           Yup.object().shape({
             id: Yup.number().required(),
             quantity: Yup.number().required(),
-          })
+          }),
         ),
     })
 
@@ -40,7 +40,7 @@ class OrderController {
     })
     const editedProduct = updatedProducts.map((product) => {
       const productIndex = request.body.products.findIndex(
-        (requestProduct) => requestProduct.id === product.id
+        (requestProduct) => requestProduct.id === product.id,
       )
 
       const newProduct = {

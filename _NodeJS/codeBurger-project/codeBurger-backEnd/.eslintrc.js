@@ -5,23 +5,16 @@ module.exports = {
   },
   extends: ['standard', 'prettier'],
   plugins: ['prettier'],
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: ['.eslintrc.{js,cjs}'],
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
   rules: {
-    camelcase: 'off',
-    'prettier/prettier': 'error',
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'space-before-function-paren': 'off',
+    'no-console': 'warn',
+    'comma-dangle': ['error', 'always-multiline'],
+    'jsx-quotes': ['error', 'prefer-double'],
   },
 }

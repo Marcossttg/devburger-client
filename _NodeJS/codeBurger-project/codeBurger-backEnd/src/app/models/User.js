@@ -14,7 +14,7 @@ class User extends Model {
       },
       {
         sequelize,
-      }
+      },
     )
     //cria criptografia das senhas com bcrypt
     this.addHook('beforeSave', async (user) => {
