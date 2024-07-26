@@ -2,7 +2,7 @@ import express from 'express'
 
 import routes from './routes'
 
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 
 import cors from 'cors'
 

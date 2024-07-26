@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize'
-import mongoose from 'mongoose'
+// import mongoose from 'mongoose'
 
 import Product from '../app/models/Product'
 import User from '../app/models/User'
@@ -12,7 +12,7 @@ const models = [User, Product, Category]
 class Database {
   constructor() {
     this.init()
-    this.mongo()
+    // this.mongo()
   }
 
   init() {
@@ -27,11 +27,11 @@ class Database {
       )
   }
 
-  mongo() {
-    this.mongoConnection = mongoose.connect(
-      'mongodb://localhost:27017/codeburger',
-    )
-  }
+  // mongo() {
+  //   this.mongoConnection = mongoose.connect(
+  //     'mongodb://localhost:27017/codeburger',
+  //   )
+  // }
 }
 
 export default new Database()
