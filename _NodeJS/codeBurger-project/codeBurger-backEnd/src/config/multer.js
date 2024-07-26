@@ -2,7 +2,7 @@ import multer from 'multer'
 
 import { v4 } from 'uuid'
 
-import { extname, resolve } from 'path'
+import { extname, resolve } from 'node:path'
 
 export default {
   storage: multer.diskStorage({

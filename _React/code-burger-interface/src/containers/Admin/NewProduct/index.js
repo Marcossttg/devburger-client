@@ -16,29 +16,29 @@ function NewProduct() {
   const [fileName, setFileName] = useState(null)
   const [categories, setCategories] = useState([])
 
+
   const schema = Yup.object().shape({
     name: Yup.string().required('Digite o nome do produto'),
     price: Yup.string().required('Digite o preço do produto'),
     category: Yup.object().required('Escolha uma categoria'),
-    file: Yup.mixed()
-      .test('required', 'Carregue um arquivo', value => {
-        console.log('required', value?.length > 0)
-        return value?.length > 0
-      })
-      .test('fileSize', 'Carregue arquivo de até 2mb', value => {
-        console.log('fileSize', value[0]?.size <= 200000)
-        return value[0]?.size <= 200000;
-      })
-      .test('type', 'Carregue arquivo tipo JPEG ou PNG', value => {
-        console.log('type', (value[0]?.type === 'image/jpeg') ||
-          (value[0]?.type === 'image/png'))
-        return (
-          (value[0]?.type === 'image/jpeg') ||
-          (value[0]?.type === 'image/png')
-        )
-      })
+    // file: Yup.mixed()
+    //   .test('required', 'Carregue um arquivo', value => {
+    //     console.log('required', value?.length > 0)
+    //     return value?.length > 0
+    //   })
+    //   .test('fileSize', 'Carregue arquivo de até 2mb', value => {
+    //     console.log('fileSize', value[0]?.size <= 200000)
+    //     return value[0]?.size <= 200000;
+    //   })
+    //   .test('type', 'Carregue arquivo tipo JPEG ou PNG', value => {
+    //     console.log('type', (value[0]?.type === 'image/jpeg') ||
+    //       (value[0]?.type === 'image/png'))
+    //     return (
+    //       (value[0]?.type === 'image/jpeg') ||
+    //       (value[0]?.type === 'image/png')
+    //     )
+    //   })
   })
-
   const {
     register,
     handleSubmit,
@@ -83,6 +83,7 @@ function NewProduct() {
               </>
             )}
             <input type="file"
+              id="image-input"
               accept="image/png, image/jpeg"
               {...register("file")}
               onChange={value => {

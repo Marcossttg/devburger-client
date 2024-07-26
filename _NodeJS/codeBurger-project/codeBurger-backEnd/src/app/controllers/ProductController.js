@@ -1,10 +1,53 @@
 import * as Yup from 'yup'
 import Product from '../models/Product'
-import Category from '../models/Category'
-import User from '../models/User'
+// import Category from '../models/Category'
+// import User from '../models/User'
 
 class ProductController {
   async store(request, response) {
+    const schema = Yup.object({
+      name: Yup.string().required(),
+      price: Yup.number().required(),
+      category: Yup.string().required(),
+      // offer: Yup.boolean(),
+    })
+
+    const { filename: path } = request.file
+    const { name, price, category, offer } = request.body
+
+    const product = await Product.create({
+      name,
+      price,
+      category,
+      path,
+      // offer,
+    })
+
+
+    try {
+      await schema.validateSync(request.body, { abortEarly: false })
+    } catch (err) {
+      return response.status(400).json({ error: err.errors })
+    }
+    return response.status(201).json(product)
+  }
+
+  async index(request, response) {
+    const products = await Product.findAll({
+      // include: [
+      //   {
+      //     model: Category,
+      //     as: 'category',
+      //     attributes: ['id', 'name'],
+      //   },
+      // ],
+    })
+    return response.json(products)
+  }
+
+}
+/*
+ async store(request, response) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
       price: Yup.number().required(),
@@ -29,7 +72,7 @@ class ProductController {
 
     const product = await Product.create({
       name,
-      price: price,
+      price,
       category_id,
       path,
       offer,
@@ -37,6 +80,7 @@ class ProductController {
 
     return response.json(product)
   }
+
   catch(err) {
     console.log(err)
   }
@@ -98,13 +142,15 @@ class ProductController {
         path,
         offer,
       },
-      { where: { id } }
+      { where: { id } },
     )
 
     return response.status(200).json()
   }
+
   catch(err) {
     console.log(err)
   }
-}
+*/
+// }
 export default new ProductController()

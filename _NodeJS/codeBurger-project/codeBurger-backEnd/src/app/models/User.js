@@ -8,15 +8,15 @@ class User extends Model {
       {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
-        password: Sequelize.VIRTUAL, //cria senha virtual para bcrypt comparar
+        password: Sequelize.VIRTUAL, // cria senha virtual para bcrypt comparar
         password_hash: Sequelize.STRING,
         admin: Sequelize.BOOLEAN,
       },
       {
         sequelize,
-      }
+      },
     )
-    //cria criptografia das senhas com bcrypt
+    // cria criptografia das senhas com bcrypt
     this.addHook('beforeSave', async (user) => {
       if (user.password) {
         user.password_hash = await bcrypt.hash(user.password, 10)
@@ -25,7 +25,7 @@ class User extends Model {
     return this
   }
 
-  checkPassword(password) {
+  async checkPassword(password) {
     return bcrypt.compare(password, this.password_hash)
   }
 }

@@ -6,8 +6,9 @@ class Product extends Model {
       {
         name: Sequelize.STRING,
         price: Sequelize.INTEGER,
+        category: Sequelize.STRING,
         path: Sequelize.STRING,
-        offer: Sequelize.BOOLEAN,
+        // offer: Sequelize.BOOLEAN,
         url: {
           type: Sequelize.VIRTUAL,
           get() {
@@ -17,16 +18,17 @@ class Product extends Model {
       },
       {
         sequelize,
-      }
+      },
     )
     return this
   }
-  static associate(models) {
-    this.belongsTo(models.Category, {
-      foreignKey: 'category_id',
-      as: 'category',
-    })
-  }
+
+  // static associate(models) {
+  //   this.belongsTo(models.Category, {
+  //     foreignKey: 'category_id',
+  //     as: 'category',
+  //   })
+  // }
 }
 
 export default Product
