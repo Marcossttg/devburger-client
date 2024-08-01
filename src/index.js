@@ -13,11 +13,11 @@ import AppProvider from "./hooks";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-	<>
-		<AppProvider>
-			<Routes />
-		</AppProvider>
-		<ToastContainer autoClose={3000} theme="colored" />
-		<GlobalStyles />
-	</>
+  <>
+    <AppProvider>
+      <Routes />
+    </AppProvider>
+    <ToastContainer autoClose={3000} theme="colored" />
+    <GlobalStyles />
+  </>
 );
