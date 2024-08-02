@@ -6,48 +6,48 @@ const UserContext = createContext({})
 
 export const UserProvider = ({ children }) => {
 
-	const [userData, setUserData] = useState({})
+  const [userData, setUserData] = useState({})
 
-	const putUseData = async (userInfo) => {
-		setUserData(userInfo)
+  const putUseData = async (userInfo) => {
+    setUserData(userInfo)
 
-		//gravando informações no local storage
-		await localStorage.setItem("codeburger:userData", JSON.stringify(userInfo))
-	}
+    //gravando informações no local storage
+    await localStorage.setItem("codeburger:userData", JSON.stringify(userInfo))
+  }
 
-	//deslogando usuário
-	const logout = async () => {
-		await localStorage.removeItem("codeburger:userData")
-	}
+  //deslogando usuário
+  const logout = async () => {
+    await localStorage.removeItem("codeburger:userData")
+  }
 
-	useEffect(() => {
-		const loadUserData = async () => {
-			const clientInfo = await localStorage.getItem("codeburger:userData")
+  useEffect(() => {
+    const loadUserData = async () => {
+      const clientInfo = await localStorage.getItem("codeburger:userData")
 
-			if (clientInfo) {
-				setUserData(JSON.parse(clientInfo))
-			}
-		}
-		loadUserData()
-	}, [])
+      if (clientInfo) {
+        setUserData(JSON.parse(clientInfo))
+      }
+    }
+    loadUserData()
+  }, [])
 
-	return (
-		<UserContext.Provider value={{ putUseData, userData, logout }}>
-			{children}
-		</UserContext.Provider>
-	)
+  return (
+    <UserContext.Provider value={{ putUseData, userData, logout }}>
+      {children}
+    </UserContext.Provider>
+  )
 }
 
 export const useUser = () => {
-	const context = useContext(UserContext)
+  const context = useContext(UserContext)
 
-	if (!context) {
-		throw new Error("useUser must be used with UserContext")
-	}
-	return context
+  if (!context) {
+    throw new Error("useUser must be used with UserContext")
+  }
+  return context
 }
 
 
 UserProvider.propTypes = {
-	children: PropTypes.node
+  children: PropTypes.node
 }
