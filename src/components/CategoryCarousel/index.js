@@ -26,7 +26,6 @@ export function CategoryCarousel() {
 		{ width: 1300, itemsToShow: 5 },
 	]
 
-
 	return (
 		<Container>
 			<CategoryImg src={Category} alt="logo da categoria" />

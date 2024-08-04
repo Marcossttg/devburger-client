@@ -37,7 +37,6 @@ export function OffersCarousel() {
 		{ width: 1300, itemsToShow: 5 },
 	]
 
-
 	return (
 		<Container>
 			<CategoryImg src={Offers} alt="logo de offers" />

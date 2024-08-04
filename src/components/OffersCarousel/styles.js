@@ -25,7 +25,6 @@ padding: 35px 0;
 	background-color: #bebebf;
 	color: #efefef;
 }
-
 `;
 
 export const CategoryImg = styled.img``;
@@ -42,7 +41,6 @@ flex-direction: column;
 		line-height: 120%; /* 26.4px */
 		padding-left: 5px;
 	}
-
 `;
 
 export const Image = styled.img`
@@ -75,5 +73,4 @@ cursor: pointer;
 &:active{
 	opacity: 0.8;
 }
-
 `;

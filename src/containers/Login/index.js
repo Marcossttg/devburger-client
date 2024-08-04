@@ -10,7 +10,7 @@ import { Link, useHistory } from "react-router-dom";
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 
-//UseContext hook 
+//UseContext hook
 import { useUser } from "../../hooks/UserContext";
 
 import LoginImag from "../../assets/login-img.svg";
@@ -34,7 +34,7 @@ export function Login() {
 
   const schema = Yup.object().shape({
     email: Yup.string().email("Digite um e-mail ou senha válida.").required("O e-mail é obrigatório"),
-    password: Yup.string().required("A senha é obrigatória").min(6, "A senha deve ter no minimo 6 digítos"),
+    password: Yup.string().required("A senha é obrigatória").min(3, "A senha deve ter no minimo 3 digítos"),
   })
 
   const {
@@ -48,7 +48,7 @@ export function Login() {
 
   const onSubmit = async clientData => {
     const { data } = await toast.promise(
-      api.post("sessions", {
+      api.post("session", {
         email: clientData.email,
         password: clientData.password
       }),
