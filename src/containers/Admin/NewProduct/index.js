@@ -22,8 +22,8 @@ function NewProduct() {
     price: Yup.string().required('Digite o preço do produto'),
     category: Yup.object().required('Escolha uma categoria'),
     file: Yup.mixed().test('required', 'Carregue um arquivo', value => {
-      console.log('required', value && !value.length > 0);
-      return value && !value.length > 0;
+      console.log('required', value);
+      return value !== undefined && value !== null && value.length > 0;
     })
    /* // .test('required', 'Carregue um arquivo', value => {
       //   console.log('required', value?.length > 0)
