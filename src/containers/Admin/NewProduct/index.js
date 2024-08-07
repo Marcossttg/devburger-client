@@ -21,24 +21,45 @@ function NewProduct() {
     name: Yup.string().required('Digite o nome do produto'),
     price: Yup.string().required('Digite o preço do produto'),
     category: Yup.object().required('Escolha uma categoria'),
-    // file: Yup.mixed()
-    //   .test('required', 'Carregue um arquivo', value => {
-    //     console.log('required', value?.length > 0)
-    //     return value?.length > 0
-    //   })
-    //   .test('fileSize', 'Carregue arquivo de até 2mb', value => {
-    //     console.log('fileSize', value[0]?.size <= 200000)
-    //     return value[0]?.size <= 200000;
-    //   })
-    //   .test('type', 'Carregue arquivo tipo JPEG ou PNG', value => {
-    //     console.log('type', (value[0]?.type === 'image/jpeg') ||
-    //       (value[0]?.type === 'image/png'))
-    //     return (
-    //       (value[0]?.type === 'image/jpeg') ||
-    //       (value[0]?.type === 'image/png')
-    //     )
-    //   })
+    file: Yup.mixed().test('required', 'Carregue um arquivo', value => {
+      console.log('required', value && !value.length > 0);
+      return value && !value.length > 0;
+    })
+   /* // .test('required', 'Carregue um arquivo', value => {
+      //   console.log('required', value?.length > 0)
+      //   return value?.length > 0
+      // })
+      // .test('fileSize', 'Carregue arquivo de até 2mb', value => {
+      //   console.log('fileSize', value[0]?.size <= 200000)
+      //   return value[0]?.size <= 200000;
+      // })
+      // .test('type', 'Carregue arquivo tipo JPEG ou PNG', value => {
+      //   console.log('type', (value[0]?.type === 'image/jpeg') ||
+      //     (value[0]?.type === 'image/png'))
+      //   return (
+      //     (value[0]?.type === 'image/jpeg') ||
+      //     (value[0]?.type === 'image/png')
+      //   )
+      // })
+                    // 2° validação
+      // .test('required', 'Carregue um arquivo', value => {
+      //   console.log('required', value && value.length > 0);
+      //   return value && value.length > 0;
+      // })
+      // .test('fileSize', 'Carregue arquivo de até 2mb', value => {
+      //   const file = value && value[0];
+      //   console.log('fileSize', file && file.size <= 200000);
+      //   return file && file.size <= 200000;
+      // })
+      // .test('type', 'Carregue arquivo tipo JPEG ou PNG', value => {
+      //   const file = value && value[0];
+      //   console.log('type', file && (file.type === 'image/jpeg' ||
+      //     file.type === 'image/png'));
+      //   return file && (file.type === 'image/jpeg' || file.type === 'image/png');
+      // }) */
+
   })
+
   const {
     register,
     handleSubmit,
@@ -118,4 +139,4 @@ function NewProduct() {
   );
 }
 
-export default NewProduct 
+export default NewProduct
