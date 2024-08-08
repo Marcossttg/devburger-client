@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
+import {useHistory} from "react-router-dom";
 
+import CancelIcon from '@mui/icons-material/Cancel';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import CancelIcon from '@mui/icons-material/Cancel';
 
-import { Container, Img, EditIconStyles } from "./styles";
+import paths from "../../../constants/paths";
 import api from "../../../services/api";
-import formatCurrency from "../../../utils/formatCurrency"
+import formatCurrency from "../../../utils/formatCurrency";
+import { Container, Img, EditIconStyles } from "./styles";
 
 
 function ListProducts() {
   const [products, setProducts] = useState()
+  const { push } = useHistory()
+
   useEffect(() => {
     async function loadOrders() {
       const { data } = await api.get("products")
@@ -31,6 +35,10 @@ function ListProducts() {
       return <CheckCircleIcon style={{ color: '#228B22' }} />
     }
     return <CancelIcon style={{ color: '#CC1717' }} />
+  }
+
+  function editProduct(product) {
+    push(paths.EditProduct, {product})
   }
 
   return (
@@ -60,7 +68,7 @@ function ListProducts() {
                   <TableCell align="center">{isOffer(product.offer)}</TableCell>
                   <TableCell align="center"><Img src={product.url} alt="imagem-produto" /></TableCell>
                   <TableCell>
-                    <EditIconStyles />
+                    <EditIconStyles onClick={()=> editProduct(product)}/>
                   </TableCell>
                 </TableRow>
               ))}
@@ -71,4 +79,4 @@ function ListProducts() {
   );
 }
 
-export default ListProducts 
+export default ListProducts
