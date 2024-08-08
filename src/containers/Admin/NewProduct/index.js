@@ -1,142 +1,116 @@
-import React, { useEffect, useState } from "react";
-import { useForm, Controller } from "react-hook-form"
-import ReactSelect from "react-select";
-
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-
-import api from "../../../services/api";
-import { Container, Label, Input, ButtonStyles, LabelUpLoad } from "./styles";
-import { ErrorMessage } from "../../../components/";
-
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import React, { useEffect, useState } from 'react'
+import api from '../../../services/api'
+import * as Yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Container, Label, Input, ButtonStyles, LabelUpload } from './styles'
+import ReactSelect from 'react-select'
+import { useForm, Controller } from 'react-hook-form'
+import CloudUploadIcon from '@mui/icons-material/CloudUpload'
+import { ErrorMessage } from '../../../components'
+import { toast } from 'react-toastify'
+import { useHistory } from 'react-router-dom'
 
 function NewProduct() {
+    const [fileName, setFileName] = useState(null)
+    const [categories, setCategories] = useState([])
+    const {push} = useHistory()
 
-  const [fileName, setFileName] = useState(null)
-  const [categories, setCategories] = useState([])
 
-
-  const schema = Yup.object().shape({
-    name: Yup.string().required('Digite o nome do produto'),
-    price: Yup.string().required('Digite o preço do produto'),
-    category: Yup.object().required('Escolha uma categoria'),
-    file: Yup.mixed().test('required', 'Carregue um arquivo', value => {
-      console.log('required', value);
-      return value !== undefined && value !== null && value.length > 0;
+    const schema = Yup.object().shape({
+        name: Yup.string().required('Digite o nome do produto'),
+        price: Yup.string().required('Digite o preço do produto'),
+        category: Yup.object().required('Escolha a categoria'),
+        file: Yup.mixed().test('required', 'Carregue um arquivo', value => {
+            return value?.length > 0
+        })
     })
-   /* // .test('required', 'Carregue um arquivo', value => {
-      //   console.log('required', value?.length > 0)
-      //   return value?.length > 0
-      // })
-      // .test('fileSize', 'Carregue arquivo de até 2mb', value => {
-      //   console.log('fileSize', value[0]?.size <= 200000)
-      //   return value[0]?.size <= 200000;
-      // })
-      // .test('type', 'Carregue arquivo tipo JPEG ou PNG', value => {
-      //   console.log('type', (value[0]?.type === 'image/jpeg') ||
-      //     (value[0]?.type === 'image/png'))
-      //   return (
-      //     (value[0]?.type === 'image/jpeg') ||
-      //     (value[0]?.type === 'image/png')
-      //   )
-      // })
-                    // 2° validação
-      // .test('required', 'Carregue um arquivo', value => {
-      //   console.log('required', value && value.length > 0);
-      //   return value && value.length > 0;
-      // })
-      // .test('fileSize', 'Carregue arquivo de até 2mb', value => {
-      //   const file = value && value[0];
-      //   console.log('fileSize', file && file.size <= 200000);
-      //   return file && file.size <= 200000;
-      // })
-      // .test('type', 'Carregue arquivo tipo JPEG ou PNG', value => {
-      //   const file = value && value[0];
-      //   console.log('type', file && (file.type === 'image/jpeg' ||
-      //     file.type === 'image/png'));
-      //   return file && (file.type === 'image/jpeg' || file.type === 'image/png');
-      // }) */
 
-  })
+    const { register, handleSubmit, control, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+    })
+    const onSubmit = async data => {
+        const productDataFormData = new FormData()
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors }
-  } = useForm({
-    resolver: yupResolver(schema)
-  })
+        productDataFormData.append('name',data.name)
+        productDataFormData.append('price',data.price)
+        productDataFormData.append('category_id',data.category.id)
+        productDataFormData.append('file',data.file[0])
 
-  const onSubmit = data => console.log(data)
+        await toast.promise( api.post('products', productDataFormData),{
+            pending: 'Criando novo produto',
+            success: 'Produto criado com sucesso',
+            error: 'Falha ao criar o produto'
+        })
 
-  useEffect(() => {
-    async function loadCategories() {
-      const { data } = await api.get("categories")
-      console.log(data)
-      setCategories(data)
-    };
-    loadCategories()
-  }, [])
+        setTimeout(() => {
+            push('/listar-produtos')
+        }, 2000)
+    }
 
-  return (
-    <Container>
-      <form noValidate onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <Label>Nome</Label>
-          <Input type="text" {...register("name")} />
-          <ErrorMessage>{errors.name?.message}</ErrorMessage>
-        </div>
+    useEffect(() => {
+        async function loadCategories() {
+            const { data } = await api.get('categories')
 
-        <div>
-          <Label>Preço</Label>
-          <Input type="number" {...register("price")} />
-          <ErrorMessage>{errors.price?.message}</ErrorMessage>
-        </div>
+            setCategories(data)
+        }
 
-        <div>
-          <LabelUpLoad>
-            {fileName || (
-              <>
-                <AddPhotoAlternateIcon />
-                Carregue a imagem do produto
-              </>
-            )}
-            <input type="file"
-              id="image-input"
-              accept="image/png, image/jpeg"
-              {...register("file")}
-              onChange={value => {
-                setFileName(value.target.files[0]?.name)
-              }}
-            />
-          </LabelUpLoad>
-          <ErrorMessage>{errors.file?.message}</ErrorMessage>
-        </div>
+        loadCategories()
+    }, [])
 
-        <div>
-          <Controller name="category" control={control}
-            render={({ field }) => {
-              return (
-                <ReactSelect
-                  {...field}
-                  options={categories}
-                  getOptionLabel={cat => cat.name}
-                  getOptionValue={cat => cat.id}
-                  placeholder="Categorias"
-                />
-              )
-            }}
-          ></Controller>
-          <ErrorMessage>{errors.category?.message}</ErrorMessage>
 
-          <ButtonStyles >Adicionar produto</ButtonStyles>
-        </div>
-
-      </form>
-    </Container>
-  );
+    return (
+        <Container>
+            <form noValidate onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                    <Label>Nome</Label>
+                    <Input type='text' {...register('name')} />
+                    <ErrorMessage>{errors.name?.message}</ErrorMessage>
+                </div>
+                <div>
+                    <Label>Preço</Label>
+                    <Input type='number'{...register('price')} />
+                    <ErrorMessage>{errors.price?.message}</ErrorMessage>
+                </div>
+                <div>
+                    <LabelUpload>
+                        {fileName ? fileName : (
+                            <>
+                                <CloudUploadIcon />
+                                Carregue a imagem do Produto
+                            </>
+                        )}
+                        <input
+                            type='file'
+                            accept='image/png, image/jpeg'
+                            {...register('file')}
+                            onChange={value => {
+                                setFileName(value.target.files[0]?.name)
+                            }}
+                        />
+                    </LabelUpload>
+                    <ErrorMessage>{errors.file?.message}</ErrorMessage>
+                </div>
+                <div>
+                    <Controller
+                        name='category'
+                        control={control}
+                        render={({ field }) => {
+                            return (
+                                <ReactSelect
+                                    {...field}
+                                    options={categories}
+                                    getOptionLabel={cat => cat.name}
+                                    getOptionValue={cat => cat.id}
+                                    placeholder='Categorias'
+                                />
+                            )
+                        }}
+                    ></Controller>
+                    <ErrorMessage>{errors.category?.message}</ErrorMessage>
+                </div>
+                <ButtonStyles>Adicionar Produto</ButtonStyles>
+            </form>
+        </Container>
+    )
 }
-
 export default NewProduct
