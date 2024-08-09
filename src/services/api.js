@@ -1,11 +1,11 @@
-import axios from "axios"
+import axios from 'axios'
 
 const apiCodeBurger = axios.create({
-  baseURL: "http://localhost:3001"
+  baseURL: 'http://localhost:3001',
 })
-//pegando token de validação do backend
-apiCodeBurger.interceptors.request.use(async config => {
-  const userData = await localStorage.getItem("codeburger:userData")
+// pegando token de validação do backend
+apiCodeBurger.interceptors.request.use(async (config) => {
+  const userData = await localStorage.getItem('codeburger:userData')
   const token = userData && JSON.parse(userData).token
   config.headers.authorization = `Bearer ${token}`
 

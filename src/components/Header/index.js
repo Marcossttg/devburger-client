@@ -1,25 +1,23 @@
-import React from "react";
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 
-import { useHistory } from "react-router-dom"
-import { useUser } from "../../hooks/UserContext";
-
-import Person from "../../assets/person.svg";
-import Cart from "../../assets/cart.svg";
+import Cart from '../../assets/cart.svg'
+import Person from '../../assets/person.svg'
+import { useUser } from '../../hooks/UserContext'
 import {
   Container,
   ContainerLeft,
   PageLink,
   ContainerRight,
-  ContainerText
-} from "./styles";
-
+  ContainerText,
+} from './styles'
 
 export function Header() {
   const { logout, userData } = useUser()
 
   const {
     push,
-    location: { pathname }
+    location: { pathname },
   } = useHistory()
 
   const logoutUser = () => {
@@ -30,28 +28,37 @@ export function Header() {
   return (
     <Container>
       <ContainerLeft>
-        <PageLink onClick={() => push("/")} isActive={pathname === '/'} >Home</PageLink>
+        <PageLink onClick={() => push('/')} isActive={pathname === '/'}>
+          Home
+        </PageLink>
         <PageLink
-          onClick={() => push("/produtos")}
+          onClick={() => push('/produtos')}
           isActive={pathname.includes('produtos')}
-        >Ver Produtos</PageLink>
+        >
+          Ver Produtos
+        </PageLink>
       </ContainerLeft>
 
       <ContainerRight>
         <PageLink>
-          <img src={Cart} onClick={() => push("/carrinho")} alt="Carrinho icone de compras" />
+          <img
+            src={Cart}
+            onClick={() => push('/carrinho')}
+            alt="Carrinho icone de compras"
+          />
         </PageLink>
-        <div className="line"></div>
+        <div className="line" />
         <PageLink>
           <img src={Person} alt="Imagem icone de pessoa" />
         </PageLink>
 
         <ContainerText>
           <p>Olá, {userData.name}</p>
-          <PageLink className="exit" onClick={logoutUser}>Sair</PageLink>
+          <PageLink className="exit" onClick={logoutUser}>
+            Sair
+          </PageLink>
         </ContainerText>
       </ContainerRight>
-
     </Container>
-  );
+  )
 }

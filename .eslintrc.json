@@ -32,7 +32,24 @@
     "no-useless-constructor": "off",
     "no-empty-function": "off",
     "lines-between-class-members": "off",
-    "no-unused-vars": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "react/forbid-prop-types": "off",
+    "no-unused-vars": "off",
+    "jsx-a11y/alt-text": "off",
+    "react/button-has-type": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "no-underscore-dangle": "off",
+    "eqeqeq": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "operator-assignment": "off",
+    "no-param-reassign": "off",
+    "no-restricted-globals": [
+      "error",
+      "event",
+      "fdescribe"
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -73,7 +90,8 @@
       1,
       {
         "extensions": [
-          ".jsx"
+          ".jsx",
+          ".js"
         ]
       }
     ],
@@ -91,6 +109,9 @@
     ]
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
       "node": {
         "extensions": [

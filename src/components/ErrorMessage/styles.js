@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ErrorMessageStyles = styled.p`
-	color: #CC1717;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 16px;
-	margin-top: 2px;
-`;
+  color: #cc1717;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin-top: 2px;
+`
