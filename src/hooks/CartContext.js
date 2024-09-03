@@ -8,7 +8,7 @@ export function CartProvider({ children }) {
 
   // criando função para adicionar item no localstorage
   const updateLocalStorage = async (products) => {
-    await localStorage.setItem('codeburger:cartInfo', JSON.stringify(products))
+    await localStorage.setItem('devburger:cartInfo', JSON.stringify(products))
   }
   /* x */
 
@@ -70,7 +70,7 @@ export function CartProvider({ children }) {
 
   useEffect(() => {
     const loadUserData = async () => {
-      const clientCartData = await localStorage.getItem('codeburger:cartInfo')
+      const clientCartData = await localStorage.getItem('devburger:cartInfo')
 
       if (clientCartData) {
         setCartProducts(JSON.parse(clientCartData))

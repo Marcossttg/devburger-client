@@ -10,17 +10,17 @@ export function UserProvider({ children }) {
     setUserData(userInfo)
 
     // gravando informações no local storage
-    await localStorage.setItem('codeburger:userData', JSON.stringify(userInfo))
+    await localStorage.setItem('devburger:userData', JSON.stringify(userInfo))
   }
 
   // deslogando usuário
   const logout = async () => {
-    await localStorage.removeItem('codeburger:userData')
+    await localStorage.removeItem('devburger:userData')
   }
 
   useEffect(() => {
     const loadUserData = async () => {
-      const clientInfo = await localStorage.getItem('codeburger:userData')
+      const clientInfo = await localStorage.getItem('devburger:userData')
 
       if (clientInfo) {
         setUserData(JSON.parse(clientInfo))

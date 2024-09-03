@@ -26,7 +26,7 @@ export function Register() {
       .required('O e-mail é obrigatório'),
     password: Yup.string()
       .required('A senha é obrigatória')
-      .min(6, 'A senha deve ter no minimo 6 digítos'),
+      .min(3, 'A senha deve ter no minimo 3 digítos'),
     confirmPassword: Yup.string()
       .required('A confirme a senha')
       .oneOf([Yup.ref('password')], 'As senhas devem ser iguais'),

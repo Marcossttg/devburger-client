@@ -5,7 +5,7 @@ import { Route, Redirect } from 'react-router-dom'
 import { Header } from '../components'
 
 function PrivateRoute({ component, isAdmin, ...rest }) {
-  const user = localStorage.getItem('codeburger:userData')
+  const user = localStorage.getItem('devburger:userData')
 
   if (!user) {
     return <Redirect to="/login" />
